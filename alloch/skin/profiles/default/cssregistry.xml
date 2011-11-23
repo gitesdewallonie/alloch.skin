@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="portal_css">
+
+<stylesheet title=""
+    id="++theme++alloch.skin/style.css"
+    media="screen"
+    rel="stylesheet"
+    rendering="link"
+    cacheable="True"
+    compression="safe"
+    cookable="True"
+    enabled="1"
+	applyPrefix="True"
+    expression="request/HTTP_X_THEME_ENABLED | nothing"/>
+
+</object>
