@@ -26,6 +26,8 @@ setup(name='alloch.skin',
       install_requires=[
           'setuptools',
           'plone.app.theming',
+          'pygeocoder',
+          'simplejson',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
