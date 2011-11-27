@@ -6,6 +6,8 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="alloch.skin">
 
+    <include package=".browser" />
+
     <genericsetup:registerProfile
         name="default"
         title="Allo CH skin"
