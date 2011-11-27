@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="alloch">
+
+  <browser:page
+      for="*"
+      name="getClosestHebs"
+      attribute="getClosestHebs"
+      class=".search.SearchHebergements"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="getMobileClosestHebs"
+      attribute="getMobileClosestHebs"
+      class=".search.SearchHebergements"
+      permission="zope.Public"
+      />
+
+</configure>
