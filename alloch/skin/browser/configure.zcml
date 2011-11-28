@@ -5,10 +5,26 @@
 
   <browser:page
       for="*"
-      name="getClosestHebs"
-      attribute="getClosestHebs"
+      name="search-page-view"
       class=".search.SearchHebergements"
       permission="zope.Public"
+      template="templates/search_page_view.pt"
+      />
+
+  <browser:page
+      for="*"
+      name="search-result"
+      class=".search.SearchHebergements"
+      permission="zope.Public"
+      template="templates/search_result.pt"
+      />
+
+  <browser:page
+      for="*"
+      name="heb-detail"
+      class=".search.SearchHebergements"
+      permission="zope.Public"
+      template="templates/heb_detail.pt"
       />
 
   <browser:page

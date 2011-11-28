@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="alloch.skin.install"
+               version="20111128-01"
+               handler="alloch.skin.setuphandlers.install"
+               title="alloch.skin: miscellaneous import steps">
+    <dependency step="metadata" />
+    Various import steps that are not handled by GS import/export
+    handlers.
+  </import-step>
+</import-steps>

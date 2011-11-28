@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      lang="en"
+      i18n:domain="plone">
+
+<body>
+
+<div metal:fill-slot="main"
+     i18n:domain="alloch">
+
+    <h1 i18n:translate="search_results_title">Search results</h1>
+    <div tal:define="hebs view/getClosestHebs">
+        <div tal:condition="hebs">
+            <script type="text/javascript">
+                jQuery(function($){
+                    jq('a.heb-detail-link').prepOverlay({
+                        subtype: 'ajax',
+                        filter: '#content > *'
+                        });
+                    });
+            </script>
+            <div tal:repeat="heb hebs">
+                <span tal:replace="heb/heb_nom" /><br />
+                <a href="" class="heb-detail-link" title="Details of this heb"
+                   tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
+                   i18n:attributes="title details_of_this_heb;"
+                   i18n:translate="details_of_this_heb">Details of this heb</a>
+                <br /><br />
+            </div>
+
+        </div>
+        <div tal:condition="not: hebs"
+             i18n:translate="no_results">
+            No results found.
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

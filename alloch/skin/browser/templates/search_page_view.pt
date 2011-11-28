@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      lang="en"
+      i18n:domain="plone">
+
+<body>
+
+<metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core">
+        <metal:field use-macro="python:context.widget('text', mode='view')">
+            Body text
+        </metal:field>
+
+        <div class="search-address"
+             i18n:domain="alloch">
+            <h2 i18n:translate="search_title">Search for an available guest room</h2>
+            <form action="search-result" method="get">
+                <label for="address"
+                       i18n:translate="your_address">Your current address or location :</label>
+                <input type="text" id="address" name="address">
+                <br />
+                <input type="submit" value="Search"
+                       i18n:attributes="value action_search;">
+            </form>
+        </div>
+
+    </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+

@@ -14,6 +14,18 @@ class SearchHebergements(BrowserView):
     """
     """
 
+    def getHebergement(self):
+        """
+        Return specified heb
+        """
+        hebPk = self.request.get('hebPk', None)
+        wrapper = getSAWrapper('gites_wallons')
+        session = wrapper.session
+        hebergementTable = wrapper.getMapper('hebergement')
+        query = session.query(hebergementTable)
+        heb = query.get(hebPk)
+        return heb
+
     def getGPSForAddress(self, address):
         """
         Transform an address into GPS coordinates
@@ -30,8 +42,8 @@ class SearchHebergements(BrowserView):
         Search for the closests available hebs
         """
         form = self.request.form
-        address = form.get('address')
-        location = form.get('gpslocation')
+        address = form.get('address', None)
+        location = form.get('gpslocation', None)
 
         searchLocation = location and location or self.getGPSForAddress(address)
         print searchLocation
@@ -60,7 +72,7 @@ class SearchHebergements(BrowserView):
 
         query = query.order_by(hebergementTable.heb_nom)
         results = query.all()
-        return results
+        return results and results[0:5] or []
 
     def getMobileClosestHebs(self):
         """
@@ -69,7 +81,7 @@ class SearchHebergements(BrowserView):
         results = self.getClosestHebs()
         hebs = []
         for heb in results:
-            hebDict = {'nom': heb.heb_nom}
+            hebDict = {'name': heb.heb_nom}
             # XXX add more values in this dict ...
             hebs.append(hebDict)
         jsonResult = simplejson.dumps({'results': hebs})
