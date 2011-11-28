@@ -6,6 +6,7 @@ from z3c.sqlalchemy import getSAWrapper
 from sqlalchemy import and_, exists
 from zope.publisher.browser import BrowserView
 from pygeocoder import Geocoder, GeocoderError
+from Products.CMFCore.utils import getToolByName
 
 TYPES_HEB = [5, 6, 9]  # chambres d'hôtes : 'CH', 'MH', 'CHECR'
 
@@ -13,6 +14,20 @@ TYPES_HEB = [5, 6, 9]  # chambres d'hôtes : 'CH', 'MH', 'CHECR'
 class SearchHebergements(BrowserView):
     """
     """
+
+    def getEpisIcons(self, number):
+        result = []
+        url = getToolByName(self.context, 'portal_url')()
+        for i in range(number):
+            result.append('<img src="1_epis.gif" src="%s1_epis.gif"/>' % url)
+        return " ".join(result)
+
+    def getEpis(self, heb):
+        """
+        Get the epis icons
+        """
+        l = [self.getEpisIcons(i.heb_nombre_epis) for i in heb.epis]
+        return " - ".join(l)
 
     def getHebergement(self):
         """

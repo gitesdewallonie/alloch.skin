@@ -13,7 +13,8 @@
 
     <h1 i18n:translate="search_results_title">Search results</h1>
     <div tal:define="hebs view/getClosestHebs">
-        <div tal:condition="hebs">
+        <div tal:define="lang request/LANGUAGE | en"
+             tal:condition="hebs">
             <script type="text/javascript">
                 jQuery(function($){
                     jq('a.heb-detail-link').prepOverlay({
@@ -23,11 +24,17 @@
                     });
             </script>
             <div tal:repeat="heb hebs">
-                <span tal:replace="heb/heb_nom" /><br />
                 <a href="" class="heb-detail-link" title="Details of this heb"
                    tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
                    i18n:attributes="title details_of_this_heb;"
-                   i18n:translate="details_of_this_heb">Details of this heb</a>
+                   i18n:translate="details_of_this_heb">
+                    <h2>
+                        <span tal:replace="python: heb.type.getTitle(lang)" />
+                        <span tal:replace="heb/heb_nom" />
+                        &rarr;&nbsp;(<span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />)
+                    </h2>
+                </a>
+                <span tal:replace="python: heb.getDescription(lang)" />
                 <br /><br />
             </div>
 
