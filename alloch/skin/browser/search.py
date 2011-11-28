@@ -3,7 +3,7 @@
 import simplejson
 from datetime import date
 from z3c.sqlalchemy import getSAWrapper
-from sqlalchemy import and_, select
+from sqlalchemy import and_, exists
 from zope.publisher.browser import BrowserView
 from pygeocoder import Geocoder, GeocoderError
 
@@ -43,11 +43,10 @@ class SearchHebergements(BrowserView):
         """
         form = self.request.form
         address = form.get('address', None)
-        location = form.get('gpslocation', None)
-
-        searchLocation = location and location or self.getGPSForAddress(address)
+        searchLocation = self.getGPSForAddress(address)
         print searchLocation
         # XXX use searchLocation with PostGIS
+        today = date.today()
 
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
@@ -55,7 +54,7 @@ class SearchHebergements(BrowserView):
         proprioTable = wrapper.getMapper('proprio')
         reservationsTable = wrapper.getMapper('reservation_proprio')
 
-        query = session.query(hebergementTable).join('proprio').outerjoin('reservations')
+        query = session.query(hebergementTable).join('proprio')
         query = query.filter(hebergementTable.heb_site_public == '1')
         query = query.filter(proprioTable.pro_etat == True)
         query = query.filter(hebergementTable.heb_typeheb_fk.in_(TYPES_HEB))
@@ -63,16 +62,12 @@ class SearchHebergements(BrowserView):
         # on ne considère que les hébergements pour lequel le calendrier
         # est utilisé et qui sont libres
         query = query.filter(hebergementTable.heb_calendrier_proprio != 'non actif')
-        today = date.today()
-        busyHeb = select([reservationsTable.heb_fk],
-                         and_(reservationsTable.res_date >= today,
-                              reservationsTable.res_date < today)).distinct().execute().fetchall()
-        busyHebPks = [heb.heb_fk for heb in busyHeb]
-        query = query.filter(~hebergementTable.heb_pk.in_(busyHebPks))
-
+        query = query.filter(~exists().where(and_(reservationsTable.res_date == today,
+                                                  hebergementTable.heb_pk == reservationsTable.heb_fk)))
         query = query.order_by(hebergementTable.heb_nom)
+        query = query.limit(5)
         results = query.all()
-        return results and results[0:5] or []
+        return results
 
     def getMobileClosestHebs(self):
         """
