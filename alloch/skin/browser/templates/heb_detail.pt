@@ -17,6 +17,8 @@
     <span tal:replace="structure python: view.getEpis(heb)" />
     &rarr;&nbsp;(<span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />)
     <br />
+    <img src="" border="0" tal:attributes="src string:${portal_url}/photos_heb/${heb/heb_code_gdw}00.jpg" />
+    <br /><br />
     <span tal:replace="python: heb.getDescription(lang)" />
     <br />
     <span tal:content="heb/heb_adresse" /><br />

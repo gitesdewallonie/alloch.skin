@@ -35,6 +35,9 @@ def createLocalFS(portal):
     if 'photos_heb' not in portal.objectIds():
         manage_addLocalFS(portal, 'photos_heb', 'Photos heb',
                           tempfile.gettempdir()) # /home/gites/photos_heb
+    if 'vignettes_heb' not in portal.objectIds():
+        manage_addLocalFS(portal, 'vignettes_heb', 'Vignettes heb',
+                          tempfile.gettempdir()) # /home/gites/vignettes_heb
 
 
 def deleteFolder(portal, folderId):
