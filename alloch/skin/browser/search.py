@@ -3,7 +3,7 @@
 import simplejson
 from datetime import date
 from z3c.sqlalchemy import getSAWrapper
-from sqlalchemy import and_, exists
+from sqlalchemy import and_, exists, func
 from zope.publisher.browser import BrowserView
 from pygeocoder import Geocoder, GeocoderError
 from Products.CMFCore.utils import getToolByName
@@ -77,10 +77,10 @@ class SearchHebergements(BrowserView):
         form = self.request.form
         address = form.get('address', None)
         searchLocation = self.getGPSForAddress(address)
-        print searchLocation
-        # XXX use searchLocation with PostGIS
-        today = date.today()
+        if not searchLocation:
+            return []
 
+        today = date.today()
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
         hebergementTable = wrapper.getMapper('hebergement')
@@ -97,7 +97,10 @@ class SearchHebergements(BrowserView):
         query = query.filter(hebergementTable.heb_calendrier_proprio != 'non actif')
         query = query.filter(~exists().where(and_(reservationsTable.res_date == today,
                                                   hebergementTable.heb_pk == reservationsTable.heb_fk)))
-        query = query.order_by(hebergementTable.heb_nom)
+
+        # et on prend les 5 plus proches de la localisation
+        query = query.order_by(func.ST_distance_sphere(func.makepoint(hebergementTable.heb_gps_lat, hebergementTable.heb_gps_long),
+                                                       func.ST_MakePoint(searchLocation[0], searchLocation[1])))
         query = query.limit(5)
         results = query.all()
         return results

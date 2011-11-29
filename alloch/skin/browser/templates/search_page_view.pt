@@ -18,8 +18,8 @@
              i18n:domain="alloch">
             <h3 i18n:translate="search_title">Search for an available guest room</h3>
             <form action="search-result" method="get">
-                <input type="text" id="address-CH" name="address-CH">
-                <input type="submit" id="search-CH" name="search-CH" value="Search"
+                <input type="text" id="address" name="address">
+                <input type="submit" id="search" name="search" value="Search"
                        i18n:attributes="value action_search;">
             </form>
         </div>
