@@ -12,6 +12,7 @@
      i18n:domain="alloch">
 
     <h1 i18n:translate="search_results_title">Search results</h1>
+    <p>&nbsp;</p>
     <div tal:define="hebs view/getClosestHebs">
         <div tal:define="lang request/LANGUAGE | en"
              tal:condition="hebs">
@@ -24,11 +25,11 @@
                     });
             </script>
             <div tal:repeat="heb hebs">
-                <img src="" border="0" tal:attributes="src string:${portal_url}/vignettes_heb/${heb/getVignette}" />
                 <a href="" class="heb-detail-link" title="Details of this accomodation"
                    tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
                    i18n:attributes="title details_of_this_heb;"
                    i18n:translate="details_of_this_heb">
+                    <img src="" border="0" tal:attributes="src string:${portal_url}/vignettes_heb/${heb/getVignette}" />
                     <h2>
                         <span tal:replace="python: heb.type.getTitle(lang)" />
                         <span tal:replace="heb/heb_nom" />
