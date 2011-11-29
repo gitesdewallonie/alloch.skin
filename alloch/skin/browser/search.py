@@ -99,7 +99,7 @@ class SearchHebergements(BrowserView):
                                                   hebergementTable.heb_pk == reservationsTable.heb_fk)))
 
         # et on prend les 5 plus proches de la localisation
-        query = query.order_by(func.ST_distance_sphere(func.makepoint(hebergementTable.heb_gps_lat, hebergementTable.heb_gps_long),
+        query = query.order_by(func.ST_distance_sphere(func.makepoint(hebergementTable.heb_gps_long, hebergementTable.heb_gps_lat),
                                                        func.ST_MakePoint(searchLocation[0], searchLocation[1])))
         query = query.limit(5)
         results = query.all()
