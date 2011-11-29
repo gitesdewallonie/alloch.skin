@@ -39,3 +39,5 @@ Accomodation dict
     * mobile
     * email
     * website
+ - thumb (URL)
+ - photos (list of URLs)

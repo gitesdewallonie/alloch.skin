@@ -29,6 +29,23 @@ class SearchHebergements(BrowserView):
         l = [self.getEpisIcons(i.heb_nombre_epis) for i in heb.epis]
         return " - ".join(l)
 
+    def getPhotosURL(self, heb):
+        """
+        Returns photos URLs list
+        """
+        vignettes = []
+        baseURL = "http://www.gitesdewallonie.be/photos_heb/"
+        codeGDW = heb.heb_code_gdw
+        listeImage = self.context.photos_heb.fileIds()
+        for i in range(15):
+            if i < 10:
+                photo="%s%s0%s.jpg" % (baseURL, codeGDW, i)
+            else:
+                photo="%s%s%s.jpg" % (baseURL, codeGDW, i)
+            if photo in listeImage:
+                vignettes.append(photo)
+        return vignettes
+
     def getHebergement(self):
         """
         Return specified heb
@@ -128,6 +145,10 @@ class SearchHebergements(BrowserView):
                      'email': heb.proprio.pro_email,
                      'website': heb.proprio.pro_url}
             hebDict['owner'] = owner
+            vignette = heb.getVignette()
+            vignetteURL = "http://www.gitesdewallonie.be/vignettes_heb/%s" % vignette
+            hebDict['thumb'] = vignetteURL
+            hebDict['photos'] = self.getPhotosURL(heb)
             hebs.append(hebDict)
         jsonResult = simplejson.dumps({'results': hebs})
         return jsonResult

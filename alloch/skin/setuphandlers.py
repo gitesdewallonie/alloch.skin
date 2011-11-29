@@ -1,3 +1,5 @@
+import tempfile
+from Products.LocalFS.LocalFS import manage_addLocalFS
 from zope.component import getUtility, getMultiAdapter
 from zope.app.component.interfaces import ISite
 from plone.portlets.interfaces import IPortletManager
@@ -16,6 +18,7 @@ def install(context):
     deleteFolder(portal, 'events')
     deleteFolder(portal, 'Members')
     clearPortlets(portal)
+    createLocalFS(portal)
     setupLanguages(portal)
     if not 'fr' in portal.objectIds():
         portal.restrictedTraverse('@@language-setup-folders')()
@@ -26,6 +29,13 @@ def install(context):
             langFolder = getattr(portal, lang)
             langFolder.setDefaultPage('front-page')
             changePageView(portal, getattr(langFolder, 'front-page'), 'search-page-view')
+
+
+def createLocalFS(portal):
+    if 'photos_heb' not in portal.objectIds():
+        manage_addLocalFS(portal, 'photos_heb', 'Photos heb',
+                          tempfile.gettempdir()) # /home/gites/photos_heb
+
 
 def deleteFolder(portal, folderId):
     folder = getattr(portal, folderId, None)
