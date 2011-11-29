@@ -16,5 +16,6 @@
     <prepend content='/html/head' theme='/html/head' />
     <copy attributes="class dir id" css:theme="body" css:content="body"/>
 
+    <replace css:content-children="#content" css:theme-children="#content" />
 
 </rules>

@@ -14,15 +14,12 @@
             Body text
         </metal:field>
 
-        <div class="search-address"
+        <div id="search-engine"
              i18n:domain="alloch">
-            <h2 i18n:translate="search_title">Search for an available guest room</h2>
+            <h3 i18n:translate="search_title">Search for an available guest room</h3>
             <form action="search-result" method="get">
-                <label for="address"
-                       i18n:translate="your_address">Your current address or location :</label>
-                <input type="text" id="address" name="address">
-                <br />
-                <input type="submit" value="Search"
+                <input type="text" id="address-CH" name="address-CH">
+                <input type="submit" id="search-CH" name="search-CH" value="Search"
                        i18n:attributes="value action_search;">
             </form>
         </div>
