@@ -9,6 +9,8 @@ from pygeocoder import Geocoder, GeocoderError
 from Products.CMFCore.utils import getToolByName
 
 TYPES_HEB = [5, 6, 9]  # chambres d'hôtes : 'CH', 'MH', 'CHECR'
+HEB_PHOTOS_URL = "http://www.gitesdewallonie.be/photos_heb/"
+HEB_THUMBS_URL = "http://www.gitesdewallonie.be/vignettes_heb/"
 
 
 class SearchHebergements(BrowserView):
@@ -34,16 +36,15 @@ class SearchHebergements(BrowserView):
         Returns photos URLs list
         """
         vignettes = []
-        baseURL = "http://www.gitesdewallonie.be/photos_heb/"
         codeGDW = heb.heb_code_gdw
         listeImage = self.context.photos_heb.fileIds()
         for i in range(15):
             if i < 10:
-                photo="%s%s0%s.jpg" % (baseURL, codeGDW, i)
+                photo="%s0%s.jpg" % (codeGDW, i)
             else:
-                photo="%s%s%s.jpg" % (baseURL, codeGDW, i)
+                photo="%s%s.jpg" % (codeGDW, i)
             if photo in listeImage:
-                vignettes.append(photo)
+                vignettes.append("%s%s" % (HEB_PHOTOS_URL, photo))
         return vignettes
 
     def getHebergement(self):
@@ -146,7 +147,7 @@ class SearchHebergements(BrowserView):
                      'website': heb.proprio.pro_url}
             hebDict['owner'] = owner
             vignette = heb.getVignette()
-            vignetteURL = "http://www.gitesdewallonie.be/vignettes_heb/%s" % vignette
+            vignetteURL = "%s%s" % (HEB_THUMBS_URL, vignette)
             hebDict['thumb'] = vignetteURL
             hebDict['photos'] = self.getPhotosURL(heb)
             hebs.append(hebDict)
