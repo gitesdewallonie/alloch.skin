@@ -88,11 +88,46 @@ class SearchHebergements(BrowserView):
         """
         Return the closests available hebs for mobile use
         """
+        form = self.request.form
+        lang = form.get('lang', 'fr')
         results = self.getClosestHebs()
         hebs = []
         for heb in results:
             hebDict = {'name': heb.heb_nom}
-            # XXX add more values in this dict ...
+            hebDict['type'] = heb.type.getTitle(lang)
+            hebDict['classification'] = [e.heb_nombre_epis for e in heb.epis]
+            hebDict['capacity_min'] = int(heb.heb_cgt_cap_min)
+            hebDict['capacity_max'] = int(heb.heb_cgt_cap_max)
+            hebDict['description'] = heb.getDescription(lang)
+            address = {'address': heb.heb_adresse,
+                       'zip': heb.commune.com_cp,
+                       'town': heb.heb_localite,
+                       'city': heb.commune.com_nom}
+            hebDict['address'] = address
+            hebDict['price'] = heb.heb_tarif_chmbr_avec_dej_2p
+            hebDict['room_number'] = int(heb.heb_cgt_nbre_chmbre)
+            hebDict['one_person_bed'] = int(heb.heb_lit_1p)
+            hebDict['two_person_bed'] = int(heb.heb_lit_2p)
+            hebDict['additionnal_bed'] = int(heb.heb_lit_sup)
+            hebDict['child_bed'] = int(heb.heb_lit_enf)
+            if heb.heb_fumeur == 'oui':
+                hebDict['smokers_allowed'] = True
+            else:
+                hebDict['smokers_allowed'] = False
+            if heb.heb_animal == 'oui':
+                hebDict['animal_allowed'] = True
+            else:
+                hebDict['animal_allowed'] = False
+            owner = {'title': heb.proprio.civilite.civ_titre,
+                     'firstname': heb.proprio.pro_prenom1,
+                     'name': heb.proprio.pro_nom1,
+                     'language': heb.proprio.pro_langue,
+                     'phone': heb.proprio.pro_tel_priv,
+                     'fax': heb.proprio.pro_fax_priv,
+                     'mobile': heb.proprio.pro_gsm1,
+                     'email': heb.proprio.pro_email,
+                     'website': heb.proprio.pro_url}
+            hebDict['owner'] = owner
             hebs.append(hebDict)
         jsonResult = simplejson.dumps({'results': hebs})
         return jsonResult
