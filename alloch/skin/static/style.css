@@ -85,6 +85,10 @@ border:none;
 font-size:1.8em;
 }
 
+#search-engine #address:focus{
+outline: none;
+}
+
 #search-engine #search{
 margin-top:10px;
 margin-left:5px;
@@ -94,6 +98,7 @@ background-color:transparent;
 border:none;
 font-size:1.8em;
 color:#fff;
+cursor: pointer;
 }
 
 
