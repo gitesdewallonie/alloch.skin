@@ -21,7 +21,7 @@ class SearchHebergements(BrowserView):
         result = []
         url = getToolByName(self.context, 'portal_url')()
         for i in range(number):
-            result.append('<img src="1_epis.gif" src="%s1_epis.gif"/>' % url)
+            result.append('<img src="%s/++resource++1_epis.gif"/>' % url)
         return " ".join(result)
 
     def getEpis(self, heb):

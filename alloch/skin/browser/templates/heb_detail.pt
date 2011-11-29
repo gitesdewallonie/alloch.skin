@@ -20,7 +20,7 @@
     <img src="" border="0" tal:attributes="src string:${portal_url}/photos_heb/${heb/heb_code_gdw}00.jpg" />
     <br /><br />
     <span tal:replace="python: heb.getDescription(lang)" />
-    <br />
+    <br /><br />
     <span tal:content="heb/heb_adresse" /><br />
     <span tal:content="heb/commune/com_cp" />
     <span tal:content="heb/heb_localite" />
@@ -69,16 +69,16 @@
                </b>
                <br />
                <span tal:replace="heb/proprio/pro_langue" /><br />
-               <img src="telephone.gif" />
+               <img src="" tal:attributes="src string:${portal_url}/++resource++telephone.gif" />
                <span tal:replace="heb/proprio/pro_tel_priv" /><br />
-               <img src="fax.gif" />
+               <img src="" tal:attributes="src string:${portal_url}/++resource++fax.gif" />
                <span tal:replace="heb/proprio/pro_fax_priv" /><br />
-               <img src="gsm.gif" />
+               <img src="" tal:attributes="src string:${portal_url}/++resource++gsm.gif" />
                <span tal:replace="heb/proprio/pro_gsm1" /><br />
-               <img src="email.gif" />
+               <img src="" tal:attributes="src string:${portal_url}/++resource++email.gif" />
                <span tal:replace="heb/proprio/pro_email" /><br>
                <span tal:condition="python: heb.proprio.pro_url!=''">
-                  <img src="lien.gif" />
+                  <img src="" tal:attributes="src string:${portal_url}/++resource++lien.gif" />
                   <a href=""
                         tal:attributes="href string: http://${heb/proprio/pro_url}"
                         tal:content="string: http://${heb/proprio/pro_url}"

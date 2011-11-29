@@ -35,4 +35,39 @@
       permission="zope.Public"
       />
 
+  <browser:resource
+      file="resources/1_clef.png"
+      name="1_clef.png"
+      />
+
+  <browser:resource
+      file="resources/1_epis.gif"
+      name="1_epis.gif"
+      />
+
+  <browser:resource
+      file="resources/email.gif"
+      name="email.gif"
+      />
+
+  <browser:resource
+      file="resources/fax.gif"
+      name="fax.gif"
+      />
+
+  <browser:resource
+      file="resources/gsm.gif"
+      name="gsm.gif"
+      />
+
+  <browser:resource
+      file="resources/lien.gif"
+      name="lien.gif"
+      />
+
+  <browser:resource
+      file="resources/telephone.gif"
+      name="telephone.gif"
+      />
+
 </configure>
