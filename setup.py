@@ -26,8 +26,10 @@ setup(name='alloch.skin',
       install_requires=[
           'setuptools',
           'plone.app.theming',
-          'pygeocoder',
+          'plone.memoize',
+          'collective.js.jqueryui',
           'simplejson',
+          'pygeocoder',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
