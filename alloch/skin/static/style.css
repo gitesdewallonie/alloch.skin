@@ -156,3 +156,17 @@ padding:0px 1em;
 .clear-both{
 clear:both;
 }
+
+#content .gmnoprint div a {
+text-decoration: none;
+border-bottom: none;
+}
+
+#content .gmnoprint div {
+text-align: center;
+}
+
+#content .gmnoprint div img {
+border: 2px solid gray;
+margin-top: 5px;
+}

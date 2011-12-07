@@ -91,7 +91,7 @@ class SearchHebergements(BrowserView):
 
         map1 = Map(id='map')
         map1.center = coordinates
-        map1.zoom = "8"
+        map1.zoom = "10"
         currentLocation = self._convertToEntities(location.formatted_address)
         center = [coordinates[0], coordinates[1],
                   u"<strong>%s</strong><br /><i>&rarr; %s</i>" % (_('Your search location'),
@@ -105,6 +105,8 @@ class SearchHebergements(BrowserView):
             href = "%s/heb-detail?hebPk=%s" % (portalUrl, heb.heb_pk)
             imageSrc = "%s/vignettes_heb/%s" % (portalUrl, heb.getVignette())
             name = self._convertToEntities(heb.heb_nom)
+            imageSrc = "http://www.gitesdewallonie.be/vignettes_heb/CHECR92094139100.jpg"
+            # XXX google doesn't like server:port for now ...
             tooltip = "<a href='%s'><strong>%s. %s</strong><br /><img src='%s'></a>" % (href, counter, name, imageSrc)
             point = [heb.heb_gps_long, heb.heb_gps_lat, tooltip]
             map1.setpoint(point)
