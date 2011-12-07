@@ -13,9 +13,15 @@
     <!-- <replace content="/html/head/title" theme="/html/head/title" /> -->
     <replace content="/html/head/base" theme="/html/head/base" />
     <replace content="/html/head/meta" theme="/html/head/meta" />
-    <prepend content='/html/head' theme='/html/head' />
-    <copy attributes="class dir id" css:theme="body" css:content="body"/>
+    <append content="/html/head" theme="/html/head" />
+    <copy attributes="class dir id" css:theme="body" css:content="body" />
+    <drop content="/html/head/title" />
 
     <replace css:content-children="#content" css:theme-children="#content" />
+
+    <rules css:if-content="#header">
+        <drop css:theme="#header" />
+        <!-- <replace css:content="#header" css:theme="#header" /> -->
+    </rules>
 
 </rules>

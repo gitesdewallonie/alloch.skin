@@ -12,6 +12,9 @@
      i18n:domain="alloch"
      tal:define="heb view/getHebergement">
 
+    <a href="javascript:window.document.getElementById('toprint').print();">Print this window</a>
+
+    <div id="toprint">
     <h1 tal:content="heb/heb_nom">Heb name</h1>
     <span tal:replace="python: heb.type.getTitle(lang)" />
     <span tal:replace="structure python: view.getEpis(heb)" />
@@ -88,6 +91,7 @@
          </tr>
       </table><!--info proprio-->
    </fieldset>
+    </div>
 
 </div>
 </body>

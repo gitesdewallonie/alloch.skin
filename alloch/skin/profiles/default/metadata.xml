@@ -4,5 +4,6 @@
   <dependencies>
     <dependency>profile-plone.app.theming:default</dependency>
     <dependency>profile-Products.LinguaPlone:LinguaPlone</dependency>
+    <dependency>profile-collective.js.jqueryui:default</dependency>
   </dependencies>
 </metadata>

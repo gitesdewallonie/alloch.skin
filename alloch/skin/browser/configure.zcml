@@ -70,4 +70,14 @@
       name="telephone.gif"
       />
 
+  <browser:resource
+      file="resources/location_shadow.png"
+      name="location_shadow.png"
+      />
+
+  <browser:resource
+      file="resources/location.png"
+      name="location.png"
+      />
+
 </configure>

@@ -2,20 +2,30 @@
 
 import simplejson
 from datetime import date
+from plone.memoize import view, forever
 from z3c.sqlalchemy import getSAWrapper
 from sqlalchemy import and_, exists, func
 from zope.publisher.browser import BrowserView
 from pygeocoder import Geocoder, GeocoderError
 from Products.CMFCore.utils import getToolByName
+from alloch.skin.pymaps import PyMap, Map, Icon
+from alloch.skin import AlloCHMessage as _
+
 
 TYPES_HEB = [5, 6, 9]  # chambres d'hôtes : 'CH', 'MH', 'CHECR'
 HEB_PHOTOS_URL = "http://www.gitesdewallonie.be/photos_heb/"
 HEB_THUMBS_URL = "http://www.gitesdewallonie.be/vignettes_heb/"
+# XXX URLS NEED TO BE CHANGED WHEN WE HAVE ALLOCH DOMAIN
+GOOGLE_API_KEY = "NO_API_KEY"
+BOUNDS = "49.439557,2.103882|51.110420,6.256714"
 
 
 class SearchHebergements(BrowserView):
     """
     """
+
+    def _convertToEntities(self, text):
+        return ''.join(['&#%d;' % ord(ch) for ch in text])
 
     def getEpisIcons(self, number):
         result = []
@@ -40,9 +50,9 @@ class SearchHebergements(BrowserView):
         listeImage = self.context.photos_heb.fileIds()
         for i in range(15):
             if i < 10:
-                photo="%s0%s.jpg" % (codeGDW, i)
+                photo = "%s0%s.jpg" % (codeGDW, i)
             else:
-                photo="%s%s.jpg" % (codeGDW, i)
+                photo = "%s%s.jpg" % (codeGDW, i)
             if photo in listeImage:
                 vignettes.append("%s%s" % (HEB_PHOTOS_URL, photo))
         return vignettes
@@ -59,24 +69,61 @@ class SearchHebergements(BrowserView):
         heb = query.get(hebPk)
         return heb
 
-    def getGPSForAddress(self, address):
+    @forever.memoize
+    def getSearchLocation(self, address):
         """
-        Transform an address into GPS coordinates
+        Transform an address into GPS coordinates and name
         """
-        gcoder = Geocoder('NO_API_KEY')
+        gcoder = Geocoder(GOOGLE_API_KEY)
         try:
-            result = gcoder.geocode(address, language='fr', region='be')
+            result = gcoder.geocode(address, language='fr', region='be',
+                                    bounds=BOUNDS)
         except GeocoderError:
             return None
-        return result.coordinates
+        return result
 
+    def getMapJS(self):
+        form = self.request.form
+        address = form.get('address', None)
+        location = self.getSearchLocation(address)
+        coordinates = location.coordinates
+        results = self.getClosestHebs()
+
+        map1 = Map(id='map')
+        map1.center = coordinates
+        map1.zoom = "8"
+        currentLocation = self._convertToEntities(location.formatted_address)
+        center = [coordinates[0], coordinates[1],
+                  u"<strong>%s</strong><br /><i>&rarr; %s</i>" % (_('Your search location'),
+                                                                  currentLocation),
+                  'icon2']
+        map1.setpoint(center)
+        counter = 0
+        for heb in results:
+            counter += 1
+            portalUrl = getToolByName(self.context, 'portal_url')()
+            href = "%s/heb-detail?hebPk=%s" % (portalUrl, heb.heb_pk)
+            imageSrc = "%s/vignettes_heb/%s" % (portalUrl, heb.getVignette())
+            name = self._convertToEntities(heb.heb_nom)
+            tooltip = "<a href='%s'><strong>%s. %s</strong><br /><img src='%s'></a>" % (href, counter, name, imageSrc)
+            point = [heb.heb_gps_long, heb.heb_gps_lat, tooltip]
+            map1.setpoint(point)
+        g = PyMap(maplist=[map1])
+        icon2 = Icon('icon2')
+        icon2.image = "%s/++resource++%s" % (portalUrl, 'location.png')
+        icon2.shadow = "%s/++resource++%s" % (portalUrl, 'location_shadow.png')
+        g.addicon(icon2)
+        g.key = GOOGLE_API_KEY
+        return g.pymapjs()
+
+    @view.memoize
     def getClosestHebs(self):
         """
         Search for the closests available hebs
         """
         form = self.request.form
         address = form.get('address', None)
-        searchLocation = self.getGPSForAddress(address)
+        searchLocation = self.getSearchLocation(address)
         if not searchLocation:
             return []
 
@@ -100,11 +147,12 @@ class SearchHebergements(BrowserView):
 
         # et on prend les 5 plus proches de la localisation
         query = query.order_by(func.ST_distance_sphere(func.makepoint(hebergementTable.heb_gps_long, hebergementTable.heb_gps_lat),
-                                                       func.ST_MakePoint(searchLocation[0], searchLocation[1])))
+                                                       func.ST_MakePoint(searchLocation.coordinates[0], searchLocation.coordinates[1])))
         query = query.limit(5)
         results = query.all()
         return results
 
+    @view.memoize
     def getMobileClosestHebs(self):
         """
         Return the closests available hebs for mobile use

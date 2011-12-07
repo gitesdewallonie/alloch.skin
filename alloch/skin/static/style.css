@@ -36,13 +36,30 @@ margin-bottom:20px;
 text-shadow:0px 2px 2px rgba(200, 200, 200, 1);
 }
 
+#main-title a {
+color:#333;
+}
+
 #header{
+padding-top:25px;
 width:948px;
 height:457px;
 background-image:url(images/photo_bckg.png);
 background-repeat:no-repeat;
-padding-top:25px;
 margin:auto;
+}
+
+#header_map{
+width:896px;
+height:394px;
+background-repeat:no-repeat;
+margin:auto;
+border:1px solid gray;
+}
+
+#map{
+width:896px;
+height:394px;
 }
 
 #photo{
@@ -118,6 +135,18 @@ border:none;
 font-size:1.8em;
 color:#fff;
 cursor: pointer;
+}
+
+.ui-autocomplete-loading {
+background: white url(images/spinner.gif) right center no-repeat;
+}
+
+.ui-autocomplete {
+background: white url(images/google.png) right bottom no-repeat;
+border-top: 1px dashed gray;
+border-left: 3px solid gray;
+border-right: 3px solid gray;
+border-bottom: 3px solid gray;
 }
 
 #content{
