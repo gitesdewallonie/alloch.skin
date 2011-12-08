@@ -16,7 +16,7 @@ $('.geocode_autocomplete').live('focus', function(){
                     value = item.address_components[0].long_name;
                   return {
                     label: item.formatted_address,
-                    value: value,
+                    value: item.formatted_address,
                     location: item.geometry.location,
                     addr: item.address_components[0]
                   }

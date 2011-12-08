@@ -22,7 +22,6 @@
                 <input type="submit" id="search" name="search" value="Search"
                        i18n:attributes="value action_search;">
             </form>
-	        <div id="map_location" style="height:300px;width:300px;"/>
         </div>
 
     </metal:content-core>
