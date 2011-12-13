@@ -12,6 +12,8 @@ Accomodation dict
 
  - name
  - type (depends on language)
+ - latitude
+ - longitude
  - classification (a list, because some accomodations can have eg. "3-4" epis)
  - capacity_min
  - capacity_max

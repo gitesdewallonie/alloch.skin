@@ -166,6 +166,8 @@ class SearchHebergements(BrowserView):
         for heb in results:
             hebDict = {'name': heb.heb_nom}
             hebDict['type'] = heb.type.getTitle(lang)
+            hebDict['latitude'] = heb.heb_gps_lat
+            hebDict['longitude'] = heb.heb_gps_long
             hebDict['classification'] = [e.heb_nombre_epis for e in heb.epis]
             hebDict['capacity_min'] = int(heb.heb_cgt_cap_min)
             hebDict['capacity_max'] = int(heb.heb_cgt_cap_max)
