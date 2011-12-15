@@ -260,7 +260,6 @@ class SearchHebergements(BrowserView):
         hebDict['photos'] = self._getPhotosURL(heb)
         return hebDict
 
-    @view.memoize
     def getMobileClosestHebs(self):
         """
         Return the closests available hebs for mobile use
@@ -269,7 +268,7 @@ class SearchHebergements(BrowserView):
         results = self._getClosestHebsForLocation(searchLocation)
         hebs = []
         for heb in results:
-            if heb.grouped:
+            if not heb.grouped:
                 hebDict = self._buildDictForHeb(heb, heb.distance)
                 hebs.append(hebDict)
             else:
