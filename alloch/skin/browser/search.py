@@ -9,7 +9,6 @@ from sqlalchemy import and_, exists, func
 from zope.publisher.browser import BrowserView
 from pygeocoder import Geocoder, GeocoderError
 from Products.CMFCore.utils import getToolByName
-# from gites.db.content.hebergement import Hebergement
 
 from alloch.skin.pymaps import PyMap, Map, Icon
 from alloch.skin import AlloCHMessage as _
@@ -214,14 +213,14 @@ class SearchHebergements(BrowserView):
         results = sorted(results, key=attrgetter('distance'))
         return results
 
-    def _buildDictForHeb(self, heb):
+    def _buildDictForHeb(self, heb, distance):
         form = self.request.form
         lang = form.get('lang', 'fr')
         hebDict = {'name': heb.heb_nom}
         hebDict['type'] = heb.type.getTitle(lang)
         hebDict['latitude'] = heb.heb_gps_lat
         hebDict['longitude'] = heb.heb_gps_long
-        hebDict['distance'] = heb.distance
+        hebDict['distance'] = distance
         hebDict['classification'] = [e.heb_nombre_epis for e in heb.epis]
         hebDict['capacity_min'] = int(heb.heb_cgt_cap_min)
         hebDict['capacity_max'] = int(heb.heb_cgt_cap_max)
@@ -271,12 +270,13 @@ class SearchHebergements(BrowserView):
         hebs = []
         for heb in results:
             if heb.grouped:
-                hebDict = self._buildDictForHeb(heb)
+                hebDict = self._buildDictForHeb(heb, heb.distance)
                 hebs.append(hebDict)
             else:
+                distance = heb.distance
                 roomsList = []
                 for room in heb.rooms:
-                    roomDict = self._buildDictForHeb(room)
+                    roomDict = self._buildDictForHeb(room, distance)
                     roomsList.append(roomDict)
                 hebs.append(roomsList)
         searchLocationDict = {'coordinates': [searchLocation.coordinates[0],
