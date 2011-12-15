@@ -21,6 +21,14 @@
 
   <browser:page
       for="*"
+      name="rooms-list"
+      class=".search.SearchHebergements"
+      permission="zope.Public"
+      template="templates/rooms_list.pt"
+      />
+
+  <browser:page
+      for="*"
       name="heb-detail"
       class=".search.SearchHebergements"
       permission="zope.Public"

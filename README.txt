@@ -43,3 +43,12 @@ Accomodation dict
     * website
  - thumb (URL)
  - photos (list of URLs)
+
+
+TO DO
+=====
+
+ - use sessions to store search location and rooms PK
+ - use real servers - URLs when we have the domain name
+ - see how pages and results should display (for grouped hebs)
+ - ...

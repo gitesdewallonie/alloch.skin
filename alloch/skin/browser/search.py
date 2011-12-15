@@ -2,12 +2,15 @@
 
 import simplejson
 from datetime import date
+from operator import attrgetter
 from plone.memoize import view, forever
 from z3c.sqlalchemy import getSAWrapper
 from sqlalchemy import and_, exists, func
 from zope.publisher.browser import BrowserView
 from pygeocoder import Geocoder, GeocoderError
 from Products.CMFCore.utils import getToolByName
+# from gites.db.content.hebergement import Hebergement
+
 from alloch.skin.pymaps import PyMap, Map, Icon
 from alloch.skin import AlloCHMessage as _
 
@@ -20,6 +23,28 @@ GOOGLE_API_KEY = "NO_API_KEY"
 BOUNDS = "49.439557,2.103882|51.110420,6.256714"
 
 
+class GroupingAwareHebergement:
+    """
+    """
+    def __init__(self, hebs, distance):
+        self.grouped = False
+        if len(hebs) > 1:
+            self.grouped = True
+        self.rooms = hebs
+        self.hebergement = hebs[0]
+        self.distance = distance
+
+    def getFormattedRoomsPk(self):
+        pks = [str(room.heb_pk) for room in self.rooms]
+        return "|".join(pks)
+
+    def __getattr__(self, attr):
+        if attr in self.__dict__:
+            return getattr(self, attr)
+        else:
+            return getattr(self.hebergement, attr)
+
+
 class SearchHebergements(BrowserView):
     """
     """
@@ -27,7 +52,7 @@ class SearchHebergements(BrowserView):
     def _convertToEntities(self, text):
         return ''.join(['&#%d;' % ord(ch) for ch in text])
 
-    def getEpisIcons(self, number):
+    def _getEpisIcons(self, number):
         result = []
         url = getToolByName(self.context, 'portal_url')()
         for i in range(number):
@@ -38,10 +63,10 @@ class SearchHebergements(BrowserView):
         """
         Get the epis icons
         """
-        l = [self.getEpisIcons(i.heb_nombre_epis) for i in heb.epis]
+        l = [self._getEpisIcons(i.heb_nombre_epis) for i in heb.epis]
         return " - ".join(l)
 
-    def getPhotosURL(self, heb):
+    def _getPhotosURL(self, heb):
         """
         Returns photos URLs list
         """
@@ -69,8 +94,13 @@ class SearchHebergements(BrowserView):
         heb = query.get(hebPk)
         return heb
 
+    def _getSearchLocation(self):
+        form = self.request.form
+        address = form.get('address', None)
+        return self._getGeoSearchLocation(address)
+
     @forever.memoize
-    def getSearchLocation(self, address):
+    def _getGeoSearchLocation(self, address):
         """
         Transform an address into GPS coordinates and name
         """
@@ -82,13 +112,17 @@ class SearchHebergements(BrowserView):
             return None
         return result
 
-    def getMapJS(self):
-        form = self.request.form
-        address = form.get('address', None)
-        location = self.getSearchLocation(address)
-        coordinates = location.coordinates
-        results = self.getClosestHebs()
+    def getCompleteMap(self):
+        location = self._getSearchLocation()
+        hebs = self.getClosestHebs()
+        return self._getMapJS(location, hebs)
 
+    def getHebMap(self):
+        # XXX to see with Mike
+        pass
+
+    def _getMapJS(self, location, hebs):
+        coordinates = location.coordinates
         map1 = Map(id='map')
         map1.center = coordinates
         map1.zoom = "10"
@@ -99,7 +133,7 @@ class SearchHebergements(BrowserView):
                   'icon2']
         map1.setpoint(center)
         counter = 0
-        for heb in results:
+        for heb in hebs:
             counter += 1
             portalUrl = getToolByName(self.context, 'portal_url')()
             href = "%s/heb-detail?hebPk=%s" % (portalUrl, heb.heb_pk)
@@ -123,12 +157,12 @@ class SearchHebergements(BrowserView):
         """
         Search for the closests available hebs
         """
-        form = self.request.form
-        address = form.get('address', None)
-        searchLocation = self.getSearchLocation(address)
+        searchLocation = self._getSearchLocation()
         if not searchLocation:
             return []
+        return self._getClosestHebsForLocation(searchLocation)
 
+    def _getClosestHebsForLocation(self, searchLocation):
         today = date.today()
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
@@ -136,7 +170,13 @@ class SearchHebergements(BrowserView):
         proprioTable = wrapper.getMapper('proprio')
         reservationsTable = wrapper.getMapper('reservation_proprio')
 
-        query = session.query(hebergementTable).join('proprio')
+        distance = func.ST_distance_sphere(func.makepoint(hebergementTable.heb_gps_long,
+                                                          hebergementTable.heb_gps_lat),
+                                           func.ST_MakePoint(searchLocation.coordinates[0],
+                                                             searchLocation.coordinates[1]))
+
+        query = session.query(distance.label('distance'),
+                              hebergementTable).join('proprio')
         query = query.filter(hebergementTable.heb_site_public == '1')
         query = query.filter(proprioTable.pro_etat == True)
         query = query.filter(hebergementTable.heb_typeheb_fk.in_(TYPES_HEB))
@@ -147,64 +187,100 @@ class SearchHebergements(BrowserView):
         query = query.filter(~exists().where(and_(reservationsTable.res_date == today,
                                                   hebergementTable.heb_pk == reservationsTable.heb_fk)))
 
-        # et on prend les 5 plus proches de la localisation
-        query = query.order_by(func.ST_distance_sphere(func.makepoint(hebergementTable.heb_gps_long, hebergementTable.heb_gps_lat),
-                                                       func.ST_MakePoint(searchLocation.coordinates[0], searchLocation.coordinates[1])))
-        query = query.limit(5)
-        results = query.all()
+        # et on prend les 5 structures les plus proches de la localisation
+        query = query.order_by(distance)
+        results = self._handleGroupedRooms(query)
         return results
+
+    def _handleGroupedRooms(self, hebsQuery):
+        """
+        We need to consider multiple rooms of an owner as one heb
+        """
+        propriosHebs = {}
+        for res in hebsQuery:
+            # group rooms by owner
+            if len(propriosHebs) == 5:
+                break
+            proPk = res.Hebergement.heb_pro_fk
+            if not res.Hebergement.heb_pro_fk in propriosHebs:
+                propriosHebs[proPk] = {'distance': res.distance,
+                                       'hebs': [res.Hebergement]}
+            else:
+                propriosHebs[proPk]['hebs'].append(res.Hebergement)
+        results = []
+        for propHeb in propriosHebs.values():
+            results.append(GroupingAwareHebergement(propHeb['hebs'],
+                                                    propHeb['distance']))
+        results = sorted(results, key=attrgetter('distance'))
+        return results
+
+    def _buildDictForHeb(self, heb):
+        form = self.request.form
+        lang = form.get('lang', 'fr')
+        hebDict = {'name': heb.heb_nom}
+        hebDict['type'] = heb.type.getTitle(lang)
+        hebDict['latitude'] = heb.heb_gps_lat
+        hebDict['longitude'] = heb.heb_gps_long
+        hebDict['classification'] = [e.heb_nombre_epis for e in heb.epis]
+        hebDict['capacity_min'] = int(heb.heb_cgt_cap_min)
+        hebDict['capacity_max'] = int(heb.heb_cgt_cap_max)
+        hebDict['description'] = heb.getDescription(lang)
+        address = {'address': heb.heb_adresse,
+                   'zip': heb.commune.com_cp,
+                   'town': heb.heb_localite,
+                   'city': heb.commune.com_nom}
+        hebDict['address'] = address
+        hebDict['price'] = heb.heb_tarif_chmbr_avec_dej_2p
+        hebDict['room_number'] = int(heb.heb_cgt_nbre_chmbre)
+        hebDict['one_person_bed'] = int(heb.heb_lit_1p)
+        hebDict['two_person_bed'] = int(heb.heb_lit_2p)
+        hebDict['additionnal_bed'] = int(heb.heb_lit_sup)
+        hebDict['child_bed'] = int(heb.heb_lit_enf)
+        if heb.heb_fumeur == 'oui':
+            hebDict['smokers_allowed'] = True
+        else:
+            hebDict['smokers_allowed'] = False
+        if heb.heb_animal == 'oui':
+            hebDict['animal_allowed'] = True
+        else:
+            hebDict['animal_allowed'] = False
+        owner = {'title': heb.proprio.civilite.civ_titre,
+                 'firstname': heb.proprio.pro_prenom1,
+                 'name': heb.proprio.pro_nom1,
+                 'language': heb.proprio.pro_langue,
+                 'phone': heb.proprio.pro_tel_priv,
+                 'fax': heb.proprio.pro_fax_priv,
+                 'mobile': heb.proprio.pro_gsm1,
+                 'email': heb.proprio.pro_email,
+                 'website': heb.proprio.pro_url}
+        hebDict['owner'] = owner
+        vignette = heb.getVignette()
+        vignetteURL = "%s%s" % (HEB_THUMBS_URL, vignette)
+        hebDict['thumb'] = vignetteURL
+        hebDict['photos'] = self._getPhotosURL(heb)
+        return hebDict
 
     @view.memoize
     def getMobileClosestHebs(self):
         """
         Return the closests available hebs for mobile use
         """
-        form = self.request.form
-        lang = form.get('lang', 'fr')
-        results = self.getClosestHebs()
+        searchLocation = self._getSearchLocation()
+        results = self._getClosestHebsForLocation(searchLocation)
         hebs = []
         for heb in results:
-            hebDict = {'name': heb.heb_nom}
-            hebDict['type'] = heb.type.getTitle(lang)
-            hebDict['latitude'] = heb.heb_gps_lat
-            hebDict['longitude'] = heb.heb_gps_long
-            hebDict['classification'] = [e.heb_nombre_epis for e in heb.epis]
-            hebDict['capacity_min'] = int(heb.heb_cgt_cap_min)
-            hebDict['capacity_max'] = int(heb.heb_cgt_cap_max)
-            hebDict['description'] = heb.getDescription(lang)
-            address = {'address': heb.heb_adresse,
-                       'zip': heb.commune.com_cp,
-                       'town': heb.heb_localite,
-                       'city': heb.commune.com_nom}
-            hebDict['address'] = address
-            hebDict['price'] = heb.heb_tarif_chmbr_avec_dej_2p
-            hebDict['room_number'] = int(heb.heb_cgt_nbre_chmbre)
-            hebDict['one_person_bed'] = int(heb.heb_lit_1p)
-            hebDict['two_person_bed'] = int(heb.heb_lit_2p)
-            hebDict['additionnal_bed'] = int(heb.heb_lit_sup)
-            hebDict['child_bed'] = int(heb.heb_lit_enf)
-            if heb.heb_fumeur == 'oui':
-                hebDict['smokers_allowed'] = True
+            if heb.grouped:
+                hebDict = self._buildDictForHeb(heb)
+                hebs.append(hebDict)
             else:
-                hebDict['smokers_allowed'] = False
-            if heb.heb_animal == 'oui':
-                hebDict['animal_allowed'] = True
-            else:
-                hebDict['animal_allowed'] = False
-            owner = {'title': heb.proprio.civilite.civ_titre,
-                     'firstname': heb.proprio.pro_prenom1,
-                     'name': heb.proprio.pro_nom1,
-                     'language': heb.proprio.pro_langue,
-                     'phone': heb.proprio.pro_tel_priv,
-                     'fax': heb.proprio.pro_fax_priv,
-                     'mobile': heb.proprio.pro_gsm1,
-                     'email': heb.proprio.pro_email,
-                     'website': heb.proprio.pro_url}
-            hebDict['owner'] = owner
-            vignette = heb.getVignette()
-            vignetteURL = "%s%s" % (HEB_THUMBS_URL, vignette)
-            hebDict['thumb'] = vignetteURL
-            hebDict['photos'] = self.getPhotosURL(heb)
-            hebs.append(hebDict)
-        jsonResult = simplejson.dumps({'results': hebs})
+                roomsList = []
+                for room in heb.rooms:
+                    roomDict = self._buildDictForHeb(room)
+                    roomsList.append(roomDict)
+                hebs.append(roomsList)
+        searchLocationDict = {'coordinates': [searchLocation.coordinates[0],
+                                              searchLocation.coordinates[1]],
+                              'title': searchLocation.formatted_address}
+        jsonResult = simplejson.dumps({'search_location': searchLocationDict,
+                                       'results': hebs})
         return jsonResult

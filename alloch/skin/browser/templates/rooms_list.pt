@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      lang="en"
+      i18n:domain="plone">
+
+<body>
+
+<div metal:fill-slot="main"
+     i18n:domain="alloch">
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+          jq('a.heb-detail-link').prepOverlay({
+              subtype: 'ajax',
+              filter: '#content > *'
+              });
+        });
+    </script>
+
+    <h1 i18n:translate="rooms">Rooms</h1>
+    <p>&nbsp;</p>
+
+</div>
+</body>
+</html>
