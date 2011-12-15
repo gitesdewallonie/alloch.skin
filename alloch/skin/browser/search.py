@@ -203,7 +203,7 @@ class SearchHebergements(BrowserView):
                 break
             proPk = res.Hebergement.heb_pro_fk
             if not res.Hebergement.heb_pro_fk in propriosHebs:
-                propriosHebs[proPk] = {'distance': res.distance,
+                propriosHebs[proPk] = {'distance': int(res.distance/1000),
                                        'hebs': [res.Hebergement]}
             else:
                 propriosHebs[proPk]['hebs'].append(res.Hebergement)
@@ -221,6 +221,7 @@ class SearchHebergements(BrowserView):
         hebDict['type'] = heb.type.getTitle(lang)
         hebDict['latitude'] = heb.heb_gps_lat
         hebDict['longitude'] = heb.heb_gps_long
+        hebDict['distance'] = heb.distance
         hebDict['classification'] = [e.heb_nombre_epis for e in heb.epis]
         hebDict['capacity_min'] = int(heb.heb_cgt_cap_min)
         hebDict['capacity_max'] = int(heb.heb_cgt_cap_max)

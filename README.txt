@@ -1,19 +1,34 @@
-Introduction
-============
+Mobile results JSON structure
+=============================
 
-Mobile results json structure
------------------------------
-
-You receive a dict of dicts, one for each accommodation found.
+You receive a dict with search_location and results
 
 
-Accomodation dict
------------------
+Search location
+---------------
+
+Search location is a dict with :
+ - coordinates (list with longitude and latitude)
+ - title (returned by geocoding or search for this location)
+
+
+Results
+-------
+
+Results is a list of accomodation.
+If an accomodation has several rooms (multiple accomodation in DB), you get a
+list of rooms (same structure as an accomodation) instead of a single
+accomodation.
+
+
+Accomodation (room) dict
+------------------------
 
  - name
  - type (depends on language)
  - latitude
  - longitude
+ - distance (in km)
  - classification (a list, because some accomodations can have eg. "3-4" epis)
  - capacity_min
  - capacity_max
