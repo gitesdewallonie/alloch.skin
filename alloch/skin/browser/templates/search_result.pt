@@ -57,21 +57,30 @@
                     <br /><br />
                 </tal:if>
                 <tal:else tal:condition="heb/grouped">
+                    <span tal:define="room1 python: heb.rooms[0]">
+                        <a href="" class="heb-detail-link" title="Details of this accomodation"
+                           tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
+                           i18n:attributes="title details_of_this_heb">
+                            <h2>
+                                <img src="" border="0" tal:attributes="src string:${portal_url}/vignettes_heb/${room1/getVignette}" />
+                                <span tal:replace="repeat/heb/number" />.&nbsp;
+                                <span tal:replace="python: room1.type.getTitle(lang)" />
+                                <span tal:replace="room1/heb_nom" />
+                                &rarr;&nbsp;(<span tal:content="string:${room1/heb_cgt_cap_min}/${room1/heb_cgt_cap_max}" />)
+                            </h2>
+                        </a>
+                        Distance : <span tal:replace="heb/distance" /> km
+                        <br />
+                        <span tal:replace="python: room1.getDescription(lang)" />
+                    </span>
                     <a href="" class="heb-group-link" title="Rooms of this accomodation"
                        tal:attributes="href string:${context/portal_url}/rooms-list?rooms=${heb/getFormattedRoomsPk}"
                        i18n:attributes="title rooms_of_this_heb">
-                        <h2>
-                            <img src="" border="0" tal:attributes="src string:${portal_url}/vignettes_heb/${heb/getVignette}" />
-                            <span tal:replace="repeat/heb/number" />.&nbsp;
-                            <span tal:replace="python: heb.type.getTitle(lang)" />
-                            <span tal:replace="heb/heb_nom" />
-                            &rarr;&nbsp;(<span tal:content="python: len(heb.rooms)" /> rooms)
-                        </h2>
+                        <h3>
+                            <span tal:content="python: len(heb.rooms)" /> other rooms
+                        </h3>
                     </a>
-                    Distance : <span tal:replace="heb/distance" /> km
                     <br />
-                    There are different rooms available for this location.
-                    <br /><br />
                 </tal:else>
             </div>
 
