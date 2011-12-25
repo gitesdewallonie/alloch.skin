@@ -73,14 +73,13 @@
                         <br />
                         <span tal:replace="python: room1.getDescription(lang)" />
                     </span>
+                    <br />
                     <a href="" class="heb-group-link" title="Rooms of this accomodation"
                        tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
                        i18n:attributes="title rooms_of_this_heb">
-                        <h3>
-                            <span tal:content="python: len(heb.rooms)-1" /> other room(s)
-                        </h3>
+                       &rarr; <span tal:content="python: len(heb.rooms)-1" /> other room(s)
                     </a>
-                    <br />
+                    <br /><br />
                 </tal:else>
             </div>
 

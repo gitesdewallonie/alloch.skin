@@ -171,6 +171,13 @@ border: 2px solid gray;
 margin-top: 5px;
 }
 
+.heb-group-link {
+text-decoration:none;
+background-color: #FFCE68;
+padding:2px;
+margin-left:10px;
+}
+
 div.itinerary {
 text-align:center;
 margin-top:-13px;
