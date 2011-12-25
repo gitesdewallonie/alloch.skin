@@ -97,10 +97,20 @@ class SearchHebergements(BrowserView):
         heb = query.get(hebPk)
         return heb
 
-    def _getSearchLocation(self):
+    def getHebItineraryURL(self, heb):
+        baseUrl = "http://maps.google.com/maps?"
+        origin = self.getSearchLocation().formatted_address
+        dest = "%s %s %s (%s)" % (heb.heb_adresse, heb.commune.com_cp, heb.heb_localite, heb.heb_nom)
+        language = self.request.get('LANGUAGE', 'fr')
+        parameters = "saddr=%s&daddr=%s&hl=%s" % (origin, dest, language)
+        return "%s%s" % (baseUrl, parameters)
+
+    def getSearchLocation(self):
         form = self.request.form
         address = form.get('address', None)
         if address is not None:
+            if not 'Belgique' in address:
+                address = '%s, Belgique' % address
             return self._getGeoSearchLocation(address)
         else:
             session = self.request.SESSION
@@ -127,21 +137,21 @@ class SearchHebergements(BrowserView):
         return location
 
     def getCompleteMap(self):
-        location = self._getSearchLocation()
+        location = self.getSearchLocation()
         if location is None:
             return ""
         hebs = self.getSearchResults()
         return self._getMapJS(location, hebs, "10")
 
     def getRoomsMap(self):
-        location = self._getSearchLocation()
+        location = self.getSearchLocation()
         if location is None:
             return ""
         hebs = self.getRooms()
         return self._getMapJS(location, hebs, "11")
 
     def getHebMap(self):
-        location = self._getSearchLocation()
+        location = self.getSearchLocation()
         if location is None:
             return ""
         hebs = [self.getHebergement()]
@@ -193,7 +203,7 @@ class SearchHebergements(BrowserView):
 
     def getSearchResults(self):
         session = self.request.SESSION
-        searchLocation = self._getSearchLocation()
+        searchLocation = self.getSearchLocation()
         if not self.useExistingSession(session, searchLocation):
             session['search_location'] = searchLocation
             session['search_results'] = self.getClosestHebs()
@@ -215,7 +225,7 @@ class SearchHebergements(BrowserView):
         """
         Search for the closests available hebs
         """
-        searchLocation = self._getSearchLocation()
+        searchLocation = self.getSearchLocation()
         if not searchLocation:
             return []
         return self._getClosestHebsForLocation(searchLocation)
@@ -324,7 +334,7 @@ class SearchHebergements(BrowserView):
         """
         Return the closests available hebs for mobile use
         """
-        searchLocation = self._getSearchLocation()
+        searchLocation = self.getSearchLocation()
         results = self._getClosestHebsForLocation(searchLocation)
         hebs = []
         for heb in results:

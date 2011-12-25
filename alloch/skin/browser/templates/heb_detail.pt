@@ -26,15 +26,22 @@
 
     <script type="text/javascript">
         jQuery(document).ready(function() {
-          jq('a.heb-itinary-link').prepOverlay({
-              subtype: 'ajax',
-              filter: '#content > *'
-              });
+         // jq('a.heb-itinerary-link').prepOverlay({
+         //     subtype: 'ajax',
+         //     filter: '#content > *'
+         //     });
           load();  // loads map
         });
     </script>
 
-   <div>
+   <div class="itinerary" tal:condition="view/getSearchLocation">
+       <a href="" title="Itinéraire" target="_blank"
+          tal:attributes="href python: view.getHebItineraryURL(heb)"
+          i18n:attributes="title itinerary_link">
+          <span i18n:translate="itinerary_link">Itinéraire vers</span> <span tal:replace="heb/heb_nom" /></a>
+   </div> 
+
+   <div tal:define="lang request/LANGUAGE | en">
     <h1 tal:content="heb/heb_nom">Heb name</h1>
     <span tal:replace="python: heb.type.getTitle(lang)" />
     <span tal:replace="structure python: view.getEpis(heb)" />

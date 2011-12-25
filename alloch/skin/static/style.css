@@ -43,7 +43,7 @@ color:#333;
 #header{
 padding-top:25px;
 width:948px;
-height:457px;
+height:432px;
 background-image:url(images/photo_bckg.png);
 background-repeat:no-repeat;
 margin:auto;
@@ -169,6 +169,11 @@ text-align: center;
 #content .gmnoprint div img {
 border: 2px solid gray;
 margin-top: 5px;
+}
+
+div.itinerary {
+text-align:center;
+margin-top:-15px;
 }
 
 .picture {
