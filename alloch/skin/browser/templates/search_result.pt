@@ -25,17 +25,17 @@
 
     <script type="text/javascript">
         jQuery(document).ready(function() {
-          jq('a.heb-detail-link').prepOverlay({
-              subtype: 'ajax',
-              filter: '#content > *'
-              });
+        //   jq('a.heb-detail-link').prepOverlay({
+        //      subtype: 'ajax',
+        //      filter: '#content > *'
+        //      });
           load();  // loads map
         });
     </script>
 
     <h1 i18n:translate="search_results_title">Search results</h1>
     <p>&nbsp;</p>
-    <div tal:define="hebs view/getClosestHebs">
+    <div tal:define="hebs view/getSearchResults">
         <div tal:define="lang request/LANGUAGE | en"
              tal:condition="hebs">
             <div tal:repeat="heb hebs">
@@ -74,7 +74,7 @@
                         <span tal:replace="python: room1.getDescription(lang)" />
                     </span>
                     <a href="" class="heb-group-link" title="Rooms of this accomodation"
-                       tal:attributes="href string:${context/portal_url}/rooms-list?rooms=${heb/getFormattedRoomsPk}"
+                       tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
                        i18n:attributes="title rooms_of_this_heb">
                         <h3>
                             <span tal:content="python: len(heb.rooms)" /> other rooms

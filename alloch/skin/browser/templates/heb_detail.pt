@@ -6,15 +6,35 @@
       lang="en"
       i18n:domain="plone">
 
+<metal:javascriptslot fill-slot="javascript_head_slot"> 
+    <tal:script tal:content="structure view/getHebMap">
+    </tal:script>
+</metal:javascriptslot>
+
 <body>
 
 <div metal:fill-slot="main"
      i18n:domain="alloch"
      tal:define="heb view/getHebergement">
 
-    <a href="javascript:window.document.getElementById('toprint').print();">Print this window</a>
+   <div id="header">
+        <div id="header_map">
+            <div id="map">
+            </div>
+        </div>
+   </div>
 
-    <div id="toprint">
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+          jq('a.heb-itinary-link').prepOverlay({
+              subtype: 'ajax',
+              filter: '#content > *'
+              });
+          load();  // loads map
+        });
+    </script>
+
+   <div>
     <h1 tal:content="heb/heb_nom">Heb name</h1>
     <span tal:replace="python: heb.type.getTitle(lang)" />
     <span tal:replace="structure python: view.getEpis(heb)" />
@@ -29,9 +49,9 @@
     <span tal:content="heb/heb_localite" />
     (<span tal:content="heb/commune/com_nom" />)
     <br /><br />
-    <span tal:content="heb/heb_tarif_chmbr_avec_dej_2p" />
+    Tarif : <span tal:content="heb/heb_tarif_chmbr_avec_dej_2p" /> &euro;
 
-   <fieldset>
+    <fieldset>
      <legend i18n:translate="rooms">Rooms / beds</legend>
      Nombre de chambres : <span tal:content="heb/heb_cgt_nbre_chmbre" />
      <div tal:condition="python: int(heb.heb_lit_1p) > 0">
@@ -46,9 +66,9 @@
      <div tal:condition="python: int(heb.heb_lit_enf) > 0">
         Lit enfant : <span tal:content="heb/heb_lit_enf" />
      </div>
-   </fieldset>
+    </fieldset>
 
-   <fieldset tal:condition="python: heb.heb_animal == 'oui' or heb.heb_fumeur == 'oui'">
+    <fieldset tal:condition="python: heb.heb_animal == 'oui' or heb.heb_fumeur == 'oui'">
      <legend i18n:translate="comfort">Comfort</legend>
      <div tal:condition="python: heb.heb_animal == 'oui'">
         Animaux de compagnie accept&eacute;s
@@ -56,9 +76,9 @@
      <div tal:condition="python: heb.heb_fumeur == 'oui'">
         Autorisation de fumer
      </div>
-   </fieldset>
+    </fieldset>
 
-   <fieldset>
+    <fieldset>
       <legend i18n:translate="owner">Owner</legend>
       <table id="info-proprio">
          <tr>
@@ -90,8 +110,16 @@
             </td>
          </tr>
       </table><!--info proprio-->
-   </fieldset>
-    </div>
+    </fieldset>
+    
+    <fieldset>
+      <legend i18n:translate="pictures">Pictures</legend>
+      <div class="picture" tal:repeat="photo python: view.getPhotosURL(heb.heb_code_gdw)">
+        <img src="" tal:attributes="src photo" />
+      </div>
+    </fieldset>
+
+   </div>
 
 </div>
 </body>

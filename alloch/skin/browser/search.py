@@ -22,6 +22,10 @@ GOOGLE_API_KEY = "NO_API_KEY"
 BOUNDS = "49.439557,2.103882|51.110420,6.256714"
 
 
+class Location:
+    pass
+
+
 class GroupingAwareHebergement:
     """
     """
@@ -65,12 +69,11 @@ class SearchHebergements(BrowserView):
         l = [self._getEpisIcons(i.heb_nombre_epis) for i in heb.epis]
         return " - ".join(l)
 
-    def _getPhotosURL(self, heb):
+    def getPhotosURL(self, codeGDW):
         """
         Returns photos URLs list
         """
         vignettes = []
-        codeGDW = heb.heb_code_gdw
         listeImage = self.context.photos_heb.fileIds()
         for i in range(15):
             if i < 10:
@@ -81,6 +84,7 @@ class SearchHebergements(BrowserView):
                 vignettes.append("%s%s" % (HEB_PHOTOS_URL, photo))
         return vignettes
 
+    @view.memoize
     def getHebergement(self):
         """
         Return specified heb
@@ -96,7 +100,14 @@ class SearchHebergements(BrowserView):
     def _getSearchLocation(self):
         form = self.request.form
         address = form.get('address', None)
-        return self._getGeoSearchLocation(address)
+        if address is not None:
+            return self._getGeoSearchLocation(address)
+        else:
+            session = self.request.SESSION
+            if session.has_key('search_location'):
+                return session['search_location']
+            else:
+                return None
 
     @forever.memoize
     def _getGeoSearchLocation(self, address):
@@ -109,22 +120,38 @@ class SearchHebergements(BrowserView):
                                     bounds=BOUNDS)
         except GeocoderError:
             return None
-        return result
+        # returned result must be serializable
+        location = Location()
+        location.coordinates = result.coordinates
+        location.formatted_address = result.formatted_address
+        return location
 
     def getCompleteMap(self):
         location = self._getSearchLocation()
-        hebs = self.getClosestHebs()
-        return self._getMapJS(location, hebs)
+        if location is None:
+            return ""
+        hebs = self.getSearchResults()
+        return self._getMapJS(location, hebs, "10")
+
+    def getRoomsMap(self):
+        location = self._getSearchLocation()
+        if location is None:
+            return ""
+        hebs = self.getRooms()
+        return self._getMapJS(location, hebs, "11")
 
     def getHebMap(self):
-        # XXX to see with Mike
-        pass
+        location = self._getSearchLocation()
+        if location is None:
+            return ""
+        hebs = [self.getHebergement()]
+        return self._getMapJS(location, hebs, "11")
 
-    def _getMapJS(self, location, hebs):
+    def _getMapJS(self, location, hebs, zoom):
         coordinates = location.coordinates
         map1 = Map(id='map')
         map1.center = coordinates
-        map1.zoom = "10"
+        map1.zoom = zoom
         currentLocation = self._convertToEntities(location.formatted_address)
         center = [coordinates[0], coordinates[1],
                   u"<strong>%s</strong><br /><i>&rarr; %s</i>" % (_('Your search location'),
@@ -151,7 +178,39 @@ class SearchHebergements(BrowserView):
         g.key = GOOGLE_API_KEY
         return g.pymapjs()
 
-    @view.memoize
+    def useExistingSession(self, session, searchLocation):
+        if searchLocation:
+            if session.has_key('search_location') and \
+               session['search_location'].__dict__ == searchLocation.__dict__:
+                return True
+            else:
+                return False
+        else:
+            if session.has_key('search_location'):
+                return True
+            else:
+                return False
+
+    def getSearchResults(self):
+        session = self.request.SESSION
+        searchLocation = self._getSearchLocation()
+        if not self.useExistingSession(session, searchLocation):
+            session['search_location'] = searchLocation
+            session['search_results'] = self.getClosestHebs()
+        return session['search_results']
+
+    def getRooms(self):
+        session = self.request.SESSION
+        if not session.has_key('search_location') or \
+           not session.has_key('search_results'):
+            return []
+        form = self.request.form
+        proprioPk = form.get('group', None)
+        for heb in session['search_results']:
+            if heb.heb_pro_fk == int(proprioPk):
+                return heb.rooms
+        return []
+
     def getClosestHebs(self):
         """
         Search for the closests available hebs
@@ -161,6 +220,7 @@ class SearchHebergements(BrowserView):
             return []
         return self._getClosestHebsForLocation(searchLocation)
 
+    @view.memoize
     def _getClosestHebsForLocation(self, searchLocation):
         today = date.today()
         wrapper = getSAWrapper('gites_wallons')
@@ -179,6 +239,10 @@ class SearchHebergements(BrowserView):
         query = query.filter(hebergementTable.heb_site_public == '1')
         query = query.filter(proprioTable.pro_etat == True)
         query = query.filter(hebergementTable.heb_typeheb_fk.in_(TYPES_HEB))
+
+
+        query = query.filter(proprioTable.pro_pk.in_([1137, 894, 1166]))
+
 
         # on ne considère que les hébergements pour lequel le calendrier
         # est utilisé et qui sont libres
@@ -202,7 +266,7 @@ class SearchHebergements(BrowserView):
                 break
             proPk = res.Hebergement.heb_pro_fk
             if not res.Hebergement.heb_pro_fk in propriosHebs:
-                propriosHebs[proPk] = {'distance': int(res.distance/1000),
+                propriosHebs[proPk] = {'distance': int(res.distance / 1000),
                                        'hebs': [res.Hebergement]}
             else:
                 propriosHebs[proPk]['hebs'].append(res.Hebergement)
@@ -257,7 +321,7 @@ class SearchHebergements(BrowserView):
         vignette = heb.getVignette()
         vignetteURL = "%s%s" % (HEB_THUMBS_URL, vignette)
         hebDict['thumb'] = vignetteURL
-        hebDict['photos'] = self._getPhotosURL(heb)
+        hebDict['photos'] = self.getPhotosURL(heb.heb_code_gdw)
         return hebDict
 
     def getMobileClosestHebs(self):

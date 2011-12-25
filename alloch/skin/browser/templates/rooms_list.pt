@@ -6,22 +6,60 @@
       lang="en"
       i18n:domain="plone">
 
+<metal:javascriptslot fill-slot="javascript_head_slot"> 
+    <tal:script tal:content="structure view/getRoomsMap">
+    </tal:script>
+</metal:javascriptslot>
+
 <body>
 
 <div metal:fill-slot="main"
      i18n:domain="alloch">
 
+    <div id="header">
+        <div id="header_map">
+            <div id="map">
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
         jQuery(document).ready(function() {
-          jq('a.heb-detail-link').prepOverlay({
-              subtype: 'ajax',
-              filter: '#content > *'
-              });
+        //   jq('a.heb-detail-link').prepOverlay({
+        //      subtype: 'ajax',
+        //      filter: '#content > *'
+        //      });
+          load();  // loads map
         });
     </script>
 
-    <h1 i18n:translate="rooms">Rooms</h1>
+    <h1 i18n:translate="rooms_title">Rooms</h1>
     <p>&nbsp;</p>
+    <div tal:define="hebs view/getRooms">
+        <div tal:define="lang request/LANGUAGE | en"
+             tal:condition="hebs">
+            <div tal:repeat="heb hebs">
+                <a href="" class="heb-detail-link" title="Details of this accomodation"
+                   tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
+                   i18n:attributes="title details_of_this_heb">
+                    <h2>
+                        <img src="" border="0" tal:attributes="src string:${portal_url}/vignettes_heb/${heb/getVignette}" />
+                        <span tal:replace="repeat/heb/number" />.&nbsp;
+                        <span tal:replace="python: heb.type.getTitle(lang)" />
+                        <span tal:replace="heb/heb_nom" />
+                        &rarr;&nbsp;(<span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />)
+                    </h2>
+                </a>
+                <span tal:replace="python: heb.getDescription(lang)" />
+                <br /><br />
+            </div>
+
+        </div>
+        <div tal:condition="not: hebs"
+             i18n:translate="no_rooms">
+            No rooms found.
+        </div>
+    </div>
 
 </div>
 </body>

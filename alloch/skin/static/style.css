@@ -170,3 +170,9 @@ text-align: center;
 border: 2px solid gray;
 margin-top: 5px;
 }
+
+.picture {
+float:left;
+margin:2px;
+text-align:center;
+}
