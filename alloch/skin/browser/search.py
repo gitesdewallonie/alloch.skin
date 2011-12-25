@@ -240,10 +240,6 @@ class SearchHebergements(BrowserView):
         query = query.filter(proprioTable.pro_etat == True)
         query = query.filter(hebergementTable.heb_typeheb_fk.in_(TYPES_HEB))
 
-
-        query = query.filter(proprioTable.pro_pk.in_([1137, 894, 1166]))
-
-
         # on ne considère que les hébergements pour lequel le calendrier
         # est utilisé et qui sont libres
         query = query.filter(hebergementTable.heb_calendrier_proprio != 'non actif')
