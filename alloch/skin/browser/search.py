@@ -152,26 +152,27 @@ class SearchHebergements(BrowserView):
 
     def getHebMap(self):
         location = self.getSearchLocation()
-        if location is None:
-            return ""
         hebs = [self.getHebergement()]
         return self._getMapJS(location, hebs, "11")
 
     def _getMapJS(self, location, hebs, zoom):
-        coordinates = location.coordinates
         map1 = Map(id='map')
-        map1.center = coordinates
         map1.zoom = zoom
-        currentLocation = self._convertToEntities(location.formatted_address)
-        center = [coordinates[0], coordinates[1],
-                  u"<strong>%s</strong><br /><i>&rarr; %s</i>" % (_('Your search location'),
-                                                                  currentLocation),
-                  'icon2']
-        map1.setpoint(center)
+        if location is not None:
+            coordinates = location.coordinates
+            map1.center = coordinates
+            currentLocation = self._convertToEntities(location.formatted_address)
+            center = [coordinates[0], coordinates[1],
+                      u"<strong>%s</strong><br /><i>&rarr; %s</i>" % (_('Your search location'),
+                                                                      currentLocation),
+                      'icon2']
+            map1.setpoint(center)
         counter = 0
+        portalUrl = getToolByName(self.context, 'portal_url')()
         for heb in hebs:
+            if location is None and counter == 0:
+                map1.center = [heb.heb_gps_long, heb.heb_gps_lat]
             counter += 1
-            portalUrl = getToolByName(self.context, 'portal_url')()
             href = "%s/heb-detail?hebPk=%s" % (portalUrl, heb.heb_pk)
             imageSrc = "%s/vignettes_heb/%s" % (portalUrl, heb.getVignette())
             name = self._convertToEntities(heb.heb_nom)

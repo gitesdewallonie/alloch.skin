@@ -77,7 +77,7 @@
                        tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
                        i18n:attributes="title rooms_of_this_heb">
                         <h3>
-                            <span tal:content="python: len(heb.rooms)" /> other rooms
+                            <span tal:content="python: len(heb.rooms)-1" /> other room(s)
                         </h3>
                     </a>
                     <br />
