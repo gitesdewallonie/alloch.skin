@@ -220,7 +220,7 @@ class PyMap:
                   function growTopBound(map, bounds) {
                     var latlngNorthEast = bounds.getNorthEast();
                     var pointNorthEast = map.fromLatLngToDivPixel(latlngNorthEast);
-                    bounds.extend(map.fromDivPixelToLatLng(new GPoint(pointNorthEast.x, pointNorthEast.y - 15)));
+                    bounds.extend(map.fromDivPixelToLatLng(new GPoint(pointNorthEast.x, pointNorthEast.y - 35)));
                     return bounds;
                   }
 
