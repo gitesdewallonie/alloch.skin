@@ -180,7 +180,6 @@ class PyMap:
                   this.id = id;
                   this.points = points;
                   this.gmap = new GMap2(document.getElementById(this.id));
-                  this.gmap.setCenter(new GLatLng(lat, long), zoom);
                   this.markerlist = markerlist;
                   this.addmarker = addmarker;
                   this.array2points = array2points;
@@ -207,8 +206,32 @@ class PyMap:
                      }
                      this.gmap.addOverlay(point.gpoint);  
                   }
+
+                  this.bounds = new google.maps.LatLngBounds();
+                  for (var i = 0; i < this.points.length; i++) {
+                    var myLatLng = new google.maps.LatLng(this.points[i][0],this.points[i][1]);
+                    this.bounds.extend(myLatLng);
+                    }
+
                   this.points = array2points(this.points);
                   this.markerlist(this.points);
+
+
+                  function growTopBound(map, bounds) {
+                    var latlngNorthEast = bounds.getNorthEast();
+                    var pointNorthEast = map.fromLatLngToDivPixel(latlngNorthEast);
+                    bounds.extend(map.fromDivPixelToLatLng(new GPoint(pointNorthEast.x, pointNorthEast.y - 15)));
+                    return bounds;
+                  }
+
+                  var zoomBound =  this.gmap.getBoundsZoomLevel(this.bounds);
+                  this.gmap.setCenter(this.bounds.getCenter(), zoomBound);
+                  
+                  this.bounds = growTopBound(this.gmap, this.bounds);
+                  zoomBound =  this.gmap.getBoundsZoomLevel(this.bounds);
+                  if (zoomBound > 18) zoomBound = 15;
+                  this.gmap.setCenter(this.bounds.getCenter(), zoomBound);
+                  
             }  
                     %s
                     %s

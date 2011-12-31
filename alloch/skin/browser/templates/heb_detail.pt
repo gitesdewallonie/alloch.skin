@@ -41,6 +41,8 @@
           <span i18n:translate="itinerary_link">Itinéraire vers</span> <span tal:replace="heb/heb_nom" /></a>
    </div> 
 
+    <a class="back-link" href="javascript:history.back()">&larr; Retour</a><br />
+
    <div tal:define="lang request/LANGUAGE | en">
     <h1 tal:content="heb/heb_nom">Heb name</h1>
     <span tal:replace="python: heb.type.getTitle(lang)" />

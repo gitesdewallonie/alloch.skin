@@ -141,23 +141,22 @@ class SearchHebergements(BrowserView):
         if location is None:
             return ""
         hebs = self.getSearchResults()
-        return self._getMapJS(location, hebs, "10")
+        return self._getMapJS(location, hebs)
 
     def getRoomsMap(self):
         location = self.getSearchLocation()
         if location is None:
             return ""
         hebs = self.getRooms()
-        return self._getMapJS(location, hebs, "11")
+        return self._getMapJS(location, hebs)
 
     def getHebMap(self):
         location = self.getSearchLocation()
         hebs = [self.getHebergement()]
-        return self._getMapJS(location, hebs, "11")
+        return self._getMapJS(location, hebs)
 
-    def _getMapJS(self, location, hebs, zoom):
+    def _getMapJS(self, location, hebs):
         map1 = Map(id='map')
-        map1.zoom = zoom
         if location is not None:
             coordinates = location.coordinates
             map1.center = coordinates
@@ -170,8 +169,6 @@ class SearchHebergements(BrowserView):
         counter = 0
         portalUrl = getToolByName(self.context, 'portal_url')()
         for heb in hebs:
-            if location is None and counter == 0:
-                map1.center = [heb.heb_gps_long, heb.heb_gps_lat]
             counter += 1
             href = "%s/heb-detail?hebPk=%s" % (portalUrl, heb.heb_pk)
             imageSrc = "%s/vignettes_heb/%s" % (portalUrl, heb.getVignette())
