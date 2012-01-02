@@ -20,20 +20,28 @@ background-attachment:fixed;
 background-repeat:repeat-x;
 background-color:#fbfcf6;
 box-shadow:4px 4px 10px rgba(0,0,0,0.5);
-padding-top:30px;
+padding-top:0px;
+}
+
+#selecteur-langue{
+width:200px;
+font-size:0.7em;
+text-transform:uppercase;
+text-align:center;
+float:left;
 }
 
 #main-title{
-height:50px;
+height:25px;
+line-height:80px;
 margin:auto;
 font-family: 'Sansita One', cursive;
 font-size:3em;
 color:#333;
-text-align:center;
+padding-left:280px;
 /*background-image:url(images/main_title.png);
 background-position:center center;
 background-repeat:no-repeat;*/
-margin-bottom:20px;
 text-shadow:0px 2px 2px rgba(200, 200, 200, 1);
 }
 
@@ -46,9 +54,9 @@ height:60px;
 width:150px;
 left:830px;
 top:90px;
-position:absolute;
-left:800px;
-top:130px;
+position:relative;
+left:760px;
+top:17px;
 }
 
 #facebook,
@@ -89,7 +97,6 @@ background-position:center 4px;
 
 
 #header{
-padding-top:25px;
 width:948px;
 height:432px;
 background-image:url(images/photo_bckg.png);
