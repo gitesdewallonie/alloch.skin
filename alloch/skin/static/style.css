@@ -11,6 +11,7 @@ color:#555;
 #main-content{
 margin:auto;
 margin-top:3em;
+margin-bottom:3em;
 width:980px;
 min-height:720px;
 /*border:1px solid #e1bf84;*/
@@ -187,4 +188,24 @@ margin-top:-13px;
 float:left;
 margin:2px;
 text-align:center;
+}
+
+
+/*** FOOTER ***/
+
+
+/*** PARTENAIRE ***/
+#logo-tourisme-wallonie,
+#logo-wallonie-bruxelles-tourisme,
+#feder-logo{
+width:300px;
+float:left;
+margin:0px 10px 10px 0px;
+font-size:0.7em;    
+} 
+
+
+
+.break-float{
+clear:both;
 }
