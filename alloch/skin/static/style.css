@@ -41,6 +41,53 @@ text-shadow:0px 2px 2px rgba(200, 200, 200, 1);
 color:#333;
 }
 
+#social-zone{
+height:60px;
+width:150px;
+left:830px;
+top:90px;
+position:absolute;
+left:800px;
+top:130px;
+}
+
+#facebook,
+#twitter,
+#google{
+width:40px;
+height:60px;
+float:right;
+margin-left:5px; 
+}
+
+#facebook a,
+#twitter a,
+#google a{
+display:block;
+width:40px;
+height:60px;
+background-repeat:no-repeat;
+background-position:center bottom;
+}
+
+#facebook a{
+background-image:url(images/logo_facebook.png);
+}
+#twitter a{
+background-image:url(images/logo_twitter.png);
+}
+#google a{
+background-image:url(images/logo_google_plus.png);
+}
+
+#facebook a:hover,
+#twitter a:hover,
+#google a:hover{
+background-position:center 4px;
+}
+
+
+
 #header{
 padding-top:25px;
 width:948px;
@@ -69,6 +116,8 @@ height:394px;
 background-image:url(images/photo_01.png);
 background-repeat:no-repeat;
 margin:auto;
+z-index:3;
+position:relative;
 }
 
 #text-area{
