@@ -198,33 +198,70 @@ border-radius:12px;
 width:97%;
 margin:auto;
 padding-top:5px;
+margin-bottom:10px;
+background-color:#444;
+color:#888;
 }
 
 #logo-gdw{
 text-align:center;
 font-size:0.8em;
+width:920px;
+margin:auto; 
+border-bottom:1px dotted #666;
 }
 
 
 /*** PARTENAIRE ***/ 
 #partenaire{
-border:1px solid #ddd;
-border-radius:12px;
-width:97%;
+width:91%;
 margin:auto;
-padding-top:5px;
+padding-top:40px;
 }
 
 #logo-tourisme-wallonie,
 #logo-wallonie-bruxelles-tourisme,
 #feder-logo{
-width:300px;
+width:260px;
 float:left;
 margin:0px 10px 10px 0px;
 font-size:0.7em;
 text-align:center;
+}
+
+#made-by{
+width:920px;
+margin:auto; 
+border-top:1px dotted #666;
+margin-top:10px;
+margin-bottom:10px;    
+}
+
+#made-by a{
+color:#aaa;
+}
+
+#made-by a:hover{
+color:#ddd;
+text-decoration:underlines;
+}
+
+
+#affinitic,
+#plone{
+width:300px;
+text-align:center;
+font-size:0.7em;
+padding-top:5px;
 } 
 
+#affinitic{
+float:left;
+}
+
+#plone{
+float:right;
+}
 
 .break-float{
 clear:both;
