@@ -192,18 +192,38 @@ text-align:center;
 
 
 /*** FOOTER ***/
+#footer{
+border:1px solid #ddd;
+border-radius:12px;
+width:97%;
+margin:auto;
+padding-top:5px;
+}
+
+#logo-gdw{
+text-align:center;
+font-size:0.8em;
+}
 
 
-/*** PARTENAIRE ***/
+/*** PARTENAIRE ***/ 
+#partenaire{
+border:1px solid #ddd;
+border-radius:12px;
+width:97%;
+margin:auto;
+padding-top:5px;
+}
+
 #logo-tourisme-wallonie,
 #logo-wallonie-bruxelles-tourisme,
 #feder-logo{
 width:300px;
 float:left;
 margin:0px 10px 10px 0px;
-font-size:0.7em;    
+font-size:0.7em;
+text-align:center;
 } 
-
 
 
 .break-float{
