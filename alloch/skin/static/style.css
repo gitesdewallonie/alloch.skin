@@ -10,7 +10,7 @@ color:#555;
 
 #main-content{
 margin:auto;
-margin-top:3em;
+margin-top:1em;
 margin-bottom:3em;
 width:980px;
 min-height:720px;
@@ -32,7 +32,7 @@ float:left;
 }
 
 #main-title{
-height:25px;
+height:70px;
 line-height:80px;
 margin:auto;
 font-family: 'Sansita One', cursive;
@@ -56,7 +56,7 @@ left:830px;
 top:90px;
 position:relative;
 left:760px;
-top:17px;
+top:-18px;
 }
 
 #facebook,
@@ -98,7 +98,7 @@ background-position:center 4px;
 
 #header{
 width:948px;
-height:432px;
+height:455px;
 background-image:url(images/photo_bckg.png);
 background-repeat:no-repeat;
 margin:auto;
@@ -125,6 +125,7 @@ background-repeat:no-repeat;
 margin:auto;
 z-index:3;
 position:relative;
+top:-35px;
 }
 
 #text-area{
