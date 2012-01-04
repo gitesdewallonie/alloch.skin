@@ -84,7 +84,7 @@
         </div>
     
         <div id="localisation">
-             <h3 i18n:translate="localisation">localisation</h3>
+             <h3 i18n:translate="localisation">Localisation</h3>
              <p>
              <span tal:content="heb/heb_adresse" /><br />
              <span tal:content="heb/commune/com_cp" />
@@ -103,7 +103,7 @@
         </div>
 
         <div id="proprio">
-              <h3 i18n:translate="owner">Owner</h3>
+              <h3 i18n:translate="owner">Contact</h3>
               <table id="info-proprio">
                  <tr>
                     <td>
