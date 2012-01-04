@@ -343,7 +343,7 @@ clear:both;
 
 /*** DESCRIPTION HEBERGEMENT ***/
 #description-chambre{
-width:80%;
+width:90%;
 margin:auto;
 border:1px solid #f00;   
 }
@@ -359,7 +359,8 @@ border-radius:12px;
 #chambre-lit,
 #confort,
 #proprio{
-width:300px;
+width:275px;
+min-height:200px;
 float:left;
 margin:0px 10px;
 }
