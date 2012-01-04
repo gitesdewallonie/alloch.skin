@@ -398,6 +398,9 @@ margin:auto;
 border-bottom:1px solid #ddd;
 color:#3f437a;
 padding-left:15px;
+background-image:url(images/puce_ronde_bleu.png);
+background-position:left center;
+background-repeat:no-repeat;
 }    
 
 
