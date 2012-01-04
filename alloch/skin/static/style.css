@@ -345,7 +345,6 @@ clear:both;
 #description-chambre{
 width:90%;
 margin:auto;
-border:1px solid #f00;   
 }
 
 #info-generale,
@@ -359,8 +358,8 @@ border-radius:12px;
 #chambre-lit,
 #confort,
 #proprio{
-width:275px;
+width:260px;
 min-height:200px;
 float:left;
-margin:0px 10px;
+margin:10px 10px;
 }
