@@ -63,7 +63,7 @@
             Tarif : <span tal:content="heb/heb_tarif_chmbr_avec_dej_2p" /> &euro;
         </div>
 
-        <div id="chembre-lit">
+        <div id="chambre-lit">
              <h3 i18n:translate="rooms">Rooms / beds</h3>
              Nombre de chambres : <span tal:content="heb/heb_cgt_nbre_chmbre" />
              <div tal:condition="python: int(heb.heb_lit_1p) > 0">

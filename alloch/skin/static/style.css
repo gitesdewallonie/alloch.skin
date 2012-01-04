@@ -338,3 +338,19 @@ float:right;
 .break-float{
 clear:both;
 }
+
+
+
+/*** DESCRIPTION HEBERGEMENT ***/
+#description{
+width:80%;
+margin:auto;   
+}
+
+#info-generale,
+#chambre-lit,
+#confort,
+#proprio{
+border:1px solid #ddd;
+border-radius:12px;    
+}
