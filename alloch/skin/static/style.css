@@ -377,14 +377,14 @@ margin:auto;
 }
 
 #info-generale,
-#infos-chambre,
+#info-chambre,
 #localisation,
 #proprio{
 border:1px solid #ddd;
 border-radius:12px;    
 }
 
-#infos-chambre,
+#info-chambre,
 #localisation,
 #proprio{
 width:260px;
