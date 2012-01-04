@@ -41,10 +41,11 @@
           <span i18n:translate="itinerary_link">Itinéraire vers</span> <span tal:replace="heb/heb_nom" /></a>
    </div> 
 
-    <a class="back-link" href="javascript:history.back()">&larr; Retour</a><br />
+    <div id="btn-back"><a class="back-link" href="javascript:history.back()">&larr; Retour</a></div>
 
     <div id ="description"
          tal:define="lang request/LANGUAGE | en">
+        
         <h1 tal:content="heb/heb_nom">Heb name</h1>
         
         <div id="info-generale">
@@ -60,7 +61,7 @@
             (<span tal:content="heb/commune/com_nom" />)
             <br /><br />
             Tarif : <span tal:content="heb/heb_tarif_chmbr_avec_dej_2p" /> &euro;
-        <div>
+        </div>
 
         <div id="chembre-lit">
              <h3 i18n:translate="rooms">Rooms / beds</h3>
