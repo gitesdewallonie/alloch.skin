@@ -339,24 +339,53 @@ float:right;
 clear:both;
 }
 
+ 
+
+
 
 
 /*** DESCRIPTION HEBERGEMENT ***/
+
+/*
+ 
+Titre
+
+--------------------------------------
+Description
+--------------------------------------
+ 
+----------------------   ----------------------   ---------------
+Infos                     Localistaion              Contacts
+                          
+type heb classement       coordonnées               infos proprio
+capacité
+type lit                  bouton intinéraire
+
+icone confort 
+chien fumer
+
+tarif
+---------------------  ------------------------    --------------
+
+*/
+
+
+
 #description-chambre{
 width:90%;
 margin:auto;
 }
 
 #info-generale,
-#chambre-lit,
-#confort,
+#infos-chambre,
+#localisation,
 #proprio{
 border:1px solid #ddd;
 border-radius:12px;    
 }
 
-#chambre-lit,
-#confort,
+#infos-chambre,
+#localisation,
 #proprio{
 width:260px;
 min-height:200px;
