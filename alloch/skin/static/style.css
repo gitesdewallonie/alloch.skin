@@ -274,6 +274,18 @@ border-bottom:1px dotted #666;
 color:#cdcdcd;
 }
 
+.linksgdw{
+color:#cdcdcd;
+text-decoration:underline;    
+}
+
+.linksgdw:hover{
+font-size:5em;
+color:#0F0;
+text-decoration:underline overline;
+font-weight:bold;
+}
+
 
 /*** PARTENAIRE ***/ 
 #partenaire{
