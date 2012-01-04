@@ -92,7 +92,8 @@
              (<span tal:content="heb/commune/com_nom" />)
              </p>
              
-             <div class="itinerary" tal:condition="view/getSearchLocation">
+             <div class="itinerary"
+                  tal:condition="view/getSearchLocation">
                  <a href="" 
                     title="Itinéraire"
                     target="_blank"

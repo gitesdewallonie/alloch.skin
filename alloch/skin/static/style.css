@@ -389,6 +389,15 @@ float:left;
 margin:10px 10px;
 }
 
+#info-chambre h3,
+#localisation h3,
+#proprio h3{
+width:80%;
+margin:auto;
+border:1px solid #ddd;
+color:#3f437a;    
+
+
 .itinerary {
 text-align:center;
 }
