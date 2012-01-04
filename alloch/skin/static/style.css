@@ -383,7 +383,7 @@ border-radius:12px;
 #info-chambre,
 #localisation,
 #proprio{
-width:260px;
+width:250px;
 min-height:200px;
 float:left;
 margin:10px 10px;
@@ -393,10 +393,12 @@ padding:5px;
 #info-chambre h3,
 #localisation h3,
 #proprio h3{
-width:80%;
+width:90%;
 margin:auto;
 border-bottom:1px solid #ddd;
-color:#3f437a;    
+color:#3f437a;
+padding-left:15px;
+}    
 
 
 .itinerary {
