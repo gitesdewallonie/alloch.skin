@@ -43,7 +43,7 @@
 
     <div id="btn-back"><a class="back-link" href="javascript:history.back()">&larr; Retour</a></div>
 
-    <div id ="description"
+    <div id ="description-chambre"
          tal:define="lang request/LANGUAGE | en">
         
         <h1 tal:content="heb/heb_nom">Heb name</h1>
