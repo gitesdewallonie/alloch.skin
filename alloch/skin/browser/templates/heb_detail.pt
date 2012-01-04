@@ -52,9 +52,10 @@
         <div id="info-chambre">
              <h3 i18n:translate="rooms">Infos</h3>
              <span tal:replace="python: heb.type.getTitle(lang)" />
+             &nbsp;&nbsp;&nbsp;
              <span tal:replace="structure python: view.getEpis(heb)" />
              <br />
-             &rarr;&nbsp;(<span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />)
+             <span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />
             
              <!--Nombre de chambres : <span tal:content="heb/heb_cgt_nbre_chmbre" />-->
              <div tal:condition="python: int(heb.heb_lit_1p) > 0">

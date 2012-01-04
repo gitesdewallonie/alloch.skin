@@ -387,6 +387,7 @@ width:260px;
 min-height:200px;
 float:left;
 margin:10px 10px;
+padding:5px;
 }
 
 #info-chambre h3,
@@ -394,7 +395,7 @@ margin:10px 10px;
 #proprio h3{
 width:80%;
 margin:auto;
-border:1px solid #ddd;
+border-bottom:1px solid #ddd;
 color:#3f437a;    
 
 
