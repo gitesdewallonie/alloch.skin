@@ -344,7 +344,8 @@ clear:both;
 /*** DESCRIPTION HEBERGEMENT ***/
 #description{
 width:80%;
-margin:auto;   
+margin:auto;
+border:1px solid #f00;   
 }
 
 #info-generale,
@@ -353,4 +354,12 @@ margin:auto;
 #proprio{
 border:1px solid #ddd;
 border-radius:12px;    
+}
+
+#chambre-lit,
+#confort,
+#proprio{
+width:300px;
+float:left;
+margin:0px 10px;
 }
