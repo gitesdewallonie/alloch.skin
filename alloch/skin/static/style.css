@@ -339,6 +339,11 @@ width:90%;
 margin:auto;
 }
 
+#description-chambre h1{
+width:800px;
+margin-left:9px;
+}
+
 #info-generale,
 #info-chambre,
 #localisation,
@@ -347,9 +352,10 @@ border:1px solid #ddd;
 border-radius:12px;
 }
 
-#info-generale{
-width:900px;
-margin:auto;
+#info-generale {
+margin-left: 9px;
+padding: 8px;
+width: 807px;
 }
 
 #info-chambre,
