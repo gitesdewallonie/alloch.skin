@@ -366,7 +366,8 @@ padding:5px;
 
 #info-chambre h3,
 #localisation h3,
-#proprio h3{
+#proprio h3,
+#galerie h3{
 width:90%;
 margin:auto;
 border-bottom:1px solid #ddd;
