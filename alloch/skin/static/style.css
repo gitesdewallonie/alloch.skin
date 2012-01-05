@@ -344,10 +344,12 @@ margin:auto;
 #localisation,
 #proprio{
 border:1px solid #ddd;
-border-radius:12px;    
+border-radius:12px;
 }
+
 #info-generale{
 width:900px;
+margin:auto;
 }
 
 #info-chambre,
