@@ -41,7 +41,7 @@
     <div id ="description-chambre"
          tal:define="lang request/LANGUAGE | en">
         
-        <h1><span class="chevron-gris">////</span> <span tal:content="heb/heb_nom" />Heb name</h1>
+        <h1><span class="chevron-gris">////</span> <span class="nom-chambre" tal:content="heb/heb_nom" /></h1>
         
         <div id="info-generale">
             <span tal:replace="python: heb.getDescription(lang)" />
