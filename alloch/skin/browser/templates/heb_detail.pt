@@ -142,9 +142,11 @@
         <div class="break-float"></div>
         
         <div id="galerie">
-              <legend i18n:translate="pictures">Pictures</legend>
-              <div class="picture" tal:repeat="photo python: view.getPhotosURL(heb.heb_code_gdw)">
-                <img src="" tal:attributes="src photo" />
+              <legend i18n:translate="pictures">Galerie</legend>
+              <div class="picture"
+                   tal:repeat="photo python: view.getPhotosURL(heb.heb_code_gdw)">
+                  <img src="" 
+                       tal:attributes="src photo" />
               </div>
         </div>
     </div><!--description-->

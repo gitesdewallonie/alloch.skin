@@ -341,31 +341,6 @@ clear:both;
 
 
 /*** DESCRIPTION HEBERGEMENT ***/
-
-/*
- 
-Titre
-
---------------------------------------
-Description
---------------------------------------
- 
-----------------------   ----------------------   ---------------
-Infos                     Localistaion              Contacts
-                          
-type heb classement       coordonnées               infos proprio
-capacité
-type lit                  bouton intinéraire
-
-icone confort 
-chien fumer
-
-tarif
----------------------  ------------------------    --------------
-*/
-
-
-
 #description-chambre{
 width:90%;
 margin:auto;
@@ -405,4 +380,10 @@ background-repeat:no-repeat;
 
 .itinerary {
 text-align:center;
+}
+
+#galerie{
+width:500px;
+margin:auto;
+border:1px solid #f00;
 }
