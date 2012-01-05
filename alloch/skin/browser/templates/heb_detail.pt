@@ -140,8 +140,9 @@
         </div>
         
         <div class="break-float"></div>
-        
-        <div id="galerie">
+    </div><!--description-->
+    
+    <div id="galerie">
               <h3 i18n:translate="pictures">Galerie</h3>
               <div class="picture"
                    tal:repeat="photo python: view.getPhotosURL(heb.heb_code_gdw)">
@@ -150,7 +151,6 @@
               </div>
               <div class="break-float"></div>
         </div>
-    </div><!--description-->
 </div>
 </body>
 </html>
