@@ -63,7 +63,7 @@
                         <br /><br />
                     </div>
                 </tal:if>
-                <tal:else tal:condition="heb/grouped">
+                <span tal:condition="heb/grouped">
                     <span tal:define="room1 python: heb.rooms[0]">
                         <div class="photo-heb">
                             <a href="" class="heb-detail-link" title="Details of this accomodation"
@@ -81,8 +81,7 @@
                         <div class="description-heb">
                             Distance : <span tal:replace="heb/distance" /> km
                             <br />
-                            <span tal:replace="python: room1.getDescription(lang)" />
-                            </span>
+                            <span tal:replace="python: room1.getDescription(lang)" /></span>
                             <br />
                             <a href="" class="heb-group-link" title="Rooms of this accomodation"
                                tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
@@ -92,7 +91,7 @@
                             <br /><br />
                         </div>
                     </span>
-                </tal:else>
+                </span>
             </div>
 
         </div>
