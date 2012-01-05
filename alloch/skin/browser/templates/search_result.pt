@@ -91,6 +91,7 @@
                             </a>
                             <br /><br />
                         </div>
+                    </span>
                 </tal:else>
             </div>
 
