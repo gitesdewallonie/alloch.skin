@@ -344,6 +344,11 @@ width:800px;
 margin-left:15px;
 }
 
+.chevron-gris{
+color:#ccc;
+padding-right:10px;
+}
+
 #info-generale,
 #info-chambre,
 #localisation,
