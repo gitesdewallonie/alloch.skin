@@ -43,46 +43,54 @@
              tal:condition="hebs">
             <div tal:repeat="heb hebs">
                 <tal:if tal:condition="not: heb/grouped">
-                    <a href="" class="heb-detail-link" title="Details of this accomodation"
-                       tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
-                       i18n:attributes="title details_of_this_heb">
-                        <h2>
-                            <img src="" border="0" tal:attributes="src string:${portal_url}/photos_heb/${heb/getVignette}" />
-                            <span tal:replace="repeat/heb/number" />.&nbsp;
-                            <span tal:replace="python: heb.type.getTitle(lang)" />
-                            <span tal:replace="heb/heb_nom" />
-                            &rarr;&nbsp;(<span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />)
-                        </h2>
-                    </a>
-                    Distance : <span tal:replace="heb/distance" /> km
-                    <br />
-                    <span tal:replace="python: heb.getDescription(lang)" />
-                    <br /><br />
-                </tal:if>
-                <tal:else tal:condition="heb/grouped">
-                    <span tal:define="room1 python: heb.rooms[0]">
+                    <div class="photo-heb">
                         <a href="" class="heb-detail-link" title="Details of this accomodation"
                            tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
                            i18n:attributes="title details_of_this_heb">
                             <h2>
-                                <img src="" border="0" tal:attributes="src string:${portal_url}/vignettes_heb/${room1/getVignette}" />
+                                <img src="" border="0" tal:attributes="src string:${portal_url}/photos_heb/${heb/getVignette}" />
                                 <span tal:replace="repeat/heb/number" />.&nbsp;
-                                <span tal:replace="python: room1.type.getTitle(lang)" />
-                                <span tal:replace="room1/heb_nom" />
-                                &rarr;&nbsp;(<span tal:content="string:${room1/heb_cgt_cap_min}/${room1/heb_cgt_cap_max}" />)
+                                <span tal:replace="python: heb.type.getTitle(lang)" />
+                                <span tal:replace="heb/heb_nom" />
+                                &rarr;&nbsp;(<span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />)
                             </h2>
-                        </a>
+                        </a> 
+                    </div>
+                    <div class="description-heb">
                         Distance : <span tal:replace="heb/distance" /> km
                         <br />
-                        <span tal:replace="python: room1.getDescription(lang)" />
-                    </span>
-                    <br />
-                    <a href="" class="heb-group-link" title="Rooms of this accomodation"
-                       tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
-                       i18n:attributes="title rooms_of_this_heb">
-                       &rarr; <span tal:content="python: len(heb.rooms)-1" /> other room(s)
-                    </a>
-                    <br /><br />
+                        <span tal:replace="python: heb.getDescription(lang)" />
+                        <br /><br />
+                    </div>
+                </tal:if>
+                <tal:else tal:condition="heb/grouped">
+                    <span tal:define="room1 python: heb.rooms[0]">
+                        <div class="photo-heb">
+                            <a href="" class="heb-detail-link" title="Details of this accomodation"
+                               tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
+                               i18n:attributes="title details_of_this_heb">
+                                <h2>
+                                    <img src="" border="0" tal:attributes="src string:${portal_url}/photos_heb/${room1/getVignette}" />
+                                    <span tal:replace="repeat/heb/number" />.&nbsp;
+                                    <span tal:replace="python: room1.type.getTitle(lang)" />
+                                    <span tal:replace="room1/heb_nom" />
+                                    &rarr;&nbsp;(<span tal:content="string:${room1/heb_cgt_cap_min}/${room1/heb_cgt_cap_max}" />)
+                                </h2>
+                            </a>  
+                        </div>
+                        <div class="description-heb">
+                            Distance : <span tal:replace="heb/distance" /> km
+                            <br />
+                            <span tal:replace="python: room1.getDescription(lang)" />
+                            </span>
+                            <br />
+                            <a href="" class="heb-group-link" title="Rooms of this accomodation"
+                               tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
+                               i18n:attributes="title rooms_of_this_heb">
+                               &rarr; <span tal:content="python: len(heb.rooms)-1" /> other room(s)
+                            </a>
+                            <br /><br />
+                        </div>
                 </tal:else>
             </div>
 
