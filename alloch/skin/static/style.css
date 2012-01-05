@@ -385,5 +385,6 @@ text-align:center;
 #galerie{
 width:500px;
 margin:auto;
-border:1px solid #f00;
+border:1px solid #ddd;
+border-radius:12px;
 }
