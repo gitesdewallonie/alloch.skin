@@ -47,7 +47,7 @@
                        tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
                        i18n:attributes="title details_of_this_heb">
                         <h2>
-                            <img src="" border="0" tal:attributes="src string:${portal_url}/vignettes_heb/${heb/getVignette}" />
+                            <img src="" border="0" tal:attributes="src string:${portal_url}/photos_heb/${heb/getVignette}" />
                             <span tal:replace="repeat/heb/number" />.&nbsp;
                             <span tal:replace="python: heb.type.getTitle(lang)" />
                             <span tal:replace="heb/heb_nom" />
