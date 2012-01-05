@@ -239,13 +239,6 @@ margin-left:10px;
 }
 
 
-.picture {
-float:left;
-margin:2px;
-text-align:center;
-}
-
-
 /*** FOOTER ***/
 #footer{
 border:1px solid #ddd;
@@ -378,14 +371,19 @@ background-position:left center;
 background-repeat:no-repeat;
 }    
 
-
 .itinerary {
 text-align:center;
 }
 
 #galerie{
-width:500px;
+width:95%px;
 margin:auto;
 border:1px solid #ddd;
 border-radius:12px;
 }
+
+.picture {
+float:left;
+margin:2px;
+text-align:center;
+}  
