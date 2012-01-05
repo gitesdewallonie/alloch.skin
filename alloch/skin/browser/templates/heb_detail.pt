@@ -148,6 +148,7 @@
                   <img src="" 
                        tal:attributes="src photo" />
               </div>
+              <div class="break-float"></div>
         </div>
     </div><!--description-->
 </div>
