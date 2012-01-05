@@ -35,9 +35,10 @@
 
     <a class="back-link" href="javascript:history.back()">&larr; Retour</a><br />
 
-    <h1 i18n:translate="search_results_title">Search results</h1>
+    <h1 i18n:translate="search_results_title">Résultats de la recherche</h1>
     <p>&nbsp;</p>
-    <div tal:define="hebs view/getSearchResults">
+    <div id="containeur-chambre" 
+         tal:define="hebs view/getSearchResults">
         <div tal:define="lang request/LANGUAGE | en"
              tal:condition="hebs">
             <div tal:repeat="heb hebs">
@@ -91,7 +92,6 @@
             No results found.
         </div>
     </div>
-
 </div>
 </body>
 </html>

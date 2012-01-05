@@ -334,12 +334,12 @@ clear:both;
 
 
 /*** DESCRIPTION HEBERGEMENT ***/
-#description-chambre{
+#containeur-chambre{
 width:90%;
 margin:auto;
 }
 
-#description-chambre h1{
+#containeur-chambre h1{
 width:800px;
 margin-left:15px;
 }
