@@ -44,9 +44,7 @@
         <h1 tal:content="heb/heb_nom">Heb name</h1>
         
         <div id="info-generale">
-            <br /><br />
             <span tal:replace="python: heb.getDescription(lang)" />
-            
         </div>
 
         <div id="info-chambre">
