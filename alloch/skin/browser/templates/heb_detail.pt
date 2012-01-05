@@ -49,9 +49,9 @@
 
         <div id="info-chambre">
              <h3 i18n:translate="rooms">Infos</h3>
-             <span tal:replace="python: heb.type.getTitle(lang)" />
-             &nbsp;&nbsp;&nbsp;
              <span tal:replace="structure python: view.getEpis(heb)" />
+             <br />
+             <span tal:replace="python: heb.type.getTitle(lang)" />
              <br />
              <span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />
             
