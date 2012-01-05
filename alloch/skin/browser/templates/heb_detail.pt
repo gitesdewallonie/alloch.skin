@@ -116,7 +116,7 @@
                        </b>
                        <br />
                        <br />
-                       &nsp;&nbsp;&nbsp;&nbsp;<span tal:replace="heb/proprio/pro_langue" /><br />
+                       &nbsp;&nbsp;&nbsp;&nbsp;<span tal:replace="heb/proprio/pro_langue" /><br />
                        <img src="" tal:attributes="src string:${portal_url}/++resource++telephone.gif" />
                        <span tal:replace="heb/proprio/pro_tel_priv" /><br />
                        <img src="" tal:attributes="src string:${portal_url}/++resource++fax.gif" />
