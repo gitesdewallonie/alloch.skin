@@ -65,6 +65,19 @@
                 </tal:if>
                 <span tal:condition="heb/grouped">
                     <span tal:define="room1 python: heb.rooms[0]">
+                        <div class="photo-heb">
+                            <a href="" class="heb-detail-link" title="Details of this accomodation"
+                               tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
+                               i18n:attributes="title details_of_this_heb">
+                                <h2>
+                                    <img src="" border="0" tal:attributes="src string:${portal_url}/photos_heb/${room1/getVignette}" />
+                                    <span tal:replace="repeat/heb/number" />.&nbsp;
+                                    <span tal:replace="python: room1.type.getTitle(lang)" />
+                                    <span tal:replace="room1/heb_nom" />
+                                    &rarr;&nbsp;(<span tal:content="string:${room1/heb_cgt_cap_min}/${room1/heb_cgt_cap_max}" />)
+                                </h2>
+                            </a>  
+                        </div>
                         
                     </span>
                 </span>
