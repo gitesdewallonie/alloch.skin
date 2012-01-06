@@ -324,10 +324,43 @@ clear:both;
 
 
 /*** LISTING HEBERGEMENT ***/
+#containeur-listing-chambre{
+width:90%;
+margin:10px auto 10px auto;
+border:1px solid #ccc;
+border-radius:12px;
+box-shadow:4px 4px 4px rgba(0,0,0,0.5);
+padding-top:20px;
+}
+
+ 
 .nom-heb-listing{
-width:600px;
-padding-left:1.2em;
-line-height:2em;
+background:rgba(255, 208, 125, 0.7);/*Background color to header*/
+background: -moz-linear-gradient(top, red, FFFFFF);
+/*from to colors, I have used simple name it can be replaced by color codes*/
+background: -webkit-gradient(linear, left top, left bottom, from(red), to(white));
+padding:10px 5px 10px 1.2em;
+margin-left: -20px;
+margin-top: 0;
+position: relative;
+width: 70%;
+/*from droping box shadow at the bottom of header*/
+-moz-box-shadow: 1px 1px 3px #292929;
+-webkit-box-shadow: 1px 1px 3px #292929;
+box-shadow: 1px 1px 3px #292929;
+color: #454545;
+text-shadow: 0 1px 0 white;
+}
+
+/*bord replie de la banner*/
+.arrow {
+width: 0; height: 0;
+line-height: 0;
+border-left: 20px solid transparent;
+border-top: 10px solid #c8c8c8;
+top: 104%;
+left: 0;
+position: absolute;
 }
 
 .photo-heb{
