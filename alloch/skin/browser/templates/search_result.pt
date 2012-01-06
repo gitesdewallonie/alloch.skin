@@ -43,15 +43,17 @@
             <div id="containeur-chambre" 
                  tal:repeat="heb hebs">
                 <tal:if tal:condition="not: heb/grouped">
+                    <h2 class="nom-heb-listing">
+                        <span tal:replace="repeat/heb/number" />.&nbsp;
+                        <span tal:content="heb/heb_nom"
+                              class="nom-chambre" />  
+                    </h2>
                     <div class="photo-heb">
-                        <a href="" class="heb-detail-link" title="Details of this accomodation"
+                        <a href=""
+                           class="heb-detail-link"
+                           title="Details of this accomodation"
                            tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
                            i18n:attributes="title details_of_this_heb">
-                            <h2>
-                                <span tal:replace="repeat/heb/number" />.&nbsp;
-                                <span tal:content="heb/heb_nom"
-                                      class="nom-chambre" />
-                            </h2>
                             <img src=""
                                  border="0"
                                  tal:attributes="src string:${portal_url}/photos_heb/${heb/getVignette}" />
@@ -73,15 +75,17 @@
                 </tal:if>
                 <tal:else tal:condition="heb/grouped">
                     <span tal:define="room1 python: heb.rooms[0]">
+                        <h2 class="nom-heb-listing">
+                            <span tal:replace="repeat/heb/number" />.&nbsp;
+                            <span tal:content="room1/heb_nom"
+                                  class="nom-chambre" />
+                        </h2>
                         <div class="photo-heb">
-                            <a href="" class="heb-detail-link" title="Details of this accomodation"
+                            <a href=""
+                               class="heb-detail-link"
+                               title="Details of this accomodation"
                                tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
                                i18n:attributes="title details_of_this_heb">
-                                <h2>
-                                    <span tal:replace="repeat/heb/number" />.&nbsp;
-                                    <span tal:content="room1/heb_nom"
-                                          class="nom-chambre" />
-                                </h2>
                             </a>
                             <img src=""
                                  border="0"

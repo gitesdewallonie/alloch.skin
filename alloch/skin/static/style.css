@@ -324,6 +324,12 @@ clear:both;
 
 
 /*** LISTING HEBERGEMENT ***/
+.nom-heb-listing{
+width:600px;
+padding-left:1.2em;
+line-height:2em;
+}
+
 .photo-heb{
 width:350px;
 float:left;
