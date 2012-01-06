@@ -331,13 +331,15 @@ clear:both;
 
 /*** LISTING HEBERGEMENT ***/
 .photo-heb{
-width:360px;
+width:350px;
 float:left;
+padding:6px;
 }
 
 .description-heb{
 width:475px;
 float:right;
+padding:6px;
 }
  
 
