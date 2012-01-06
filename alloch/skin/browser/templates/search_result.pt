@@ -57,17 +57,18 @@
                                  tal:attributes="src string:${portal_url}/photos_heb/${heb/getVignette}" />
                         </a>
                         <br />
-                        &rarr;&nbsp;(<span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />)
-                        <!--
-                        <br />
-                        <span class="discreet"><span tal:replace="python: heb.type.getTitle(lang)" /></span>
-                        -->
+                        
+                        
                     </div>
                     <div class="description-heb">
-                        Distance : <span tal:replace="heb/distance" /> km
+                        <p>
+                        <span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" /> pers.
                         <br />
+                        Distance : <span tal:replace="heb/distance" /> km
+                        </p>
+                        <p>
                         <span tal:replace="python: heb.getDescription(lang)" />
-                        <br /><br />
+                        </p>
                     </div>
                 </tal:if>
                 <tal:else tal:condition="heb/grouped">
@@ -82,14 +83,15 @@
                                           class="nom-chambre" />
                                 </h2>
                             </a>
-                            <img src="" border="0" tal:attributes="src string:${portal_url}/photos_heb/${room1/getVignette}" />
+                            <img src=""
+                                 border="0"
+                                 tal:attributes="src string:${portal_url}/photos_heb/${room1/getVignette}" />
                             <br />
-                            &rarr;&nbsp;(<span tal:content="string:${room1/heb_cgt_cap_min}/${room1/heb_cgt_cap_max}" />)
-                            <br />
-                        <span class="discreet"><span tal:replace="python: heb.type.getTitle(lang)" /></span>
                         </div>
                         <div class="description-heb">
                             <p>
+                            <span tal:content="string:${room1/heb_cgt_cap_min}/${room1/heb_cgt_cap_max}" /> pers.
+                            <br />
                             Distance : <span tal:replace="heb/distance" /> km
                             </p>
                             <p>
