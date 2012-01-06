@@ -328,6 +328,17 @@ float:right;
 clear:both;
 }
 
+
+/*** LISTING HEBERGEMENT ***/
+.photo-heb{
+width:360px;
+float-:left;
+}
+
+.description-heb{
+width:500px;
+float:right;
+}
  
 
 
