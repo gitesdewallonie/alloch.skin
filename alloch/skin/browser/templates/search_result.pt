@@ -37,11 +37,11 @@
 
     <h1 i18n:translate="search_results_title">Résultats de la recherche</h1>
     <p>&nbsp;</p>
-    <div id="containeur-chambre" 
-         tal:define="hebs view/getSearchResults">
+    <div tal:define="hebs view/getSearchResults">
         <div tal:define="lang request/LANGUAGE | en"
              tal:condition="hebs">
-            <div tal:repeat="heb hebs">
+            <div id="containeur-chambre" 
+                 tal:repeat="heb hebs">
                 <tal:if tal:condition="not: heb/grouped">
                     <div class="photo-heb">
                         <a href="" class="heb-detail-link" title="Details of this accomodation"
@@ -92,8 +92,8 @@
                         </div>
                     </span>
                 </tal:else>
+                <div class="break-float"></div>
             </div>
-            <div class="break-float"></div>
         </div>
         <div tal:condition="not: hebs"
              i18n:translate="no_results">
