@@ -58,8 +58,10 @@
                         </a>
                         <br />
                         &rarr;&nbsp;(<span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />)
+                        <!--
                         <br />
                         <span class="discreet"><span tal:replace="python: heb.type.getTitle(lang)" /></span>
+                        -->
                     </div>
                     <div class="description-heb">
                         Distance : <span tal:replace="heb/distance" /> km
@@ -87,16 +89,20 @@
                         <span class="discreet"><span tal:replace="python: heb.type.getTitle(lang)" /></span>
                         </div>
                         <div class="description-heb">
+                            <p>
                             Distance : <span tal:replace="heb/distance" /> km
-                            <br />
+                            </p>
+                            <p>
                             <span tal:replace="python: room1.getDescription(lang)"></span>
-                            <br />
-                            <a href="" class="heb-group-link" title="Rooms of this accomodation"
-                               tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
-                               i18n:attributes="title rooms_of_this_heb">
-                               &rarr; <span tal:content="python: len(heb.rooms)-1" /> other room(s)
-                            </a>
-                            <br /><br />
+                            </p>
+                            <div class="autre-chambre">
+                                <a href=""
+                                   title="Rooms of this accomodation"
+                                   tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
+                                   i18n:attributes="title rooms_of_this_heb">
+                                   &rarr; <span tal:content="python: len(heb.rooms)-1" /> other room(s)
+                                </a>
+                            </div>
                         </div>
                     </span>
                 </tal:else>
