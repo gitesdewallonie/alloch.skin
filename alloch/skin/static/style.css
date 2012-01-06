@@ -341,9 +341,10 @@ background: -moz-linear-gradient(top, red, FFFFFF);
 background: -webkit-gradient(linear, left top, left bottom, from(red), to(white));
 padding:10px 5px 10px 1.2em;
 margin-left: -20px;
-margin-top: 0;
-position: relative;
-width: 70%;
+margin-top:0;
+margin-bottom:5px;
+position:relative;
+width:70%;
 /*from droping box shadow at the bottom of header*/
 -moz-box-shadow: 1px 1px 3px #292929;
 -webkit-box-shadow: 1px 1px 3px #292929;
