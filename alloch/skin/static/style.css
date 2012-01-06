@@ -333,11 +333,13 @@ clear:both;
 .photo-heb{
 width:360px;
 float-:left;
+border:1px solid #000;
 }
 
 .description-heb{
-width:500px;
+width:475px;
 float:right;
+border:1px solid #F00;
 }
  
 
