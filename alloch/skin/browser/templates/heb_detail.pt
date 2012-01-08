@@ -18,6 +18,18 @@
      tal:define="heb view/getHebergement">
 
    <div id="header">
+        <div id="social-zone">
+            <div id="facebook">
+                <a href="#" title="Facebook"></a>
+            </div>
+            <div id="twitter">
+                <a href="#" title="Twitter"></a>
+            </div>
+            <div id="google">
+                <a href="#" title="Google+"></a>
+            </div>
+        </div><!--social-zone-->
+
         <div id="header_map">
             <div id="map">
             </div>
@@ -30,14 +42,16 @@
          //     subtype: 'ajax',
          //     filter: '#content > *'
          //     });
+         // jq('a.contact-form').prepOverlay({
+         //     subtype: 'ajax',
+         //     filter: '#content > *'
+         //     });
           load();  // loads map
         });
     </script>
 
-    
-
     <div id="btn-back"><a class="back-link" href="javascript:history.back()">&larr; Retour</a></div>
-
+    
     <div id ="containeur-chambre"
          tal:define="lang request/LANGUAGE | en">
         
@@ -125,6 +139,8 @@
                        <span tal:replace="heb/proprio/pro_gsm1" /><br />
                        <img src="" tal:attributes="src string:${portal_url}/++resource++email.gif" />
                        <span tal:replace="heb/proprio/pro_email" /><br>
+                       <a class="contact-form" href=""
+                          tal:attributes="href string:${portal_url}/contact_proprio?heb_pk=${heb/heb_pk}">Contactez le propriétaire</a><br />
                        <span tal:condition="python: heb.proprio.pro_url!=''">
                           <img src="" tal:attributes="src string:${portal_url}/++resource++lien.gif" />
                           <a href=""

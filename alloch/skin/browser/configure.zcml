@@ -37,6 +37,22 @@
 
   <browser:page
       for="*"
+      name="contact_proprio"
+      class=".SendMail.SendMail"
+      permission="zope.Public"
+      template="templates/contact_proprio.pt"
+      />
+
+  <browser:page
+      for="*"
+      name="sendMailToProprio"
+      class=".SendMail.SendMail"
+      permission="zope.Public"
+      attribute="sendMailToProprio"
+      />
+
+  <browser:page
+      for="*"
       name="getMobileClosestHebs"
       attribute="getMobileClosestHebs"
       class=".search.SearchHebergements"

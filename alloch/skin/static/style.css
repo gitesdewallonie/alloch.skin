@@ -112,6 +112,8 @@ height:394px;
 background-repeat:no-repeat;
 margin:auto;
 border:1px solid gray;
+position:relative;
+top:-35px;
 }
 
 #map{
@@ -489,3 +491,13 @@ float:left;
 margin:2px;
 text-align:center;
 }  
+
+.contact-proprio input, .contact-proprio textarea, .contact-proprio select {
+border: 1px solid #C3975E;
+margin-top: 4px;
+margin-bottom: 8px;
+}
+
+.fieldRequired {
+color:#FF0000;
+}

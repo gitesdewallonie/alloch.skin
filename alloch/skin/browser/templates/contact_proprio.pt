@@ -1,0 +1,256 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="alloch">
+
+<head>
+   <script src="validate_forms.js" 
+           type="text/javascript"></script>
+</head>
+
+<body>
+
+<div metal:fill-slot="main">
+
+<h1 i18n:translate="contactez_le_proprietaire">
+Contactez le propriétaire
+</h1>
+
+<div align="center">
+      
+<form action="sendMailToProprio"
+      onsubmit="return validate(this);"
+      class="contact-proprio"
+      method="post">
+    <table width="95%" border="0"
+           tal:define="captchaView nocall:context/@@captcha">
+        <tr>
+           <td>
+               <label for="contactCivilite" i18n:translate="civilite">Civilité</label>
+           </td>
+           <td>
+              <select name="contactCivilite">
+                 <option>...</option>
+                 <option i18n:translate="madame"> Madame</option>
+                 <option i18n:translate="monsieur"> Monsieur</option>
+              </select>
+           </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="fieldRequired" 
+                      title="Required"
+                      i18n:attributes="title title_required;"
+                      i18n:translate="label_required">(Required)</span>
+                <label for="contactNom" i18n:translate="nom">Nom</label>
+            </td>
+            <td>
+                <input type="text"
+                       name="contactNom"
+                       size="30"
+                       class="required"
+                       value=""
+                       tal:attributes="value request/contactNom | nothing"
+                       />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="fieldRequired" 
+                      title="Required"
+                      i18n:attributes="title title_required;"
+                      i18n:translate="label_required">(Required)</span>
+                <label for="contactPrenom" i18n:translate="prenom">Prénom</label>
+            </td>
+            <td>
+                <input type="text"
+                       name="contactPrenom"
+                       size="30"
+                       class="required"
+                       value="" 
+                       tal:attributes="value request/contactPrenom | nothing"
+                       />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="contactAdresse" i18n:translate="adresse">Adresse</label>
+            </td>
+            <td>
+                <input type="text"
+                       name="contactAdresse"
+                       size="30"
+                       value=""
+                       tal:attributes="value request/contactAdresse | nothing"
+                       />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="contactCp" i18n:translate="code_postal">Code postal</label>
+            </td>
+            <td>
+                <input type="text"
+                       name="contactCp"
+                       size="7"
+                       value=""
+                       tal:attributes="value request/contactCp | nothing"
+                       />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="contactLocalite" i18n:translate="localite">Localité</label>
+            </td>
+            <td>
+                <input type="text"
+                       name="contactLocalite"
+                       size="30"
+                       value=""
+                       tal:attributes="value request/contactLocalite | nothing"
+                       />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="contactPays" i18n:translate="pays">Pays</label>
+            </td>
+            <td>
+                <input type="text"
+                       name="contactPays"
+                       size="30"
+                       value=""
+                       tal:attributes="value request/contactPays | nothing"
+                       />
+            </td>
+        </tr>
+        <tr>
+           <td>
+               <label for="contactLangue" i18n:translate="langue">Langue</label>
+           </td>
+           <td>
+              <select name="contactLangue">
+                 <option>...</option>
+                 <option i18n:translate="francais"> Français</option>
+                 <option i18n:translate="neerlandais"> Néerlandais</option>
+                 <option i18n:translate="anglais"> Anglais</option>
+              </select>
+          </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="contactTelephone" i18n:translate="telephone">Téléphone</label>
+            </td>
+            <td>
+                <input type="text"
+                       name="contactTelephone"
+                       value=""
+                       tal:attributes="value request/contactTelephone | nothing"
+                       />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="contactFax" i18n:translate="fax">Fax</label>
+            </td>
+            <td>
+                <input type="text"
+                       name="contactFax"
+                       value=""
+                       tal:attributes="value request/contactFax | nothing"
+                       />
+            </td>
+        </tr>
+               
+        <tr class="field">
+            <td>
+                <span class="fieldRequired" 
+                      title="Required"
+                      i18n:attributes="title title_required;"
+                      i18n:translate="label_required">(Required)</span>
+                <label for="contactEmail"  i18n:translate="email">E-mail</label>
+            </td>
+            <td>  
+                <input type="text"
+                       id="contactEmail"
+                       name="contactEmail"
+                       size="30"
+                       class="email required"
+                       value=""
+                       tal:attributes="value request/contactEmail | nothing"
+                       />
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <label for="nombrePersonne" i18n:translate="nombre_personnes">Nombre de personnes</label>
+            </td>
+            <td>
+               <input type="text"
+                      name="nombrePersonne"
+                      size="4"
+                      value=""
+                      tal:attributes="value request/nombrePersonne | nothing"
+                      />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="remarque" i18n:translate="remarques">Remarques</label>
+            </td>
+            <td>
+                <textarea name="remarque"
+                          value=""
+                          tal:attributes="value request/remarque | nothing"
+                          ><span tal:replace="request/remarque | nothing"/></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span class="fieldRequired" 
+                      title="Required"
+                      i18n:attributes="title title_required;"
+                      i18n:translate="label_required">(Required)</span>
+                <label for="captcha" i18n:translate="help_captcha">
+                    Enter the exact word in the image.<br/>
+                    This is used to fight robots. 
+                </label>
+            </td>
+            <td>
+                <div class="error"
+                     tal:condition="request/captcha | nothing"
+                     i18n:translate="invalid_captcha">
+                    Invalid captcha
+                </div>
+                <span tal:replace="structure captchaView/image_tag" /> <br />
+                <input type="text" 
+                       class="required"
+                       name="captcha"
+                       value=""
+                       /> 
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                <br />
+                <input type="hidden"
+                       name="heb_pk"
+                       value=""
+                       tal:attributes="value request/heb_pk">
+                <input type="submit"
+                       i18n:attributes="value envoyer_demande;"
+                       value="Envoyer votre demande" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+</div>
+
+</div><!--div metal-->
+</body>
+</html>

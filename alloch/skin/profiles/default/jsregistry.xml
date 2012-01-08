@@ -5,4 +5,8 @@
     enabled="True" expression=""
     id="++theme++alloch.skin/maps.js" inline="False"/>
 
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression=""
+    id="++theme++alloch.skin/validate.js" inline="False"/>
+
 </object>

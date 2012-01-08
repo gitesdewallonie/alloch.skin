@@ -28,6 +28,7 @@ setup(name='alloch.skin',
           'plone.app.theming',
           'plone.memoize',
           'collective.js.jqueryui',
+          'collective.captcha',
           'simplejson',
           'pygeocoder',
           # -*- Extra requirements: -*-

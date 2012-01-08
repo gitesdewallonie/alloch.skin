@@ -17,11 +17,16 @@
     <copy attributes="class dir id" css:theme="body" css:content="body" />
     <drop content="/html/head/title" />
 
+    <replace css:content=".portalMessage" css:theme="#portal-messages" css:if-content=".portalMessage" />
+
     <replace css:content-children="#content" css:theme-children="#content" />
+
+    <replace css:content-children="#portal-logo" css:theme-children="#portal-logo" />
+
+    <replace css:content-children="#portal-languageselector" css:theme-children="#selecteur-langue" />
 
     <rules css:if-content="#header">
         <drop css:theme="#header" />
-        <!-- <replace css:content="#header" css:theme="#header" /> -->
     </rules>
 
 </rules>

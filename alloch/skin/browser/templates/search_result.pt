@@ -17,6 +17,18 @@
      i18n:domain="alloch">
 
     <div id="header">
+        <div id="social-zone">
+            <div id="facebook">
+                <a href="#" title="Facebook"></a>
+            </div>
+            <div id="twitter">
+                <a href="#" title="Twitter"></a>
+            </div>
+            <div id="google">
+                <a href="#" title="Google+"></a>
+            </div>
+        </div><!--social-zone-->
+
         <div id="header_map">
             <div id="map">
             </div>

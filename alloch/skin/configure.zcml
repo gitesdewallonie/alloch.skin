@@ -6,6 +6,8 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="alloch">
 
+    <include package="collective.captcha" />
+
     <include package=".browser" />
     <i18n:registerTranslations directory="locales" />
 
