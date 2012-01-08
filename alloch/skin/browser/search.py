@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import re
 import simplejson
 from datetime import date
 from operator import attrgetter
@@ -109,7 +110,8 @@ class SearchHebergements(BrowserView):
         form = self.request.form
         address = form.get('address', None)
         if address is not None:
-            if not 'Belgique' in address:
+            pattern = r'[a-z]'
+            if re.search(pattern, address) and not 'Belgique' in address:
                 address = '%s, Belgique' % address
             return self._getGeoSearchLocation(address)
         else:
