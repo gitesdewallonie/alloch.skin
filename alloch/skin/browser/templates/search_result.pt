@@ -45,7 +45,9 @@
         });
     </script>
 
-    <a class="back-link" href="javascript:history.back()">&larr; Retour</a><br />
+    <div id="btn-back"><a class="back-link" href="javascript:history.back()">&larr; Retour</a></div>
+
+    <a href="javascript:this.print();" i18n:domain="plone" i18n:translate="">Print</a>
 
     <h1 i18n:translate="search_results_title">Résultats de la recherche</h1>
     <p>&nbsp;</p>
