@@ -45,14 +45,6 @@
 
   <browser:page
       for="*"
-      name="sendMailToProprio"
-      class=".SendMail.SendMail"
-      permission="zope.Public"
-      attribute="sendMailToProprio"
-      />
-
-  <browser:page
-      for="*"
       name="getMobileClosestHebs"
       attribute="getMobileClosestHebs"
       class=".search.SearchHebergements"

@@ -18,11 +18,14 @@ Contactez le propriétaire
 </h1>
 
 <div align="center">
-      
-<form action="sendMailToProprio"
+
+<form action="contact_proprio"
       onsubmit="return validate(this);"
       class="contact-proprio"
       method="post">
+
+    <input type="hidden" name="submitted" value="1" /> 
+
     <table width="95%" border="0"
            tal:define="captchaView nocall:context/@@captcha">
         <tr>

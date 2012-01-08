@@ -96,7 +96,22 @@ background-image:url(images/logo_google_plus.png);
 background-position:center 4px;
 }
 
+dl.portalMessage {
+border: 1px solid #DDDDDD;
+border-radius: 12px 12px 12px 12px;
+margin-left:20px;
+margin-right:20px;
+background-color:#ACE184;
+font-weight:bold;
+text-align:center;
+padding-top:4px;
+padding-bottom:4px;
+margin-bottom:18px;
+}
 
+.portalMessage dt {
+display:none;
+}
 
 #header{
 width:948px;
@@ -499,5 +514,9 @@ margin-bottom: 8px;
 }
 
 .fieldRequired {
+color:#FF0000;
+}
+
+.error {
 color:#FF0000;
 }

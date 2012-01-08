@@ -4,7 +4,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFDefault.utils import checkEmailAddress
 from Products.CMFDefault.exceptions import EmailAddressInvalid
 from Products.Five import BrowserView
-# from collective.captcha.browser.captcha import Captcha
+from collective.captcha.browser.captcha import Captcha
 
 from alloch.skin.mailer import Mailer
 
@@ -18,16 +18,25 @@ class SendMail(BrowserView):
     Envoi de mail
     """
 
+    def __call__(self, *args, **kw):
+        if self.request.get('submitted', None) is None:
+            return self.render()
+        else:
+            return self.sendMailToProprio()
+
+    def render(self):
+        return super(SendMail, self).__call__()
+
     def sendMailToProprio(self):
         """
         envoi d'un mail au proprio suite a un contact via hebergement description
         """
-        hebPk = self.request.get('heb_pk')
-        # captcha = self.request.get('captcha', '')
-        # captchaView = Captcha(self.context, self.request)
-        # isCorrectCaptcha = captchaView.verify(captcha)
-        # if not isCorrectCaptcha:
-        #     return self()
+        hebPk = self.request.get('heb_pk', None)
+        captcha = self.request.get('captcha', '')
+        captchaView = Captcha(self.context, self.request)
+        isCorrectCaptcha = captchaView.verify(captcha)
+        if not isCorrectCaptcha:
+            return self.render()
 
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
@@ -35,6 +44,7 @@ class SendMail(BrowserView):
         heb = session.query(Hebergement).get(int(hebPk))
         hebNom = heb.heb_nom
         proprioMail = heb.proprio.pro_email
+        # XXX real mail later
         proprioMail = "lasudry@gmail.com"
         if not proprioMail:
             proprioMail = u'info@gitesdewallonie.be'
