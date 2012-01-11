@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alloch\n"
-"POT-Creation-Date: 2011-11-28 04:44+0000\n"
+"POT-Creation-Date: 2012-01-11 15:20+0000\n"
 "Last-Translator: Affinitic <info@affinitic.be>\n"
 "Language-Team: <info@affinitic.be>\n"
 "Language: \n"
@@ -15,32 +15,3 @@ msgstr ""
 "X-Is-Fallback-For: en\n"
 "Domain: alloch\n"
 
-#. Default: "Search"
-#: browser/templates/search_page_view.pt:24
-msgid "action_search"
-msgstr ""
-
-#. Default: "Details of this heb"
-#: browser/templates/search_result.pt:26
-msgid "details_of_this_heb"
-msgstr ""
-
-#. Default: "No results found."
-#: browser/templates/search_result.pt:34
-msgid "no_results"
-msgstr ""
-
-#. Default: "Search results"
-#: browser/templates/search_result.pt:13
-msgid "search_results_title"
-msgstr ""
-
-#. Default: "Search for an available guest room"
-#: browser/templates/search_page_view.pt:18
-msgid "search_title"
-msgstr ""
-
-#. Default: "Your current address or location :"
-#: browser/templates/search_page_view.pt:20
-msgid "your_address"
-msgstr ""

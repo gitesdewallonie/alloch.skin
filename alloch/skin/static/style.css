@@ -33,6 +33,11 @@ float:left;
 margin-top:8px;
 }
 
+#selecteur-langue .currentLanguage a {
+color:#D46F00;
+text-decoration:underline;
+}
+
 #main-title{
 height:120px;
 line-height:110px;

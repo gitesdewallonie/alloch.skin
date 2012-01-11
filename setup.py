@@ -26,6 +26,7 @@ setup(name='alloch.skin',
       install_requires=[
           'setuptools',
           'plone.app.theming',
+          'plone.app.themingplugins',
           'plone.memoize',
           'collective.js.jqueryui',
           'collective.captcha',
