@@ -41,11 +41,6 @@ msgstr ""
 msgid "back"
 msgstr ""
 
-#. Default: "Belgium"
-#: browser/search.py:114
-msgid "belgium"
-msgstr ""
-
 #. Default: "Bunk bed : ${count}"
 #: browser/templates/heb_detail.pt:84
 msgid "bunk_bed"
@@ -270,7 +265,7 @@ msgstr ""
 #. Default: "A la recherche d'une chambre d'hotes pour cette nuit ? Avec Allo chambre d'hotes, trouvez une chambre d'hotes disponible ce soir a proximite de votre destination en Wallonie."
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:6
 msgid "site_introduction"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Smokers allowed"
 #: browser/templates/heb_detail.pt:95

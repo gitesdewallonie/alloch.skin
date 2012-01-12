@@ -41,11 +41,6 @@ msgstr "Dieren toegestaan na aanvraag"
 msgid "back"
 msgstr "&larr; Terug"
 
-#. Default: "Belgium"
-#: browser/search.py:114
-msgid "belgium"
-msgstr "Belgïe"
-
 #. Default: "Bunk bed : ${count}"
 #: browser/templates/heb_detail.pt:84
 msgid "bunk_bed"
@@ -79,17 +74,17 @@ msgstr "Contacteer de eigenaar"
 #. Default: "Details of this accomodation"
 #: browser/templates/rooms_list.pt:61 browser/templates/search_result.pt:70
 msgid "details_of_this_heb"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Developed by"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:68
 msgid "developed_by"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Distance : ${distance} km"
 #: browser/templates/search_result.pt:90
 msgid "distance_km"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Double bed : ${count}"
 #: browser/templates/heb_detail.pt:81
@@ -136,17 +131,17 @@ msgstr "De controlegegevens komen niet overeen met het beeld."
 #. Default: "Itinerary"
 #: browser/templates/heb_detail.pt:116
 msgid "itinerary"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Itinerary to"
 #: browser/templates/heb_detail.pt:121
 msgid "itinerary_to"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "(Required)"
 #: browser/templates/contact_proprio.pt:50
 msgid "label_required"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Langue"
 #: browser/templates/contact_proprio.pt:138
@@ -156,7 +151,7 @@ msgstr "Taal"
 #. Default: "Localisation"
 #: browser/templates/heb_detail.pt:106
 msgid "localisation"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Localite"
 #: browser/templates/contact_proprio.pt:112
@@ -206,7 +201,7 @@ msgstr "Aantal personen"
 #. Default: "&rarr; ${count} other room(s)"
 #: browser/templates/search_result.pt:137
 msgid "other_rooms"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Pays"
 #: browser/templates/contact_proprio.pt:125
@@ -216,7 +211,7 @@ msgstr "Land"
 #. Default: "Pictures"
 #: browser/templates/heb_detail.pt:167
 msgid "pictures"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Prenom"
 #: browser/templates/contact_proprio.pt:72
@@ -237,7 +232,7 @@ msgstr "Opmerking"
 #. Default: "Your request has been sent."
 #: browser/SendMail.py:117
 msgid "request_sent"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Price : ${price} &euro;"
 #: browser/templates/heb_detail.pt:101
@@ -247,7 +242,7 @@ msgstr "Prijs : ${price} &euro;"
 #. Default: "Rooms of this accomodation"
 #: browser/templates/search_result.pt:132
 msgid "rooms_of_this_heb"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Rooms"
 #: browser/templates/rooms_list.pt:55
@@ -262,7 +257,7 @@ msgstr "Resultaten"
 #. Default: "Search for an available guest room"
 #: browser/templates/search_page_view.pt:20
 msgid "search_title"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Single bed : ${count}"
 #: browser/templates/heb_detail.pt:78
@@ -272,7 +267,7 @@ msgstr "Bed 1 persoon : ${count}"
 #. Default: "A la recherche d'une chambre d'hotes pour cette nuit ? Avec Allo chambre d'hotes, trouvez une chambre d'hotes disponible ce soir a proximite de votre destination en Wallonie."
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:6
 msgid "site_introduction"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Smokers allowed"
 #: browser/templates/heb_detail.pt:95
@@ -287,9 +282,9 @@ msgstr "Telefoon"
 #. Default: "Required"
 #: browser/templates/contact_proprio.pt:50
 msgid "title_required"
-msgstr ""
+msgstr "A TRADUIRE"
 
 #. Default: "Your search location"
 #: browser/search.py:168
 msgid "your_search_location"
-msgstr ""
+msgstr "A TRADUIRE"

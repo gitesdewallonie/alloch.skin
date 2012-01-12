@@ -111,8 +111,10 @@ class SearchHebergements(BrowserView):
         address = form.get('address', None)
         if address is not None:
             pattern = r'[a-zA-Z]'
-            belgiumStr = _('belgium', 'Belgium')
-            belgiumStr = self.context.translate(belgiumStr)
+            language = self.request.get('LANGUAGE', 'fr')
+            belgiumStr = (language == 'fr' and 'Belgique') or \
+                         (language == 'en' and 'Belgium') or \
+                         (language == 'nl' and 'Belgïe')
             if re.search(pattern, address) and not belgiumStr in address:
                 address = '%s, %s' % (address, belgiumStr)
             return self._getGeoSearchLocation(address)

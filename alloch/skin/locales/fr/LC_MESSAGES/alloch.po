@@ -41,11 +41,6 @@ msgstr "Animaux autorisés sur demande"
 msgid "back"
 msgstr "&larr; Retour"
 
-#. Default: "Belgium"
-#: browser/search.py:114
-msgid "belgium"
-msgstr "Belgique"
-
 #. Default: "Bunk bed : ${count}"
 #: browser/templates/heb_detail.pt:84
 msgid "bunk_bed"
