@@ -242,7 +242,7 @@ msgstr "Prijs : ${price} &euro;"
 #. Default: "Rooms of this accomodation"
 #: browser/templates/search_result.pt:132
 msgid "rooms_of_this_heb"
-msgstr "A TRADUIRE"
+msgstr "Kamers"
 
 #. Default: "Rooms"
 #: browser/templates/rooms_list.pt:55
@@ -287,4 +287,4 @@ msgstr "A TRADUIRE"
 #. Default: "Your search location"
 #: browser/search.py:168
 msgid "your_search_location"
-msgstr "A TRADUIRE"
+msgstr "Uw zoek"
