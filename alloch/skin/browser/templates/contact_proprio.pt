@@ -13,8 +13,13 @@
 
 <div metal:fill-slot="main">
 
-<h1 i18n:translate="contactez_le_proprietaire">
-Contactez le propriétaire
+<div id="btn-back">
+    <a class="back-link" href="javascript:history.back()"
+       i18n:translate="back">&larr; Back</a>
+</div>
+
+<h1 i18n:translate="contact_owner">
+Contact owner
 </h1>
 
 <div align="center">
@@ -30,7 +35,7 @@ Contactez le propriétaire
            tal:define="captchaView nocall:context/@@captcha">
         <tr>
            <td>
-               <label for="contactCivilite" i18n:translate="civilite">Civilité</label>
+               <label for="contactCivilite" i18n:translate="civilite">Civilite</label>
            </td>
            <td>
               <select name="contactCivilite">
@@ -64,7 +69,7 @@ Contactez le propriétaire
                       title="Required"
                       i18n:attributes="title title_required;"
                       i18n:translate="label_required">(Required)</span>
-                <label for="contactPrenom" i18n:translate="prenom">Prénom</label>
+                <label for="contactPrenom" i18n:translate="prenom">Prenom</label>
             </td>
             <td>
                 <input type="text"
@@ -104,7 +109,7 @@ Contactez le propriétaire
         </tr>
         <tr>
             <td>
-                <label for="contactLocalite" i18n:translate="localite">Localité</label>
+                <label for="contactLocalite" i18n:translate="localite">Localite</label>
             </td>
             <td>
                 <input type="text"
@@ -135,15 +140,15 @@ Contactez le propriétaire
            <td>
               <select name="contactLangue">
                  <option>...</option>
-                 <option i18n:translate="francais"> Français</option>
-                 <option i18n:translate="neerlandais"> Néerlandais</option>
+                 <option i18n:translate="francais"> Francais</option>
+                 <option i18n:translate="neerlandais"> Neerlandais</option>
                  <option i18n:translate="anglais"> Anglais</option>
               </select>
           </td>
         </tr>
         <tr>
             <td>
-                <label for="contactTelephone" i18n:translate="telephone">Téléphone</label>
+                <label for="contactTelephone" i18n:translate="telephone">Telephone</label>
             </td>
             <td>
                 <input type="text"

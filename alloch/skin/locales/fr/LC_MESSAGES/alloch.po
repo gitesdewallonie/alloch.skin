@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alloch\n"
-"POT-Creation-Date: 2012-01-11 15:20+0000\n"
+"POT-Creation-Date: 2012-01-12 05:43+0000\n"
 "Last-Translator: Affinitic <info@affinitic.be>\n"
 "Language-Team: <info@affinitic.be>\n"
 "Language: \n"
@@ -15,3 +15,281 @@ msgstr ""
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 "Domain: alloch\n"
 
+#. Default: "Search"
+#: browser/templates/search_page_view.pt:24
+msgid "action_search"
+msgstr "Rechercher"
+
+#. Default: "Adresse"
+#: browser/templates/contact_proprio.pt:86
+msgid "adresse"
+msgstr "Adresse"
+
+#. Default: "Anglais"
+#: browser/templates/contact_proprio.pt:145
+msgid "anglais"
+msgstr ""
+
+#. Default: "Animals admitted on request"
+#: browser/templates/heb_detail.pt:92
+msgid "animals_allowed"
+msgstr "Animaux autorisés sur demande"
+
+#. Default: "&larr; Back"
+#: browser/templates/contact_proprio.pt:17 browser/templates/heb_detail.pt:54
+#: browser/templates/rooms_list.pt:49
+msgid "back"
+msgstr "&larr; Retour"
+
+#. Default: "Belgium"
+#: browser/search.py:114
+msgid "belgium"
+msgstr "Belgique"
+
+#. Default: "Bunk bed : ${count}"
+#: browser/templates/heb_detail.pt:84
+msgid "bunk_bed"
+msgstr "Lits superposés : ${count}"
+
+#. Default: "Child's bed : ${count}"
+#: browser/templates/heb_detail.pt:87
+msgid "child_bed"
+msgstr "Lits enfant : ${count}"
+
+#. Default: "Civilite"
+#: browser/templates/contact_proprio.pt:38
+msgid "civilite"
+msgstr "Civilité"
+
+#. Default: "Code postal"
+#: browser/templates/contact_proprio.pt:99
+msgid "code_postal"
+msgstr ""
+
+#. Default: "Contact"
+#: browser/templates/heb_detail.pt:126
+msgid "contact"
+msgstr ""
+
+#. Default: "Contact owner"
+#: browser/templates/contact_proprio.pt:21 browser/templates/heb_detail.pt:148
+msgid "contact_owner"
+msgstr "Contactez le propriétaire"
+
+#. Default: "Details of this accomodation"
+#: browser/templates/rooms_list.pt:61 browser/templates/search_result.pt:70
+msgid "details_of_this_heb"
+msgstr "Détails de cette chambre"
+
+#. Default: "Developed by"
+#: static/overrides/plone.app.layout.viewlets.footer.pt:68
+msgid "developed_by"
+msgstr "Développé par"
+
+#. Default: "Distance : ${distance} km"
+#: browser/templates/search_result.pt:90
+msgid "distance_km"
+msgstr ""
+
+#. Default: "Double bed : ${count}"
+#: browser/templates/heb_detail.pt:81
+msgid "double_bed"
+msgstr "Lits 2 personnes : ${count}"
+
+#. Default: "E-mail"
+#: browser/templates/contact_proprio.pt:180
+msgid "email"
+msgstr ""
+
+#. Default: "Envoyer votre demande"
+#: browser/templates/contact_proprio.pt:252
+msgid "envoyer_demande"
+msgstr ""
+
+#. Default: "Fax"
+#: browser/templates/contact_proprio.pt:163
+msgid "fax"
+msgstr ""
+
+#. Default: "Francais"
+#: browser/templates/contact_proprio.pt:143
+msgid "francais"
+msgstr "Français"
+
+#. Default: "Enter the exact word in the image.<br /> This is used to fight robots."
+#: browser/templates/contact_proprio.pt:225
+msgid "help_captcha"
+msgstr ""
+"Recopier exactement le texte présent dans l'image.<br/>Ce procédé est "
+"utilisé pour éviter les demandes automatiques."
+
+#. Default: "Infos"
+#: browser/templates/heb_detail.pt:70
+msgid "infos"
+msgstr ""
+
+#. Default: "Invalid captcha"
+#: browser/templates/contact_proprio.pt:231
+msgid "invalid_captcha"
+msgstr "Vous n'avez pas recopié correctement le texte de l'image."
+
+#. Default: "Itinerary"
+#: browser/templates/heb_detail.pt:116
+msgid "itinerary"
+msgstr "Itinéraire"
+
+#. Default: "Itinerary to"
+#: browser/templates/heb_detail.pt:121
+msgid "itinerary_to"
+msgstr "Itinéraire jusqu'à"
+
+#. Default: "(Required)"
+#: browser/templates/contact_proprio.pt:50
+msgid "label_required"
+msgstr "(Requis)"
+
+#. Default: "Langue"
+#: browser/templates/contact_proprio.pt:138
+msgid "langue"
+msgstr ""
+
+#. Default: "Localisation"
+#: browser/templates/heb_detail.pt:106
+msgid "localisation"
+msgstr ""
+
+#. Default: "Localite"
+#: browser/templates/contact_proprio.pt:112
+msgid "localite"
+msgstr "Localité"
+
+#. Default: "Madame"
+#: browser/templates/contact_proprio.pt:43
+msgid "madame"
+msgstr ""
+
+#. Default: "Monsieur"
+#: browser/templates/contact_proprio.pt:44
+msgid "monsieur"
+msgstr ""
+
+#. Default: "${count} pers."
+#: browser/templates/search_result.pt:86
+msgid "nb_capacity"
+msgstr ""
+
+#. Default: "Neerlandais"
+#: browser/templates/contact_proprio.pt:144
+msgid "neerlandais"
+msgstr "Néerlandais"
+
+#. Default: "No results found."
+#: browser/templates/search_result.pt:146
+msgid "no_results"
+msgstr "Aucun résultat n'a été trouvé."
+
+#. Default: "No rooms found."
+#: browser/templates/rooms_list.pt:77
+msgid "no_rooms"
+msgstr "Aucune chambre n'a été trouvée."
+
+#. Default: "Nom"
+#: browser/templates/contact_proprio.pt:54
+msgid "nom"
+msgstr ""
+
+#. Default: "Nombre de personnes"
+#: browser/templates/contact_proprio.pt:196
+msgid "nombre_personnes"
+msgstr ""
+
+#. Default: "&rarr; ${count} other room(s)"
+#: browser/templates/search_result.pt:137
+msgid "other_rooms"
+msgstr "&rarr; ${count} autre(s) chambre(s)"
+
+#. Default: "Pays"
+#: browser/templates/contact_proprio.pt:125
+msgid "pays"
+msgstr ""
+
+#. Default: "Pictures"
+#: browser/templates/heb_detail.pt:167
+msgid "pictures"
+msgstr "Photos"
+
+#. Default: "Prenom"
+#: browser/templates/contact_proprio.pt:72
+msgid "prenom"
+msgstr "Prénom"
+
+#. Default: "Print"
+#: browser/templates/heb_detail.pt:58 browser/templates/rooms_list.pt:53
+#: browser/templates/search_result.pt:53
+msgid "print"
+msgstr "Imprimer"
+
+#. Default: "Remarques"
+#: browser/templates/contact_proprio.pt:209
+msgid "remarques"
+msgstr ""
+
+#. Default: "Your request has been sent."
+#: browser/SendMail.py:117
+msgid "request_sent"
+msgstr "Votre demande a bien été envoyée"
+
+#. Default: "Price : ${price} &euro;"
+#: browser/templates/heb_detail.pt:101
+msgid "room_price"
+msgstr "Tarif : ${price} &euro;"
+
+#. Default: "Rooms of this accomodation"
+#: browser/templates/search_result.pt:132
+msgid "rooms_of_this_heb"
+msgstr "Chambres"
+
+#. Default: "Rooms"
+#: browser/templates/rooms_list.pt:55
+msgid "rooms_title"
+msgstr "Chambres"
+
+#. Default: "Search results"
+#: browser/templates/search_result.pt:55
+msgid "search_results_title"
+msgstr "Résultats de votre recherche"
+
+#. Default: "Search for an available guest room"
+#: browser/templates/search_page_view.pt:20
+msgid "search_title"
+msgstr "Recherchez une chambre d'hôtes disponible"
+
+#. Default: "Single bed : ${count}"
+#: browser/templates/heb_detail.pt:78
+msgid "single_bed"
+msgstr "Lits 1 personne : ${count}"
+
+#. Default: "A la recherche d'une chambre d'hotes pour cette nuit ? Avec Allo chambre d'hotes, trouvez une chambre d'hotes disponible ce soir a proximite de votre destination en Wallonie."
+#: static/overrides/plone.app.layout.viewlets.colophon.pt:6
+msgid "site_introduction"
+msgstr "A la recherche d'une chambre d'hôtes pour cette nuit ? Avec Allo chambre d'hôtes, trouvez une chambre d'hôtes disponible ce soir à proximité de votre destination en Wallonie."
+
+#. Default: "Smokers allowed"
+#: browser/templates/heb_detail.pt:95
+msgid "smoking_allowed"
+msgstr "Fumeurs autorisés"
+
+#. Default: "Telephone"
+#: browser/templates/contact_proprio.pt:151
+msgid "telephone"
+msgstr "Téléphone"
+
+#. Default: "Required"
+#: browser/templates/contact_proprio.pt:50
+msgid "title_required"
+msgstr "Requis"
+
+#. Default: "Your search location"
+#: browser/search.py:168
+msgid "your_search_location"
+msgstr "Votre recherche"

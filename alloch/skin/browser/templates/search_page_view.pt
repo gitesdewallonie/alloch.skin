@@ -15,10 +15,12 @@
         </metal:field>
 
         <div id="search-engine"
+             tal:define="lang request/LANGUAGE | fr"
              i18n:domain="alloch">
             <h3 i18n:translate="search_title">Search for an available guest room</h3>
             <form action="search-result" method="get">
-                <input type="text" autocomplete="off" id="address" name="address" class="geocode_autocomplete">
+                <input type="text" autocomplete="off" id="address" name="address"
+                       class="" tal:attributes="class string:geocode_autocomplete_${lang}">
                 <input type="submit" id="search" value="Search"
                        i18n:attributes="value action_search;">
             </form>

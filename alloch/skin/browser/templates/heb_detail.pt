@@ -50,12 +50,15 @@
         });
     </script>
 
-    <div id="btn-back"><a class="back-link" href="javascript:history.back()">&larr; Retour</a></div>
+    <div id="btn-back">
+        <a class="back-link" href="javascript:history.back()"
+           i18n:translate="back">&larr; Back</a>
+    </div>
     
-    <a href="javascript:this.print();" i18n:domain="plone" i18n:translate="">Print</a>
+    <a href="javascript:this.print();" i18n:translate="print">Print</a>
 
     <div id ="containeur-chambre"
-         tal:define="lang request/LANGUAGE | en">
+         tal:define="lang request/LANGUAGE | fr">
         
         <h1><span class="chevron-gris">////</span> <span class="nom-chambre" tal:content="heb/heb_nom" /></h1>
         
@@ -64,38 +67,39 @@
         </div>
 
         <div id="info-chambre">
-             <h3 i18n:translate="rooms">Infos</h3>
+             <h3 i18n:translate="infos">Infos</h3>
              <span tal:replace="structure python: view.getEpis(heb)" />
              <br />
              <span tal:replace="python: heb.type.getTitle(lang)" />
              <br />
              <span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />
             
-             <!--Nombre de chambres : <span tal:content="heb/heb_cgt_nbre_chmbre" />-->
-             <div tal:condition="python: int(heb.heb_lit_1p) > 0">
-                Lit 1 place : <span tal:content="heb/heb_lit_1p" />
+             <div tal:condition="python: int(heb.heb_lit_1p) > 0" i18n:translate="single_bed">
+                Single bed : <span tal:content="heb/heb_lit_1p" i18n:name="count" />
              </div>
-             <div tal:condition="python: int(heb.heb_lit_2p) > 0">
-                Lit 2 places : <span tal:content="heb/heb_lit_2p" />
+             <div tal:condition="python: int(heb.heb_lit_2p) > 0" i18n:translate="double_bed">
+                Double bed : <span tal:content="heb/heb_lit_2p" i18n:name="count" />
              </div>
-             <div tal:condition="python: int(heb.heb_lit_sup) > 0">
-                Lit supplémentaire : <span tal:content="heb/heb_lit_sup" />
+             <div tal:condition="python: int(heb.heb_lit_sup) > 0" i18n:translate="bunk_bed">
+                Bunk bed : <span tal:content="heb/heb_lit_sup" i18n:name="count" />
              </div>
-             <div tal:condition="python: int(heb.heb_lit_enf) > 0">
-                Lit enfant : <span tal:content="heb/heb_lit_enf" />
+             <div tal:condition="python: int(heb.heb_lit_enf) > 0" i18n:translate="child_bed">
+                Child's bed : <span tal:content="heb/heb_lit_enf" i18n:name="count" />
              </div>
              <div id="confort" 
                   tal:condition="python: heb.heb_animal == 'oui' or heb.heb_fumeur == 'oui'">
                   
-                  <div tal:condition="python: heb.heb_animal == 'oui'">
-                      Animaux de compagnie accept&eacute;s
+                  <div tal:condition="python: heb.heb_animal == 'oui'" i18n:translate="animals_allowed">
+                      Animals admitted on request
                   </div>
-                  <div tal:condition="python: heb.heb_fumeur == 'oui'">
-                      Autorisation de fumer
+                  <div tal:condition="python: heb.heb_fumeur == 'oui'" i18n:translate="smoking_allowed">
+                      Smokers allowed
                   </div>
               </div>
               <br /><br />
-              Tarif : <span tal:content="heb/heb_tarif_chmbr_avec_dej_2p" /> &euro;
+              <span i18n:translate="room_price">
+                  Price : <span tal:content="heb/heb_tarif_chmbr_avec_dej_2p" i18n:name="price" /> &euro;
+              </span>
         </div>
     
         <div id="localisation">
@@ -110,16 +114,16 @@
              <div class="itinerary"
                   tal:condition="view/getSearchLocation">
                  <a href="" 
-                    title="Itinéraire"
+                    title="Itinerary"
                     target="_blank"
                     tal:attributes="href python: view.getHebItineraryURL(heb)"
-                    i18n:attributes="title itinerary_link">
-                     <span i18n:translate="itinerary_link">Itinéraire vers</span> <span tal:replace="heb/heb_nom" /></a>
+                    i18n:attributes="title itinerary">
+                     <span i18n:translate="itinerary_to">Itinerary to</span> <span tal:replace="heb/heb_nom" /></a>
              </div>
         </div>
 
         <div id="proprio">
-              <h3 i18n:translate="owner">Contact</h3>
+              <h3 i18n:translate="contact">Contact</h3>
               <table id="info-proprio">
                  <tr>
                     <td>
@@ -142,7 +146,8 @@
                        <img src="" tal:attributes="src string:${portal_url}/++resource++email.gif" />
                        <span tal:replace="heb/proprio/pro_email" /><br>
                        <a class="contact-form" href=""
-                          tal:attributes="href string:${portal_url}/contact_proprio?heb_pk=${heb/heb_pk}">Contactez le propriétaire</a><br />
+                          tal:attributes="href string:${portal_url}/contact_proprio?heb_pk=${heb/heb_pk}"
+                          i18n:translate="contact_owner">Contact owner</a><br />
                        <span tal:condition="python: heb.proprio.pro_url!=''">
                           <img src="" tal:attributes="src string:${portal_url}/++resource++lien.gif" />
                           <a href=""
@@ -159,7 +164,7 @@
     </div><!--description-->
     
     <div id="galerie">
-              <h3 i18n:translate="pictures">Galerie</h3>
+              <h3 i18n:translate="pictures">Pictures</h3>
               <div class="picture"
                    tal:repeat="photo python: view.getPhotosURL(heb.heb_code_gdw)">
                   <img src="" 

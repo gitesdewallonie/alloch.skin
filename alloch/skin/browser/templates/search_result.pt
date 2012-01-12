@@ -45,14 +45,17 @@
         });
     </script>
 
-    <div id="btn-back"><a class="back-link" href="javascript:history.back()">&larr; Retour</a></div>
+    <div id="btn-back">
+        <a class="back-link" href="javascript:history.back()"
+           i18n:translate="back">&larr; Back</a>
+    </div>
 
-    <a href="javascript:this.print();" i18n:domain="plone" i18n:translate="">Print</a>
+    <a href="javascript:this.print();" i18n:translate="print">Print</a>
 
-    <h1 i18n:translate="search_results_title">Résultats de la recherche</h1>
+    <h1 i18n:translate="search_results_title">Search results</h1>
     <p>&nbsp;</p>
     <div tal:define="hebs view/getSearchResults">
-        <div tal:define="lang request/LANGUAGE | en"
+        <div tal:define="lang request/LANGUAGE | fr"
              tal:condition="hebs">
             <div id="containeur-listing-chambre" 
                  tal:repeat="heb hebs">
@@ -79,12 +82,16 @@
                     </div>
                     <div class="description-heb">
                         <p>
-                        <span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" /> pers.
-                        <br />
-                        Distance : <span tal:replace="heb/distance" /> km
+                            <span i18n:translate="nb_capacity">
+                                <span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" i18n:name="count" /> pers.
+                            </span>
+                            <br />
+                            <span i18n:translate="distance_km">
+                                Distance : <span tal:replace="heb/distance" i18n:name="distance" /> km
+                            </span>
                         </p>
                         <p>
-                        <span tal:replace="python: heb.getDescription(lang)" />
+                            <span tal:replace="python: heb.getDescription(lang)" />
                         </p>
                     </div>
                 </tal:if>
@@ -110,19 +117,24 @@
                         </div>
                         <div class="description-heb">
                             <p>
-                            <span tal:content="string:${room1/heb_cgt_cap_min}/${room1/heb_cgt_cap_max}" /> pers.
-                            <br />
-                            Distance : <span tal:replace="heb/distance" /> km
+                                <span i18n:translate="nb_capacity">
+                                    <span tal:content="string:${room1/heb_cgt_cap_min}/${room1/heb_cgt_cap_max}" i18n:name="count" /> pers.
+                                </span>
+                                <br />
+                                <span i18n:translate="distance_km">
+                                    Distance : <span tal:replace="heb/distance" i18n:name="distance" /> km
+                                </span>
                             </p>
                             <p>
-                            <span tal:replace="python: room1.getDescription(lang)"></span>
+                                <span tal:replace="python: room1.getDescription(lang)"></span>
                             </p>
                             <div class="autre-chambre">
                                 <a href=""
                                    title="Rooms of this accomodation"
                                    tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
-                                   i18n:attributes="title rooms_of_this_heb">
-                                   &rarr; <span tal:content="python: len(heb.rooms)-1" /> other room(s)
+                                   i18n:attributes="title rooms_of_this_heb"
+                                   i18n:translate="other_rooms">
+                                   &rarr; <span tal:content="python: len(heb.rooms)-1" i18n:name="count" /> other room(s)
                                 </a>
                             </div>
                         </div>

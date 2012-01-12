@@ -1,0 +1,15 @@
+<div id="portal-colophon"
+     metal:define-macro="colophon"
+     i18n:domain="plone">
+<metal:slot define-slot="colophon" />
+<div class="colophonWrapper">
+    <p id="site-description"
+       i18n:domain="alloch"
+       i18n:translate="site_introduction">
+        A la recherche d'une chambre d'hotes pour cette nuit ?
+        Avec Allo chambre d'hotes, trouvez une chambre d'hotes
+        disponible ce soir a proximite de votre destination
+        en Wallonie.             
+    </p>
+</div>
+</div>

@@ -45,14 +45,17 @@
         });
     </script>
 
-    <div id="btn-back"><a class="back-link" href="javascript:history.back()">&larr; Retour</a></div>
+    <div id="btn-back">
+        <a class="back-link" href="javascript:history.back()"
+           i18n:translate="back">&larr; Back</a>
+    </div>
 
-    <a href="javascript:this.print();" i18n:domain="plone" i18n:translate="">Print</a>
+    <a href="javascript:this.print();" i18n:translate="print">Print</a>
 
     <h1 i18n:translate="rooms_title">Rooms</h1>
     <p>&nbsp;</p>
     <div tal:define="hebs view/getRooms">
-        <div tal:define="lang request/LANGUAGE | en"
+        <div tal:define="lang request/LANGUAGE | fr"
              tal:condition="hebs">
             <div tal:repeat="heb hebs">
                 <a href="" class="heb-detail-link" title="Details of this accomodation"

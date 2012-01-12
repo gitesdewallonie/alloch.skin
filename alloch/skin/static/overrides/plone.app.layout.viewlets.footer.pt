@@ -1,0 +1,80 @@
+<div metal:define-macro="portal_footer"
+     i18n:domain="plone"
+     class="row">
+    <div class="cell width-full position-0">
+
+        <div id="footer" i18n:domain="alloch">
+            <div id="logo-gdw">
+                <a href="http://www.gitesdewallonie.be"
+                   target="_blank">
+                        <img src="++theme++alloch.skin/images/logo_GDW.png"
+                             width="107"
+                             height="107"
+                             alt="Les Gîtes de Wallonie :: allo chambre d'hôtes"
+                             title="Les Gîtes de Wallonie" /></a>
+                    <p class="texte-site-gdw">
+                        Besoin d'une autre formule de sejours ou<br /> 
+                        a la recherche d'autres dates, <a href="http://www.gitesdewallonie.be" target="_blank"><span class="linksgdw">consultez notre site</span></a>. 
+                    </p>
+                    <p>&nbsp;</p>
+                    <p>
+                    &copy; 2012 <b>G&icirc;tes de Wallonie</b> | Tous droits r&eacute;serv&eacute;s
+                    </p>
+            </div>        
+    
+            <div id="partenaire">
+                <div id="logo-tourisme-wallonie">
+                    <a href="http://www.tourismewallonie.be/"
+                       target="_blank"
+                       title="Tourisme en Wallonie">
+                        <img src="++theme++alloch.skin/images/logo_wallonie.png"
+                             alt="Tourisme en Wallonie"
+                             title="Tourisme en Wallonie" />
+                    </a>
+                    <p class="partenaire-info">
+                        avec le soutien du<br />
+                        Commissariat general<br />
+                        au Tourisme de Wallonie
+                    </p>
+                </div>
+                <div id="feder-logo">
+                    <img src="++theme++alloch.skin/images/logo_ue_wallonie.png"
+                         alt="Union europeenne Wallonie"
+                         title="Union europeenne Wallonie" />
+                    <p class="partenaire-info">
+                        <span id="texte-feder">
+                           Fonds europeen agricole<br />
+                           pour le developpement rural<br />
+                           L'Europe investit dans les zones rurales.
+                        </span>
+                    </p>
+                </div>
+                <div id="logo-wallonie-bruxelles-tourisme">
+                    <a href="http://www.wallonietourisme.be/"
+                       target="_blank"
+                       title="Wallonie-Bruxelles tourisme">
+                        <img src="++theme++alloch.skin/images/logo_wallonie_bruxelles_tourisme.png"
+                             alt="Wallonie-Bruxelles tourisme"
+                             title="Wallonie-Bruxelles tourisme" />
+                    </a>
+                    <p class="partenaire-info">
+                        Wallonie-Bruxelles tourisme.
+                    </p>
+                </div>
+                <div class="break-float"></div>            
+            </div><!--partenaire-->
+            <div id="made-by">
+                <div id="affinitic">
+                    <span i18n:translate="developed_by">Developed by</span>
+                    <a href="http://www.affinitic.be" target="_blank">Affinitic</a>
+                </div>
+                <div id="plone">
+                    Propulse par
+                    <a href="http://www.plone.org" target="_blank">Plone</a>
+                </div>
+                <div class="break-float"></div>
+            </div>
+        </div><!--footer-->
+
+    </div>
+</div>

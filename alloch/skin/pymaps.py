@@ -159,10 +159,10 @@ class PyMap:
             js = js + self._mapjs(i)+'\n'
         return js
 
-    def pymapjs(self):
+    def pymapjs(self, language):
         """ Returns complete javacript for rendering map """
         
-        self.js = """\n<script src=\"http://maps.google.com/maps?file=api&amp;v=2&amp;key=%s\" type="text/javascript"></script>
+        self.js = """\n<script src=\"http://maps.google.com/maps?file=api&hl=%s&amp;v=2&amp;key=%s\" type="text/javascript"></script>
         <script type="text/javascript">
         //<![CDATA[
         function load() {
@@ -241,7 +241,7 @@ class PyMap:
         </script>
         
         
-        """ % (self.key, self._buildicons(),self._buildmaps())
+        """ % (language, self.key, self._buildicons(),self._buildmaps())
         return self.js 
     
     

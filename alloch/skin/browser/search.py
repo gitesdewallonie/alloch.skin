@@ -4,7 +4,7 @@ import re
 import simplejson
 from datetime import date
 from operator import attrgetter
-from plone.memoize import view, forever
+from plone.memoize import view
 from z3c.sqlalchemy import getSAWrapper
 from sqlalchemy import and_, exists, func
 from zope.publisher.browser import BrowserView
@@ -111,8 +111,10 @@ class SearchHebergements(BrowserView):
         address = form.get('address', None)
         if address is not None:
             pattern = r'[a-zA-Z]'
-            if re.search(pattern, address) and not 'Belgique' in address:
-                address = '%s, Belgique' % address
+            belgiumStr = _('belgium', 'Belgium')
+            belgiumStr = self.context.translate(belgiumStr)
+            if re.search(pattern, address) and not belgiumStr in address:
+                address = '%s, %s' % (address, belgiumStr)
             return self._getGeoSearchLocation(address)
         else:
             session = self.request.SESSION
@@ -121,14 +123,14 @@ class SearchHebergements(BrowserView):
             else:
                 return None
 
-    @forever.memoize
     def _getGeoSearchLocation(self, address):
         """
         Transform an address into GPS coordinates and name
         """
         gcoder = Geocoder(GOOGLE_API_KEY)
         try:
-            result = gcoder.geocode(address, language='fr', region='be',
+            language = self.request.get('LANGUAGE', 'fr')
+            result = gcoder.geocode(address, language=language, region='be',
                                     bounds=BOUNDS)
         except GeocoderError:
             return None
@@ -163,8 +165,10 @@ class SearchHebergements(BrowserView):
             coordinates = location.coordinates
             map1.center = coordinates
             currentLocation = self._convertToEntities(location.formatted_address)
+            searchLocationTitle = _('your_search_location', 'Your search location')
+            searchLocationTitle = self.context.translate(searchLocationTitle)
             center = [coordinates[0], coordinates[1],
-                      u"<strong>%s</strong><br /><i>&rarr; %s</i>" % (_('Your search location'),
+                      u"<strong>%s</strong><br /><i>&rarr; %s</i>" % (searchLocationTitle,
                                                                       currentLocation),
                       'icon2']
             map1.setpoint(center)
@@ -186,7 +190,8 @@ class SearchHebergements(BrowserView):
         icon2.shadow = "%s/++resource++%s" % (portalUrl, 'location_shadow.png')
         g.addicon(icon2)
         g.key = GOOGLE_API_KEY
-        return g.pymapjs()
+        language = self.request.get('LANGUAGE', 'fr')
+        return g.pymapjs(language)
 
     def useExistingSession(self, session, searchLocation):
         if searchLocation:

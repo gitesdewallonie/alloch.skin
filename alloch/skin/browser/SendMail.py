@@ -6,6 +6,7 @@ from Products.CMFDefault.exceptions import EmailAddressInvalid
 from Products.Five import BrowserView
 from collective.captcha.browser.captcha import Captcha
 
+from alloch.skin import AlloCHMessage as _
 from alloch.skin.mailer import Mailer
 
 LANG_MAP = {'en': 'Anglais',
@@ -113,7 +114,9 @@ Il s'agit de :
         mailer.sendAllMail(mail.encode('utf-8'), plaintext=True)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
-        self.context.plone_utils.addPortalMessage("Votre demande a bien ete envoyee.")
+        message = _("request_sent", "Your request has been sent.")
+        message = self.context.translate(message)
+        self.context.plone_utils.addPortalMessage()
         self.request.response.redirect("%s/heb-detail?hebPk=%s" % (portalUrl,
                                                                    hebPk))
         return ''

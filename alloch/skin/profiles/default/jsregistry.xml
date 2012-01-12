@@ -1,6 +1,21 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
 
+ <javascript cacheable="False" compression="none" cookable="False"
+    enabled="True" expression="python: request.get('LANGUAGE', 'fr') == 'fr'"
+    inline="False"
+    id="http://maps.google.com/maps/api/js?sensor=false&amp;language=fr&amp;region=be" />
+
+ <javascript cacheable="False" compression="none" cookable="False"
+    enabled="True" expression="python: request.get('LANGUAGE', 'fr') == 'en'"
+    inline="False"
+    id="http://maps.google.com/maps/api/js?sensor=false&amp;language=en&amp;region=be" />
+
+ <javascript cacheable="False" compression="none" cookable="False"
+    enabled="True" expression="python: request.get('LANGUAGE', 'fr') == 'nl'"
+    inline="False"
+    id="http://maps.google.com/maps/api/js?sensor=false&amp;language=nl&amp;region=be" />
+
  <javascript cacheable="True" compression="safe" cookable="True"
     enabled="True" expression=""
     id="++theme++alloch.skin/maps.js" inline="False"/>

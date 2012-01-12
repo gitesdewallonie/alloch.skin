@@ -16,7 +16,6 @@ width:980px;
 min-height:720px;
 /*border:1px solid #e1bf84;*/
 background-image:url(images/main_bckg.png);
-background-attachment:fixed;
 background-repeat:repeat-x;
 background-color:#fbfcf6;
 box-shadow:4px 4px 10px rgba(0,0,0,0.5);
