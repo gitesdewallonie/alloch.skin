@@ -96,6 +96,7 @@
                                &rarr; <span tal:content="python: len(heb.rooms)" i18n:name="count" /> available room(s)
                             </a>
                      </div>
+                     <div class="break-float"></div>
                 </tal:if>
                 <tal:else tal:condition="heb/grouped">
                     <span tal:define="room1 python: heb.rooms[0]">
