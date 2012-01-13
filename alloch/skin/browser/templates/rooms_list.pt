@@ -20,7 +20,7 @@
     <div id="header" tal:condition="hebs">
         <div id="social-zone">
             <div id="facebook">
-                <a href="#" title="Facebook"></a>
+                <a href="http://www.facebook.com/GitesdeWallonie" target="_blank" title="Facebook"></a>
             </div>
             <div id="twitter">
                 <a href="#" title="Twitter"></a>

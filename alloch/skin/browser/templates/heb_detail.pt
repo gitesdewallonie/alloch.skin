@@ -9,6 +9,7 @@
 <metal:javascriptslot fill-slot="javascript_head_slot"> 
     <tal:script tal:content="structure view/getHebMap">
     </tal:script>
+    <script type="text/javascript" src="" tal:attributes="src string:${portal_url}/++theme++alloch.skin/jMyCarousel.min.js"></script>
 </metal:javascriptslot>
 
 <body>
@@ -20,7 +21,7 @@
    <div id="header">
         <div id="social-zone">
             <div id="facebook">
-                <a href="#" title="Facebook"></a>
+                <a href="http://www.facebook.com/GitesdeWallonie" target="_blank" title="Facebook"></a>
             </div>
             <div id="twitter">
                 <a href="#" title="Twitter"></a>
@@ -39,6 +40,10 @@
     <script type="text/javascript">
         jQuery(document).ready(function() {
           load();  // loads map
+          jQuery(".jMyCarousel").jMyCarousel({
+            visible: '905px',
+            eltByElt: true
+          });
         });
     </script>
 
@@ -162,10 +167,12 @@
     
     <div id="galerie">
               <h3 i18n:translate="pictures">Pictures</h3>
-              <div class="picture"
-                   tal:repeat="photo python: view.getPhotosURL(heb.heb_code_gdw)">
-                  <img src="" 
-                       tal:attributes="src photo" />
+              <div class="picture jMyCarousel">
+                   <ul>
+                       <li tal:repeat="photo python: view.getPhotosURL(heb.heb_code_gdw)">
+                          <img src="" tal:attributes="src photo" />
+                       </li>
+                   </ul>
               </div>
               <div class="break-float"></div>
         </div>
