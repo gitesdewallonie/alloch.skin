@@ -14,9 +14,10 @@
 <body>
 
 <div metal:fill-slot="main"
+     tal:define="hebs view/getSearchResults"
      i18n:domain="alloch">
 
-    <div id="header">
+    <div id="header" tal:condition="hebs">
         <div id="social-zone">
             <div id="facebook">
                 <a href="#" title="Facebook"></a>
@@ -37,10 +38,6 @@
 
     <script type="text/javascript">
         jQuery(document).ready(function() {
-        //   jq('a.heb-detail-link').prepOverlay({
-        //      subtype: 'ajax',
-        //      filter: '#content > *'
-        //      });
           load();  // loads map
         });
     </script>
@@ -54,7 +51,7 @@
 
     <h1 i18n:translate="search_results_title">Search results</h1>
     <p>&nbsp;</p>
-    <div tal:define="hebs view/getSearchResults">
+    <div>
         <div tal:define="lang request/LANGUAGE | fr"
              tal:condition="hebs">
             <div id="containeur-listing-chambre" 
@@ -77,22 +74,32 @@
                                  tal:attributes="src string:${portal_url}/photos_heb/${heb/getVignette}" />
                         </a>
                         <br />
-                        
-                        
                     </div>
                     <div class="description-heb">
                         <p>
                             <span i18n:translate="nb_capacity">
                                 <span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" i18n:name="count" /> pers.
                             </span>
-                            <br />
+                            <!-- <br />
                             <span i18n:translate="distance_km">
                                 Distance : <span tal:replace="heb/distance" i18n:name="distance" /> km
-                            </span>
+                            </span> -->
                         </p>
                         <p>
                             <span tal:replace="python: heb.getDescription(lang)" />
                         </p>
+                        <p>
+                            <span tal:replace="python: heb.getDistribution(lang)" />
+                        </p>
+                        <div class="autre-chambre">
+                            <a href=""
+                               title="Details of this accomodation"
+                               tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
+                               i18n:attributes="title details_of_this_heb"
+                               i18n:translate="available_rooms">
+                               &rarr; <span tal:content="python: len(heb.rooms)" i18n:name="count" /> available room(s)
+                            </a>
+                        </div>
                     </div>
                 </tal:if>
                 <tal:else tal:condition="heb/grouped">
@@ -120,21 +127,24 @@
                                 <span i18n:translate="nb_capacity">
                                     <span tal:content="string:${room1/heb_cgt_cap_min}/${room1/heb_cgt_cap_max}" i18n:name="count" /> pers.
                                 </span>
-                                <br />
+                                <!-- <br />
                                 <span i18n:translate="distance_km">
                                     Distance : <span tal:replace="heb/distance" i18n:name="distance" /> km
-                                </span>
+                                </span> -->
                             </p>
                             <p>
-                                <span tal:replace="python: room1.getDescription(lang)"></span>
+                                <span tal:replace="python: room1.getDescription(lang)" />
+                            </p>
+                            <p>
+                                <span tal:replace="python: room1.getDistribution(lang)" />
                             </p>
                             <div class="autre-chambre">
                                 <a href=""
                                    title="Rooms of this accomodation"
                                    tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
                                    i18n:attributes="title rooms_of_this_heb"
-                                   i18n:translate="other_rooms">
-                                   &rarr; <span tal:content="python: len(heb.rooms)-1" i18n:name="count" /> other room(s)
+                                   i18n:translate="available_rooms">
+                                   &rarr; <span tal:content="python: len(heb.rooms)" i18n:name="count" /> available room(s)
                                 </a>
                             </div>
                         </div>

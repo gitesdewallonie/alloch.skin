@@ -14,9 +14,10 @@
 <body>
 
 <div metal:fill-slot="main"
+     tal:define="hebs view/getRooms"
      i18n:domain="alloch">
 
-    <div id="header">
+    <div id="header" tal:condition="hebs">
         <div id="social-zone">
             <div id="facebook">
                 <a href="#" title="Facebook"></a>
@@ -37,10 +38,6 @@
 
     <script type="text/javascript">
         jQuery(document).ready(function() {
-        //   jq('a.heb-detail-link').prepOverlay({
-        //      subtype: 'ajax',
-        //      filter: '#content > *'
-        //      });
           load();  // loads map
         });
     </script>
@@ -54,7 +51,7 @@
 
     <h1 i18n:translate="rooms_title">Rooms</h1>
     <p>&nbsp;</p>
-    <div tal:define="hebs view/getRooms">
+    <div>
         <div tal:define="lang request/LANGUAGE | fr"
              tal:condition="hebs">
             <div tal:repeat="heb hebs">
@@ -70,6 +67,8 @@
                     </h2>
                 </a>
                 <span tal:replace="python: heb.getDescription(lang)" />
+                <br />
+                <span tal:replace="python: heb.getDistribution(lang)" />
                 <br /><br />
             </div>
 

@@ -38,14 +38,6 @@
 
     <script type="text/javascript">
         jQuery(document).ready(function() {
-         // jq('a.heb-itinerary-link').prepOverlay({
-         //     subtype: 'ajax',
-         //     filter: '#content > *'
-         //     });
-         // jq('a.contact-form').prepOverlay({
-         //     subtype: 'ajax',
-         //     filter: '#content > *'
-         //     });
           load();  // loads map
         });
     </script>
@@ -63,7 +55,12 @@
         <h1><span class="chevron-gris">////</span> <span class="nom-chambre" tal:content="heb/heb_nom" /></h1>
         
         <div id="info-generale">
-            <span tal:replace="python: heb.getDescription(lang)" />
+            <p>
+                <span tal:replace="python: heb.getDescription(lang)" />
+            </p>
+            <p>
+                <span tal:replace="python: heb.getDistribution(lang)" />
+            </p>
         </div>
 
         <div id="info-chambre">

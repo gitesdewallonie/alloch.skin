@@ -116,7 +116,7 @@ Il s'agit de :
         portalUrl = getToolByName(self.context, 'portal_url')()
         message = _("request_sent", "Your request has been sent.")
         message = self.context.translate(message)
-        self.context.plone_utils.addPortalMessage()
+        self.context.plone_utils.addPortalMessage(message)
         self.request.response.redirect("%s/heb-detail?hebPk=%s" % (portalUrl,
                                                                    hebPk))
         return ''

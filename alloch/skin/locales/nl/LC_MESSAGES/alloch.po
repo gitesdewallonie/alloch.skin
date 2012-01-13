@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alloch\n"
-"POT-Creation-Date: 2012-01-12 05:43+0000\n"
+"POT-Creation-Date: 2012-01-13 10:00+0000\n"
 "Last-Translator: Affinitic <info@affinitic.be>\n"
 "Language-Team: <info@affinitic.be>\n"
 "Language: \n"
@@ -31,23 +31,28 @@ msgid "anglais"
 msgstr "Engels"
 
 #. Default: "Animals admitted on request"
-#: browser/templates/heb_detail.pt:92
+#: browser/templates/heb_detail.pt:89
 msgid "animals_allowed"
 msgstr "Dieren toegestaan na aanvraag"
 
+#. Default: "&rarr; ${count} available room(s)"
+#: browser/templates/search_result.pt:100
+msgid "available_rooms"
+msgstr "A TRADUIRE"
+
 #. Default: "&larr; Back"
-#: browser/templates/contact_proprio.pt:17 browser/templates/heb_detail.pt:54
-#: browser/templates/rooms_list.pt:49
+#: browser/templates/contact_proprio.pt:17 browser/templates/heb_detail.pt:46
+#: browser/templates/rooms_list.pt:45
 msgid "back"
 msgstr "&larr; Terug"
 
 #. Default: "Bunk bed : ${count}"
-#: browser/templates/heb_detail.pt:84
+#: browser/templates/heb_detail.pt:81
 msgid "bunk_bed"
 msgstr "Stapelbed : ${count}"
 
 #. Default: "Child's bed : ${count}"
-#: browser/templates/heb_detail.pt:87
+#: browser/templates/heb_detail.pt:84
 msgid "child_bed"
 msgstr "Kinderbed : ${count}"
 
@@ -62,17 +67,17 @@ msgid "code_postal"
 msgstr "Postcode"
 
 #. Default: "Contact"
-#: browser/templates/heb_detail.pt:126
+#: browser/templates/heb_detail.pt:123
 msgid "contact"
 msgstr "Contacten"
 
 #. Default: "Contact owner"
-#: browser/templates/contact_proprio.pt:21 browser/templates/heb_detail.pt:148
+#: browser/templates/contact_proprio.pt:21 browser/templates/heb_detail.pt:145
 msgid "contact_owner"
 msgstr "Contacteer de eigenaar"
 
 #. Default: "Details of this accomodation"
-#: browser/templates/rooms_list.pt:61 browser/templates/search_result.pt:70
+#: browser/templates/rooms_list.pt:57 browser/templates/search_result.pt:67
 msgid "details_of_this_heb"
 msgstr "A TRADUIRE"
 
@@ -81,13 +86,8 @@ msgstr "A TRADUIRE"
 msgid "developed_by"
 msgstr "A TRADUIRE"
 
-#. Default: "Distance : ${distance} km"
-#: browser/templates/search_result.pt:90
-msgid "distance_km"
-msgstr "A TRADUIRE"
-
 #. Default: "Double bed : ${count}"
-#: browser/templates/heb_detail.pt:81
+#: browser/templates/heb_detail.pt:78
 msgid "double_bed"
 msgstr "Bed 2 personen : ${count}"
 
@@ -119,7 +119,7 @@ msgstr ""
 "dat spammers accounts aanmaken en ongewenste mail versturen."
 
 #. Default: "Infos"
-#: browser/templates/heb_detail.pt:70
+#: browser/templates/heb_detail.pt:67
 msgid "infos"
 msgstr "Informatie"
 
@@ -129,12 +129,12 @@ msgid "invalid_captcha"
 msgstr "De controlegegevens komen niet overeen met het beeld."
 
 #. Default: "Itinerary"
-#: browser/templates/heb_detail.pt:116
+#: browser/templates/heb_detail.pt:113
 msgid "itinerary"
 msgstr "A TRADUIRE"
 
 #. Default: "Itinerary to"
-#: browser/templates/heb_detail.pt:121
+#: browser/templates/heb_detail.pt:118
 msgid "itinerary_to"
 msgstr "A TRADUIRE"
 
@@ -149,7 +149,7 @@ msgid "langue"
 msgstr "Taal"
 
 #. Default: "Localisation"
-#: browser/templates/heb_detail.pt:106
+#: browser/templates/heb_detail.pt:103
 msgid "localisation"
 msgstr "A TRADUIRE"
 
@@ -169,7 +169,7 @@ msgid "monsieur"
 msgstr "Mijnheer"
 
 #. Default: "${count} pers."
-#: browser/templates/search_result.pt:86
+#: browser/templates/search_result.pt:81
 msgid "nb_capacity"
 msgstr ""
 
@@ -179,12 +179,12 @@ msgid "neerlandais"
 msgstr "Nederlands"
 
 #. Default: "No results found."
-#: browser/templates/search_result.pt:146
+#: browser/templates/search_result.pt:156
 msgid "no_results"
 msgstr "Geen resultaat gevonden."
 
 #. Default: "No rooms found."
-#: browser/templates/rooms_list.pt:77
+#: browser/templates/rooms_list.pt:75
 msgid "no_rooms"
 msgstr "Geen kamer gevonden."
 
@@ -198,18 +198,13 @@ msgstr "Naam"
 msgid "nombre_personnes"
 msgstr "Aantal personen"
 
-#. Default: "&rarr; ${count} other room(s)"
-#: browser/templates/search_result.pt:137
-msgid "other_rooms"
-msgstr "A TRADUIRE"
-
 #. Default: "Pays"
 #: browser/templates/contact_proprio.pt:125
 msgid "pays"
 msgstr "Land"
 
 #. Default: "Pictures"
-#: browser/templates/heb_detail.pt:167
+#: browser/templates/heb_detail.pt:164
 msgid "pictures"
 msgstr "A TRADUIRE"
 
@@ -219,8 +214,8 @@ msgid "prenom"
 msgstr "Voornaam"
 
 #. Default: "Print"
-#: browser/templates/heb_detail.pt:58 browser/templates/rooms_list.pt:53
-#: browser/templates/search_result.pt:53
+#: browser/templates/heb_detail.pt:50 browser/templates/rooms_list.pt:49
+#: browser/templates/search_result.pt:50
 msgid "print"
 msgstr ""
 
@@ -235,22 +230,22 @@ msgid "request_sent"
 msgstr "A TRADUIRE"
 
 #. Default: "Price : ${price} &euro;"
-#: browser/templates/heb_detail.pt:101
+#: browser/templates/heb_detail.pt:98
 msgid "room_price"
 msgstr "Prijs : ${price} &euro;"
 
 #. Default: "Rooms of this accomodation"
-#: browser/templates/search_result.pt:132
+#: browser/templates/search_result.pt:142
 msgid "rooms_of_this_heb"
 msgstr "Kamers"
 
 #. Default: "Rooms"
-#: browser/templates/rooms_list.pt:55
+#: browser/templates/rooms_list.pt:51
 msgid "rooms_title"
 msgstr "Kamers"
 
 #. Default: "Search results"
-#: browser/templates/search_result.pt:55
+#: browser/templates/search_result.pt:52
 msgid "search_results_title"
 msgstr "Resultaten"
 
@@ -260,7 +255,7 @@ msgid "search_title"
 msgstr "A TRADUIRE"
 
 #. Default: "Single bed : ${count}"
-#: browser/templates/heb_detail.pt:78
+#: browser/templates/heb_detail.pt:75
 msgid "single_bed"
 msgstr "Bed 1 persoon : ${count}"
 
@@ -270,7 +265,7 @@ msgid "site_introduction"
 msgstr "A TRADUIRE"
 
 #. Default: "Smokers allowed"
-#: browser/templates/heb_detail.pt:95
+#: browser/templates/heb_detail.pt:92
 msgid "smoking_allowed"
 msgstr "Rokers toegelaten"
 
@@ -285,6 +280,9 @@ msgid "title_required"
 msgstr "A TRADUIRE"
 
 #. Default: "Your search location"
-#: browser/search.py:168
+#: browser/search.py:169
 msgid "your_search_location"
 msgstr "Uw zoek"
+
+#~ msgid "distance_km"
+#~ msgstr "A TRADUIRE"

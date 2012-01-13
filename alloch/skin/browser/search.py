@@ -16,9 +16,8 @@ from alloch.skin import AlloCHMessage as _
 
 
 TYPES_HEB = [5, 6, 9]  # chambres d'hôtes : 'CH', 'MH', 'CHECR'
-HEB_PHOTOS_URL = "http://www.gitesdewallonie.be/photos_heb/"
-HEB_THUMBS_URL = "http://www.gitesdewallonie.be/vignettes_heb/"
-# XXX URLS NEED TO BE CHANGED WHEN WE HAVE ALLOCH DOMAIN
+HEB_PHOTOS_URL = "http://www.allochambredhotes.be/photos_heb/"
+HEB_THUMBS_URL = "http://www.allochambredhotes.be/vignettes_heb/"
 GOOGLE_API_KEY = "NO_API_KEY"
 BOUNDS = "49.439557,2.103882|51.110420,6.256714"
 
@@ -181,8 +180,7 @@ class SearchHebergements(BrowserView):
             href = "%s/heb-detail?hebPk=%s" % (portalUrl, heb.heb_pk)
             imageSrc = "%s/vignettes_heb/%s" % (portalUrl, heb.getVignette())
             name = self._convertToEntities(heb.heb_nom)
-            imageSrc = "http://www.gitesdewallonie.be/vignettes_heb/CHECR92094139100.jpg"
-            # XXX google doesn't like server:port for now ...
+            imageSrc = "http://www.allochambredhotes.be/vignettes_heb/CHECR92094139100.jpg"
             tooltip = "<a href='%s'><strong>%s. %s</strong><br /><img src='%s'></a>" % (href, counter, name, imageSrc)
             point = [heb.heb_gps_long, heb.heb_gps_lat, tooltip]
             map1.setpoint(point)
@@ -198,6 +196,7 @@ class SearchHebergements(BrowserView):
     def useExistingSession(self, session, searchLocation):
         if searchLocation:
             if session.has_key('search_location') and \
+               session['search_location'] is not None and \
                session['search_location'].__dict__ == searchLocation.__dict__:
                 return True
             else:
@@ -297,7 +296,7 @@ class SearchHebergements(BrowserView):
         hebDict['type'] = heb.type.getTitle(lang)
         hebDict['latitude'] = heb.heb_gps_lat
         hebDict['longitude'] = heb.heb_gps_long
-        hebDict['distance'] = distance
+        hebDict['distribution'] = heb.getDistribution(lang)
         hebDict['classification'] = [e.heb_nombre_epis for e in heb.epis]
         hebDict['capacity_min'] = int(heb.heb_cgt_cap_min)
         hebDict['capacity_max'] = int(heb.heb_cgt_cap_max)

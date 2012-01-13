@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alloch\n"
-"POT-Creation-Date: 2012-01-12 05:43+0000\n"
+"POT-Creation-Date: 2012-01-13 10:00+0000\n"
 "Last-Translator: Affinitic <info@affinitic.be>\n"
 "Language-Team: <info@affinitic.be>\n"
 "Language: \n"
@@ -31,23 +31,28 @@ msgid "anglais"
 msgstr ""
 
 #. Default: "Animals admitted on request"
-#: browser/templates/heb_detail.pt:92
+#: browser/templates/heb_detail.pt:89
 msgid "animals_allowed"
 msgstr "Animaux autorisés sur demande"
 
+#. Default: "&rarr; ${count} available room(s)"
+#: browser/templates/search_result.pt:100
+msgid "available_rooms"
+msgstr "&rarr; ${count} chambre(s) disponibles(s)"
+
 #. Default: "&larr; Back"
-#: browser/templates/contact_proprio.pt:17 browser/templates/heb_detail.pt:54
-#: browser/templates/rooms_list.pt:49
+#: browser/templates/contact_proprio.pt:17 browser/templates/heb_detail.pt:46
+#: browser/templates/rooms_list.pt:45
 msgid "back"
 msgstr "&larr; Retour"
 
 #. Default: "Bunk bed : ${count}"
-#: browser/templates/heb_detail.pt:84
+#: browser/templates/heb_detail.pt:81
 msgid "bunk_bed"
 msgstr "Lits superposés : ${count}"
 
 #. Default: "Child's bed : ${count}"
-#: browser/templates/heb_detail.pt:87
+#: browser/templates/heb_detail.pt:84
 msgid "child_bed"
 msgstr "Lits enfant : ${count}"
 
@@ -62,17 +67,17 @@ msgid "code_postal"
 msgstr ""
 
 #. Default: "Contact"
-#: browser/templates/heb_detail.pt:126
+#: browser/templates/heb_detail.pt:123
 msgid "contact"
 msgstr ""
 
 #. Default: "Contact owner"
-#: browser/templates/contact_proprio.pt:21 browser/templates/heb_detail.pt:148
+#: browser/templates/contact_proprio.pt:21 browser/templates/heb_detail.pt:145
 msgid "contact_owner"
 msgstr "Contactez le propriétaire"
 
 #. Default: "Details of this accomodation"
-#: browser/templates/rooms_list.pt:61 browser/templates/search_result.pt:70
+#: browser/templates/rooms_list.pt:57 browser/templates/search_result.pt:67
 msgid "details_of_this_heb"
 msgstr "Détails de cette chambre"
 
@@ -81,13 +86,8 @@ msgstr "Détails de cette chambre"
 msgid "developed_by"
 msgstr "Développé par"
 
-#. Default: "Distance : ${distance} km"
-#: browser/templates/search_result.pt:90
-msgid "distance_km"
-msgstr ""
-
 #. Default: "Double bed : ${count}"
-#: browser/templates/heb_detail.pt:81
+#: browser/templates/heb_detail.pt:78
 msgid "double_bed"
 msgstr "Lits 2 personnes : ${count}"
 
@@ -119,7 +119,7 @@ msgstr ""
 "utilisé pour éviter les demandes automatiques."
 
 #. Default: "Infos"
-#: browser/templates/heb_detail.pt:70
+#: browser/templates/heb_detail.pt:67
 msgid "infos"
 msgstr ""
 
@@ -129,12 +129,12 @@ msgid "invalid_captcha"
 msgstr "Vous n'avez pas recopié correctement le texte de l'image."
 
 #. Default: "Itinerary"
-#: browser/templates/heb_detail.pt:116
+#: browser/templates/heb_detail.pt:113
 msgid "itinerary"
 msgstr "Itinéraire"
 
 #. Default: "Itinerary to"
-#: browser/templates/heb_detail.pt:121
+#: browser/templates/heb_detail.pt:118
 msgid "itinerary_to"
 msgstr "Itinéraire jusqu'à"
 
@@ -149,7 +149,7 @@ msgid "langue"
 msgstr ""
 
 #. Default: "Localisation"
-#: browser/templates/heb_detail.pt:106
+#: browser/templates/heb_detail.pt:103
 msgid "localisation"
 msgstr ""
 
@@ -169,7 +169,7 @@ msgid "monsieur"
 msgstr ""
 
 #. Default: "${count} pers."
-#: browser/templates/search_result.pt:86
+#: browser/templates/search_result.pt:81
 msgid "nb_capacity"
 msgstr ""
 
@@ -179,12 +179,12 @@ msgid "neerlandais"
 msgstr "Néerlandais"
 
 #. Default: "No results found."
-#: browser/templates/search_result.pt:146
+#: browser/templates/search_result.pt:156
 msgid "no_results"
 msgstr "Aucun résultat n'a été trouvé."
 
 #. Default: "No rooms found."
-#: browser/templates/rooms_list.pt:77
+#: browser/templates/rooms_list.pt:75
 msgid "no_rooms"
 msgstr "Aucune chambre n'a été trouvée."
 
@@ -198,18 +198,13 @@ msgstr ""
 msgid "nombre_personnes"
 msgstr ""
 
-#. Default: "&rarr; ${count} other room(s)"
-#: browser/templates/search_result.pt:137
-msgid "other_rooms"
-msgstr "&rarr; ${count} autre(s) chambre(s)"
-
 #. Default: "Pays"
 #: browser/templates/contact_proprio.pt:125
 msgid "pays"
 msgstr ""
 
 #. Default: "Pictures"
-#: browser/templates/heb_detail.pt:167
+#: browser/templates/heb_detail.pt:164
 msgid "pictures"
 msgstr "Photos"
 
@@ -219,8 +214,8 @@ msgid "prenom"
 msgstr "Prénom"
 
 #. Default: "Print"
-#: browser/templates/heb_detail.pt:58 browser/templates/rooms_list.pt:53
-#: browser/templates/search_result.pt:53
+#: browser/templates/heb_detail.pt:50 browser/templates/rooms_list.pt:49
+#: browser/templates/search_result.pt:50
 msgid "print"
 msgstr "Imprimer"
 
@@ -235,22 +230,22 @@ msgid "request_sent"
 msgstr "Votre demande a bien été envoyée"
 
 #. Default: "Price : ${price} &euro;"
-#: browser/templates/heb_detail.pt:101
+#: browser/templates/heb_detail.pt:98
 msgid "room_price"
 msgstr "Tarif : ${price} &euro;"
 
 #. Default: "Rooms of this accomodation"
-#: browser/templates/search_result.pt:132
+#: browser/templates/search_result.pt:142
 msgid "rooms_of_this_heb"
 msgstr "Chambres"
 
 #. Default: "Rooms"
-#: browser/templates/rooms_list.pt:55
+#: browser/templates/rooms_list.pt:51
 msgid "rooms_title"
 msgstr "Chambres"
 
 #. Default: "Search results"
-#: browser/templates/search_result.pt:55
+#: browser/templates/search_result.pt:52
 msgid "search_results_title"
 msgstr "Résultats de votre recherche"
 
@@ -260,17 +255,20 @@ msgid "search_title"
 msgstr "Recherchez une chambre d'hôtes disponible"
 
 #. Default: "Single bed : ${count}"
-#: browser/templates/heb_detail.pt:78
+#: browser/templates/heb_detail.pt:75
 msgid "single_bed"
 msgstr "Lits 1 personne : ${count}"
 
 #. Default: "A la recherche d'une chambre d'hotes pour cette nuit ? Avec Allo chambre d'hotes, trouvez une chambre d'hotes disponible ce soir a proximite de votre destination en Wallonie."
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:6
 msgid "site_introduction"
-msgstr "A la recherche d'une chambre d'hôtes pour cette nuit ? Avec Allo chambre d'hôtes, trouvez une chambre d'hôtes disponible ce soir à proximité de votre destination en Wallonie."
+msgstr ""
+"A la recherche d'une chambre d'hôtes pour cette nuit ? Avec Allo chambre "
+"d'hôtes, trouvez une chambre d'hôtes disponible ce soir à proximité de votre "
+"destination en Wallonie."
 
 #. Default: "Smokers allowed"
-#: browser/templates/heb_detail.pt:95
+#: browser/templates/heb_detail.pt:92
 msgid "smoking_allowed"
 msgstr "Fumeurs autorisés"
 
@@ -285,6 +283,6 @@ msgid "title_required"
 msgstr "Requis"
 
 #. Default: "Your search location"
-#: browser/search.py:168
+#: browser/search.py:169
 msgid "your_search_location"
 msgstr "Votre recherche"
