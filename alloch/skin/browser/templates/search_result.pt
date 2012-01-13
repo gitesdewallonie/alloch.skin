@@ -125,7 +125,9 @@
                             <p>
                                 <span tal:replace="python: room1.getDescription(lang)" />
                             </p>
-                            <div class="autre-chambre">
+                        </div>
+                        <div class="break-float"></div>
+                        <div class="autre-chambre">
                                 <a href=""
                                    title="Rooms of this accomodation"
                                    tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
@@ -133,7 +135,6 @@
                                    i18n:translate="available_rooms">
                                    &rarr; <span tal:content="python: len(heb.rooms)" i18n:name="count" /> available room(s)
                                 </a>
-                            </div>
                         </div>
                     </span>
                 </tal:else>

@@ -335,6 +335,7 @@ clear:both;
 /*** LISTING HEBERGEMENT ***/
 #containeur-listing-chambre{
 width:90%;
+height:298px;
 margin:10px auto 10px auto;
 border:1px solid #ccc;
 border-radius:12px;
@@ -389,6 +390,7 @@ padding:6px;
 
 .description-heb{
 width:475px;
+height:190px;
 float:right;
 padding:6px;
 }
@@ -396,7 +398,7 @@ padding:6px;
 .autre-chambre{
 float:right;
 width:220px;
-margin:0px 5px 5px 0px;
+margin:4px 15px 5px 0px;
 border:1px solid #602c00;
 border-radius:12px;
 text-align:center;
