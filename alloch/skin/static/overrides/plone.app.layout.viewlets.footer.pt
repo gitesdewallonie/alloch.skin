@@ -1,5 +1,5 @@
 <div metal:define-macro="portal_footer"
-     i18n:domain="plone"
+     i18n:domain="alloch"
      class="row">
     <div class="cell width-full position-0">
 
@@ -13,12 +13,15 @@
                              alt="Les Gîtes de Wallonie :: allo chambre d'hôtes"
                              title="Les Gîtes de Wallonie" /></a>
                     <p class="texte-site-gdw">
+                        <span i18n:translate="besoin_formule">
                         Besoin d'une autre formule de sejours ou<br /> 
-                        a la recherche d'autres dates, <a href="http://www.gitesdewallonie.be" target="_blank"><span class="linksgdw">consultez notre site</span></a>. 
+                        a la recherche d'autres dates,
+                        </span>
+                        <a href="http://www.gitesdewallonie.be" target="_blank"><span class="linksgdw" i18n:translate="consultez_site">consultez notre site</span></a>. 
                     </p>
                     <p>&nbsp;</p>
                     <p>
-                    &copy; 2012 <b>G&icirc;tes de Wallonie</b> | Tous droits r&eacute;serv&eacute;s
+                    &copy; 2012 <b>F&eacute;d&eacute;ration des G&icirc;tes de Wallonie</b> | Tous droits r&eacute;serv&eacute;s
                     </p>
             </div>        
     
@@ -31,7 +34,7 @@
                              alt="Tourisme en Wallonie"
                              title="Tourisme en Wallonie" />
                     </a>
-                    <p class="partenaire-info">
+                    <p class="partenaire-info" i18n:translate="soutien_commissariat">
                         avec le soutien du<br />
                         Commissariat general<br />
                         au Tourisme de Wallonie
@@ -42,7 +45,7 @@
                          alt="Union europeenne Wallonie"
                          title="Union europeenne Wallonie" />
                     <p class="partenaire-info">
-                        <span id="texte-feder">
+                        <span id="texte-feder" i18n:translate="fonds_europeen">
                            Fonds europeen agricole<br />
                            pour le developpement rural<br />
                            L'Europe investit dans les zones rurales.
@@ -58,7 +61,7 @@
                              title="Wallonie-Bruxelles tourisme" />
                     </a>
                     <p class="partenaire-info">
-                        Wallonie-Bruxelles tourisme.
+                        Wallonie-Bruxelles tourisme
                     </p>
                 </div>
                 <div class="break-float"></div>            
@@ -69,7 +72,7 @@
                     <a href="http://www.affinitic.be" target="_blank">Affinitic</a>
                 </div>
                 <div id="plone">
-                    Propulse par
+                    <span i18n:translate="powered_by">Powered by</span>
                     <a href="http://www.plone.org" target="_blank">Plone</a>
                 </div>
                 <div class="break-float"></div>

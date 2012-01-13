@@ -123,20 +123,13 @@
                             <br />
                         </div>
                         <div class="description-heb">
-                            <p>
-                                <span i18n:translate="nb_capacity">
-                                    <span tal:content="string:${room1/heb_cgt_cap_min}/${room1/heb_cgt_cap_max}" i18n:name="count" /> pers.
-                                </span>
-                                <!-- <br />
+                            <!-- <p>
                                 <span i18n:translate="distance_km">
                                     Distance : <span tal:replace="heb/distance" i18n:name="distance" /> km
-                                </span> -->
-                            </p>
+                                </span>
+                            </p> -->
                             <p>
                                 <span tal:replace="python: room1.getDescription(lang)" />
-                            </p>
-                            <p>
-                                <span tal:replace="python: room1.getDistribution(lang)" />
                             </p>
                             <div class="autre-chambre">
                                 <a href=""

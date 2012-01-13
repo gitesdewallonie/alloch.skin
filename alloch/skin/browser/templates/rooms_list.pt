@@ -66,6 +66,10 @@
                         &rarr;&nbsp;(<span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />)
                     </h2>
                 </a>
+                <span i18n:translate="nb_capacity">
+                    <span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" i18n:name="count" /> pers.
+                </span>
+                <br />
                 <span tal:replace="python: heb.getDescription(lang)" />
                 <br />
                 <span tal:replace="python: heb.getDistribution(lang)" />

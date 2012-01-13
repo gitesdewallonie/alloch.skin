@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-01-13 10:00+0000\n"
+"POT-Creation-Date: 2012-01-13 13:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgid "anglais"
 msgstr ""
 
 #. Default: "Animals admitted on request"
-#: ./browser/templates/heb_detail.pt:89
+#: ./browser/templates/heb_detail.pt:94
 msgid "animals_allowed"
 msgstr ""
 
@@ -44,18 +44,23 @@ msgstr ""
 
 #. Default: "&larr; Back"
 #: ./browser/templates/contact_proprio.pt:17
-#: ./browser/templates/heb_detail.pt:46
-#: ./browser/templates/rooms_list.pt:45
+#: ./browser/templates/heb_detail.pt:51
+#: ./browser/templates/rooms_list.pt:46
 msgid "back"
 msgstr ""
 
+#. Default: "Besoin d'une autre formule de sejours ou<br /> a la recherche d'autres dates,"
+#: ./static/overrides/plone.app.layout.viewlets.footer.pt:16
+msgid "besoin_formule"
+msgstr ""
+
 #. Default: "Bunk bed : ${count}"
-#: ./browser/templates/heb_detail.pt:81
+#: ./browser/templates/heb_detail.pt:86
 msgid "bunk_bed"
 msgstr ""
 
 #. Default: "Child's bed : ${count}"
-#: ./browser/templates/heb_detail.pt:84
+#: ./browser/templates/heb_detail.pt:89
 msgid "child_bed"
 msgstr ""
 
@@ -69,30 +74,35 @@ msgstr ""
 msgid "code_postal"
 msgstr ""
 
+#. Default: "consultez notre site"
+#: ./static/overrides/plone.app.layout.viewlets.footer.pt:20
+msgid "consultez_site"
+msgstr ""
+
 #. Default: "Contact"
-#: ./browser/templates/heb_detail.pt:123
+#: ./browser/templates/heb_detail.pt:128
 msgid "contact"
 msgstr ""
 
 #. Default: "Contact owner"
 #: ./browser/templates/contact_proprio.pt:21
-#: ./browser/templates/heb_detail.pt:145
+#: ./browser/templates/heb_detail.pt:150
 msgid "contact_owner"
 msgstr ""
 
 #. Default: "Details of this accomodation"
-#: ./browser/templates/rooms_list.pt:57
+#: ./browser/templates/rooms_list.pt:58
 #: ./browser/templates/search_result.pt:67
 msgid "details_of_this_heb"
 msgstr ""
 
 #. Default: "Developed by"
-#: ./static/overrides/plone.app.layout.viewlets.footer.pt:68
+#: ./static/overrides/plone.app.layout.viewlets.footer.pt:71
 msgid "developed_by"
 msgstr ""
 
 #. Default: "Double bed : ${count}"
-#: ./browser/templates/heb_detail.pt:78
+#: ./browser/templates/heb_detail.pt:83
 msgid "double_bed"
 msgstr ""
 
@@ -111,6 +121,11 @@ msgstr ""
 msgid "fax"
 msgstr ""
 
+#. Default: "Fonds europeen agricole<br /> pour le developpement rural<br /> L'Europe investit dans les zones rurales."
+#: ./static/overrides/plone.app.layout.viewlets.footer.pt:48
+msgid "fonds_europeen"
+msgstr ""
+
 #. Default: "Francais"
 #: ./browser/templates/contact_proprio.pt:143
 msgid "francais"
@@ -122,7 +137,7 @@ msgid "help_captcha"
 msgstr ""
 
 #. Default: "Infos"
-#: ./browser/templates/heb_detail.pt:67
+#: ./browser/templates/heb_detail.pt:72
 msgid "infos"
 msgstr ""
 
@@ -132,12 +147,12 @@ msgid "invalid_captcha"
 msgstr ""
 
 #. Default: "Itinerary"
-#: ./browser/templates/heb_detail.pt:113
+#: ./browser/templates/heb_detail.pt:118
 msgid "itinerary"
 msgstr ""
 
 #. Default: "Itinerary to"
-#: ./browser/templates/heb_detail.pt:118
+#: ./browser/templates/heb_detail.pt:123
 msgid "itinerary_to"
 msgstr ""
 
@@ -152,7 +167,7 @@ msgid "langue"
 msgstr ""
 
 #. Default: "Localisation"
-#: ./browser/templates/heb_detail.pt:103
+#: ./browser/templates/heb_detail.pt:108
 msgid "localisation"
 msgstr ""
 
@@ -187,7 +202,7 @@ msgid "no_results"
 msgstr ""
 
 #. Default: "No rooms found."
-#: ./browser/templates/rooms_list.pt:75
+#: ./browser/templates/rooms_list.pt:76
 msgid "no_rooms"
 msgstr ""
 
@@ -207,8 +222,13 @@ msgid "pays"
 msgstr ""
 
 #. Default: "Pictures"
-#: ./browser/templates/heb_detail.pt:164
+#: ./browser/templates/heb_detail.pt:169
 msgid "pictures"
+msgstr ""
+
+#. Default: "Powered by"
+#: ./static/overrides/plone.app.layout.viewlets.footer.pt:75
+msgid "powered_by"
 msgstr ""
 
 #. Default: "Prenom"
@@ -217,8 +237,8 @@ msgid "prenom"
 msgstr ""
 
 #. Default: "Print"
-#: ./browser/templates/heb_detail.pt:50
-#: ./browser/templates/rooms_list.pt:49
+#: ./browser/templates/heb_detail.pt:55
+#: ./browser/templates/rooms_list.pt:50
 #: ./browser/templates/search_result.pt:50
 msgid "print"
 msgstr ""
@@ -234,7 +254,7 @@ msgid "request_sent"
 msgstr ""
 
 #. Default: "Price : ${price} &euro;"
-#: ./browser/templates/heb_detail.pt:98
+#: ./browser/templates/heb_detail.pt:103
 msgid "room_price"
 msgstr ""
 
@@ -244,7 +264,7 @@ msgid "rooms_of_this_heb"
 msgstr ""
 
 #. Default: "Rooms"
-#: ./browser/templates/rooms_list.pt:51
+#: ./browser/templates/rooms_list.pt:52
 msgid "rooms_title"
 msgstr ""
 
@@ -259,7 +279,7 @@ msgid "search_title"
 msgstr ""
 
 #. Default: "Single bed : ${count}"
-#: ./browser/templates/heb_detail.pt:75
+#: ./browser/templates/heb_detail.pt:80
 msgid "single_bed"
 msgstr ""
 
@@ -269,8 +289,13 @@ msgid "site_introduction"
 msgstr ""
 
 #. Default: "Smokers allowed"
-#: ./browser/templates/heb_detail.pt:92
+#: ./browser/templates/heb_detail.pt:97
 msgid "smoking_allowed"
+msgstr ""
+
+#. Default: "avec le soutien du<br /> Commissariat general<br /> au Tourisme de Wallonie"
+#: ./static/overrides/plone.app.layout.viewlets.footer.pt:37
+msgid "soutien_commissariat"
 msgstr ""
 
 #. Default: "Telephone"
