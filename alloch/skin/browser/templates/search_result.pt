@@ -85,7 +85,8 @@
                         <p>
                             <span tal:replace="python: heb.getDistribution(lang)" />
                         </p>
-                        <div class="autre-chambre">
+                    </div>
+                    <div class="autre-chambre">
                             <a href=""
                                title="Details of this accomodation"
                                tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
@@ -93,8 +94,7 @@
                                i18n:translate="available_rooms">
                                &rarr; <span tal:content="python: len(heb.rooms)" i18n:name="count" /> available room(s)
                             </a>
-                        </div>
-                    </div>
+                     </div>
                 </tal:if>
                 <tal:else tal:condition="heb/grouped">
                     <span tal:define="room1 python: heb.rooms[0]">
@@ -136,7 +136,6 @@
                                    &rarr; <span tal:content="python: len(heb.rooms)" i18n:name="count" /> available room(s)
                                 </a>
                         </div>
-                        <div class="break-float"></div>
                     </span>
                 </tal:else>
                 <div class="break-float"></div>
