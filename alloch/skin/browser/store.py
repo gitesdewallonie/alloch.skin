@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import re
+from mobile.sniffer.detect import detect_mobile_browser
 from mobile.sniffer.utilities import get_user_agent
 from zope.publisher.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 from alloch.skin import AlloCHMessage as _
 
-_mobilePlatforms = r'android|blackberry|ip(hone|od|ad)|palm|symbian|webos|windows'
+_mobilePlatforms = r'android|blackberry|ip(hone|od|ad)|palm|symbian|webos|windows ce; (iemobile|ppc)'
 _mobilePlatforms = re.compile(_mobilePlatforms, re.IGNORECASE)
 
 
@@ -20,7 +21,8 @@ class Store(BrowserView):
         QR Code points to http://www.allochambredhotes.be/download/
         """
         userAgent = get_user_agent(self.request)
-        if _mobilePlatforms.search(userAgent) is None:
+        if _mobilePlatforms.search(userAgent) is None or \
+           not detect_mobile_browser(userAgent):
             portalUrl = getToolByName(self.context, 'portal_url')()
             message = _("unable_detect_device", "We were unable to detect your device system.")
             message = self.context.translate(message)
