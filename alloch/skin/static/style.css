@@ -65,18 +65,14 @@ left:760px;
 top:-18px;
 }
 
-#facebook,
-#twitter,
-#google{
+#facebook{
 width:40px;
 height:60px;
 float:right;
 margin-left:5px; 
 }
 
-#facebook a,
-#twitter a,
-#google a{
+#facebook a{
 display:block;
 width:40px;
 height:60px;
@@ -87,16 +83,8 @@ background-position:center bottom;
 #facebook a{
 background-image:url(images/logo_facebook.png);
 }
-#twitter a{
-background-image:url(images/logo_twitter.png);
-}
-#google a{
-background-image:url(images/logo_google_plus.png);
-}
 
-#facebook a:hover,
-#twitter a:hover,
-#google a:hover{
+#facebook a:hover{
 background-position:center 4px;
 }
 
