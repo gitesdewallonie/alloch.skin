@@ -136,6 +136,7 @@
                                    &rarr; <span tal:content="python: len(heb.rooms)" i18n:name="count" /> available room(s)
                                 </a>
                         </div>
+                        <div class="break-float"></div>
                     </span>
                 </tal:else>
                 <div class="break-float"></div>
