@@ -345,9 +345,9 @@ padding-top:20px;
  
 .nom-heb-listing{
 background:rgba(255, 208, 125, 0.7);/*Background color to header*/
-background: -moz-linear-gradient(top, red, FFFFFF);
+background: -moz-linear-gradient(top, ffd07d, ffffff);
 /*from to colors, I have used simple name it can be replaced by color codes*/
-background: -webkit-gradient(linear, left top, left bottom, from(red), to(white));
+background: -webkit-gradient(linear, left top, left bottom, from(ffd07d), to(ffffff));
 padding:10px 5px 10px 1.2em;
 margin-left: -20px;
 margin-top:0;
