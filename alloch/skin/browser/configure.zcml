@@ -51,6 +51,14 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="download"
+      class=".store.Store"
+      permission="zope.Public"
+      attribute="redirectQRcode"
+      />
+
   <browser:resource
       file="resources/1_clef.png"
       name="1_clef.png"
