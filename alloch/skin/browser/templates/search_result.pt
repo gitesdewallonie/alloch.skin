@@ -54,7 +54,7 @@
                     <h2 class="nom-heb-listing">
                         <span tal:replace="repeat/heb/number" />.&nbsp;
                         <span tal:content="heb/heb_nom"
-                              class="nom-chambre" />
+                              class="nom-chambre-listing" />
                         <span class="arrow"></span>  
                     </h2>
                     <div class="photo-heb">
@@ -101,7 +101,7 @@
                         <h2 class="nom-heb-listing">
                             <span tal:replace="repeat/heb/number" />.&nbsp;
                             <span tal:content="room1/heb_nom"
-                                  class="nom-chambre" />
+                                  class="nom-chambre-listing" />
                             <span class="arrow"></span>
                         </h2>
                         <div class="photo-heb">

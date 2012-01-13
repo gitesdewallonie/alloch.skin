@@ -342,12 +342,20 @@ box-shadow:4px 4px 4px rgba(0,0,0,0.5);
 padding-top:20px;
 }
 
+.nom-chambre-listing{
+color:#008;
+}
  
 .nom-heb-listing{
-background:rgba(255, 208, 125, 0.7);/*Background color to header*/
-background: -moz-linear-gradient(top, ffd07d, ffffff);
-/*from to colors, I have used simple name it can be replaced by color codes*/
-background: -webkit-gradient(linear, left top, left bottom, from(ffd07d), to(ffffff));
+background: rgb(184,225,252);
+background: -moz-linear-gradient(top,  rgba(184,225,252,1) 0%, rgba(169,210,243,1) 10%, rgba(144,186,228,1) 25%, rgba(144,188,234,1) 37%, rgba(144,191,240,1) 50%, rgba(107,168,229,1) 51%, rgba(162,218,245,1) 83%, rgba(189,243,253,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(184,225,252,1)), color-stop(10%,rgba(169,210,243,1)), color-stop(25%,rgba(144,186,228,1)), color-stop(37%,rgba(144,188,234,1)), color-stop(50%,rgba(144,191,240,1)), color-stop(51%,rgba(107,168,229,1)), color-stop(83%,rgba(162,218,245,1)), color-stop(100%,rgba(189,243,253,1)));
+background: -webkit-linear-gradient(top,  rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(144,191,240,1) 50%,rgba(107,168,229,1) 51%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%);
+background: -o-linear-gradient(top,  rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(144,191,240,1) 50%,rgba(107,168,229,1) 51%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%);
+background: -ms-linear-gradient(top,  rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(144,191,240,1) 50%,rgba(107,168,229,1) 51%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%);
+background: linear-gradient(top,  rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(144,191,240,1) 50%,rgba(107,168,229,1) 51%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8e1fc', endColorstr='#bdf3fd',GradientType=0 );
+
 padding:10px 5px 10px 1.2em;
 margin-left: -20px;
 margin-top:0;
@@ -386,11 +394,11 @@ padding:6px;
 }
 
 .autre-chambre{
-width:200px;
-margin:50px 4px 5px 265px;
+float:right;
+width:220px;
+margin:0px 5px 5px 0px;
 border:1px solid #602c00;
 border-radius:12px;
-/*background-color:#d99343;*/
 text-align:center;
 box-shadow:4px 4px 4px rgba(0,0,0,0.3);
 background: rgb(246,230,180);
