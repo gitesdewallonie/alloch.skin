@@ -86,7 +86,7 @@
                             <span tal:replace="python: heb.getDistribution(lang)" />
                         </p>
                     </div>
-                    <div class="break-float"></div>--------------------------------------
+                    <div class="break-float"></div>
                     <div class="autre-chambre">
                             <a href=""
                                title="Details of this accomodation"
