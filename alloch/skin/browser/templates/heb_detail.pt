@@ -170,7 +170,7 @@
               <div class="picture jMyCarousel">
                    <ul>
                        <li tal:repeat="photo python: view.getPhotosURL(heb.heb_code_gdw)">
-                          <img src="" tal:attributes="src photo" />
+                          <img height="195px" src="" tal:attributes="src photo" />
                        </li>
                    </ul>
               </div>
