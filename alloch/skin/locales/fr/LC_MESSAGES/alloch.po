@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alloch\n"
-"POT-Creation-Date: 2012-01-13 13:41+0000\n"
+"POT-Creation-Date: 2012-01-13 16:35+0000\n"
 "Last-Translator: Affinitic <info@affinitic.be>\n"
 "Language-Team: <info@affinitic.be>\n"
 "Language: \n"
@@ -31,33 +31,34 @@ msgid "anglais"
 msgstr ""
 
 #. Default: "Animals admitted on request"
-#: browser/templates/heb_detail.pt:94
+#: browser/templates/heb_detail.pt:88
 msgid "animals_allowed"
 msgstr "Animaux autorisés sur demande"
 
 #. Default: "&rarr; ${count} available room(s)"
-#: browser/templates/search_result.pt:100
+#: browser/templates/search_result.pt:94
 msgid "available_rooms"
 msgstr "&rarr; ${count} chambre(s) disponibles(s)"
 
 #. Default: "&larr; Back"
-#: browser/templates/contact_proprio.pt:17 browser/templates/heb_detail.pt:51
-#: browser/templates/rooms_list.pt:46
+#: browser/templates/contact_proprio.pt:17 browser/templates/heb_detail.pt:45
+#: browser/templates/rooms_list.pt:40
 msgid "back"
 msgstr "&larr; Retour"
 
 #. Default: "Besoin d'une autre formule de sejours ou<br /> a la recherche d'autres dates,"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:16
 msgid "besoin_formule"
-msgstr "Besoin d'une autre formule de séjours ou<br /> à la recherche d'autres dates,"
+msgstr ""
+"Besoin d'une autre formule de séjours ou<br /> à la recherche d'autres dates,"
 
 #. Default: "Bunk bed : ${count}"
-#: browser/templates/heb_detail.pt:86
+#: browser/templates/heb_detail.pt:80
 msgid "bunk_bed"
 msgstr "Lits superposés : ${count}"
 
 #. Default: "Child's bed : ${count}"
-#: browser/templates/heb_detail.pt:89
+#: browser/templates/heb_detail.pt:83
 msgid "child_bed"
 msgstr "Lits enfant : ${count}"
 
@@ -77,17 +78,17 @@ msgid "consultez_site"
 msgstr ""
 
 #. Default: "Contact"
-#: browser/templates/heb_detail.pt:128
+#: browser/templates/heb_detail.pt:122
 msgid "contact"
 msgstr ""
 
 #. Default: "Contact owner"
-#: browser/templates/contact_proprio.pt:21 browser/templates/heb_detail.pt:150
+#: browser/templates/contact_proprio.pt:21 browser/templates/heb_detail.pt:144
 msgid "contact_owner"
 msgstr "Contactez le propriétaire"
 
 #. Default: "Details of this accomodation"
-#: browser/templates/rooms_list.pt:58 browser/templates/search_result.pt:67
+#: browser/templates/rooms_list.pt:52 browser/templates/search_result.pt:61
 msgid "details_of_this_heb"
 msgstr "Détails de cette chambre"
 
@@ -97,7 +98,7 @@ msgid "developed_by"
 msgstr "Développé par"
 
 #. Default: "Double bed : ${count}"
-#: browser/templates/heb_detail.pt:83
+#: browser/templates/heb_detail.pt:77
 msgid "double_bed"
 msgstr "Lits 2 personnes : ${count}"
 
@@ -119,7 +120,9 @@ msgstr ""
 #. Default: "Fonds europeen agricole<br /> pour le developpement rural<br /> L'Europe investit dans les zones rurales."
 #: static/overrides/plone.app.layout.viewlets.footer.pt:48
 msgid "fonds_europeen"
-msgstr "Fonds européen agricole<br /> pour le développement rural<br /> L'Europe investit dans les zones rurales."
+msgstr ""
+"Fonds européen agricole<br /> pour le développement rural<br /> L'Europe "
+"investit dans les zones rurales."
 
 #. Default: "Francais"
 #: browser/templates/contact_proprio.pt:143
@@ -134,7 +137,7 @@ msgstr ""
 "utilisé pour éviter les demandes automatiques."
 
 #. Default: "Infos"
-#: browser/templates/heb_detail.pt:72
+#: browser/templates/heb_detail.pt:66
 msgid "infos"
 msgstr ""
 
@@ -144,12 +147,12 @@ msgid "invalid_captcha"
 msgstr "Vous n'avez pas recopié correctement le texte de l'image."
 
 #. Default: "Itinerary"
-#: browser/templates/heb_detail.pt:118
+#: browser/templates/heb_detail.pt:112
 msgid "itinerary"
 msgstr "Itinéraire"
 
 #. Default: "Itinerary to"
-#: browser/templates/heb_detail.pt:123
+#: browser/templates/heb_detail.pt:117
 msgid "itinerary_to"
 msgstr "Itinéraire jusqu'à"
 
@@ -164,7 +167,7 @@ msgid "langue"
 msgstr ""
 
 #. Default: "Localisation"
-#: browser/templates/heb_detail.pt:108
+#: browser/templates/heb_detail.pt:102
 msgid "localisation"
 msgstr ""
 
@@ -184,7 +187,7 @@ msgid "monsieur"
 msgstr ""
 
 #. Default: "${count} pers."
-#: browser/templates/search_result.pt:81
+#: browser/templates/rooms_list.pt:64 browser/templates/search_result.pt:75
 msgid "nb_capacity"
 msgstr ""
 
@@ -194,12 +197,12 @@ msgid "neerlandais"
 msgstr "Néerlandais"
 
 #. Default: "No results found."
-#: browser/templates/search_result.pt:156
+#: browser/templates/search_result.pt:143
 msgid "no_results"
 msgstr "Aucun résultat n'a été trouvé."
 
 #. Default: "No rooms found."
-#: browser/templates/rooms_list.pt:76
+#: browser/templates/rooms_list.pt:74
 msgid "no_rooms"
 msgstr "Aucune chambre n'a été trouvée."
 
@@ -219,7 +222,7 @@ msgid "pays"
 msgstr ""
 
 #. Default: "Pictures"
-#: browser/templates/heb_detail.pt:169
+#: browser/templates/heb_detail.pt:163
 msgid "pictures"
 msgstr "Photos"
 
@@ -234,8 +237,8 @@ msgid "prenom"
 msgstr "Prénom"
 
 #. Default: "Print"
-#: browser/templates/heb_detail.pt:55 browser/templates/rooms_list.pt:50
-#: browser/templates/search_result.pt:50
+#: browser/templates/heb_detail.pt:49 browser/templates/rooms_list.pt:44
+#: browser/templates/search_result.pt:44
 msgid "print"
 msgstr "Imprimer"
 
@@ -250,22 +253,22 @@ msgid "request_sent"
 msgstr "Votre demande a bien été envoyée"
 
 #. Default: "Price : ${price} &euro;"
-#: browser/templates/heb_detail.pt:103
+#: browser/templates/heb_detail.pt:97
 msgid "room_price"
 msgstr "Tarif : ${price} &euro;"
 
 #. Default: "Rooms of this accomodation"
-#: browser/templates/search_result.pt:142
+#: browser/templates/search_result.pt:129
 msgid "rooms_of_this_heb"
 msgstr "Chambres"
 
 #. Default: "Rooms"
-#: browser/templates/rooms_list.pt:52
+#: browser/templates/rooms_list.pt:46
 msgid "rooms_title"
 msgstr "Chambres"
 
 #. Default: "Search results"
-#: browser/templates/search_result.pt:52
+#: browser/templates/search_result.pt:46
 msgid "search_results_title"
 msgstr "Résultats de votre recherche"
 
@@ -275,7 +278,7 @@ msgid "search_title"
 msgstr "Recherchez une chambre d'hôtes disponible"
 
 #. Default: "Single bed : ${count}"
-#: browser/templates/heb_detail.pt:80
+#: browser/templates/heb_detail.pt:74
 msgid "single_bed"
 msgstr "Lits 1 personne : ${count}"
 
@@ -288,14 +291,15 @@ msgstr ""
 "destination en Wallonie."
 
 #. Default: "Smokers allowed"
-#: browser/templates/heb_detail.pt:97
+#: browser/templates/heb_detail.pt:91
 msgid "smoking_allowed"
 msgstr "Fumeurs autorisés"
 
 #. Default: "avec le soutien du<br /> Commissariat general<br /> au Tourisme de Wallonie"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:37
 msgid "soutien_commissariat"
-msgstr "avec le soutien du<br /> Commissariat général<br /> au Tourisme de Wallonie"
+msgstr ""
+"avec le soutien du<br /> Commissariat général<br /> au Tourisme de Wallonie"
 
 #. Default: "Telephone"
 #: browser/templates/contact_proprio.pt:151
@@ -306,6 +310,11 @@ msgstr "Téléphone"
 #: browser/templates/contact_proprio.pt:50
 msgid "title_required"
 msgstr "Requis"
+
+#. Default: "We were unable to detect your device system."
+#: browser/store.py:25
+msgid "unable_detect_device"
+msgstr "Nous n'avons pas été en mesure de détecter le système de votre appareil mobile."
 
 #. Default: "Your search location"
 #: browser/search.py:169

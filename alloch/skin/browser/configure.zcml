@@ -56,7 +56,7 @@
       name="download"
       class=".store.Store"
       permission="zope.Public"
-      attribute="redirectQRcode"
+      attribute="redirectFromQRcode"
       />
 
   <browser:resource

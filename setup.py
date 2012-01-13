@@ -32,6 +32,7 @@ setup(name='alloch.skin',
           'collective.captcha',
           'simplejson',
           'pygeocoder',
+          'mobile.sniffer',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
