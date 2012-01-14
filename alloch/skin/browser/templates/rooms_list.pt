@@ -51,7 +51,6 @@
             <div id="containeur-listing-chambre"
                  tal:repeat="heb hebs">
                 <h2 class="nom-heb-listing">
-                    <img src="" border="0" tal:attributes="src string:${portal_url}/vignettes_heb/${heb/getVignette}" />
                     <span tal:replace="repeat/heb/number" />.&nbsp;
                     <!--span tal:replace="python: heb.type.getTitle(lang)" /-->
                     <a href=""
@@ -63,7 +62,6 @@
                     </a>
                     <span class="arrow"></span>
                 </h2>
-                <!--
                 <div class="photo-heb">
                     <a href=""
                        class="heb-detail-link"
@@ -76,7 +74,6 @@
                     </a>
                     <br />
                 </div>
-                -->
                 <div class="description-heb">
                     <p>
                         <span tal:replace="python: heb.getDescription(lang)" />
