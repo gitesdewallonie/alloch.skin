@@ -63,6 +63,7 @@
                     </a>
                     <span class="arrow"></span>
                 </h2>
+                <!--
                 <div class="photo-heb">
                     <a href=""
                        class="heb-detail-link"
@@ -75,6 +76,7 @@
                     </a>
                     <br />
                 </div>
+                -->
                 <div class="description-heb">
                     <p>
                         <span tal:replace="python: heb.getDescription(lang)" />
