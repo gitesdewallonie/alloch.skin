@@ -48,16 +48,21 @@
     <div>
         <div tal:define="lang request/LANGUAGE | fr"
              tal:condition="hebs">
-            <div tal:repeat="heb hebs">
-                <a href="" class="heb-detail-link" title="Details of this accomodation"
-                   tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
-                   i18n:attributes="title details_of_this_heb">
-                    <h2>
+            <div  id="containeur-listing-chambre"
+                  tal:repeat="heb hebs">
+                
+                    <h2 class="nom-heb-listing">
                         <img src="" border="0" tal:attributes="src string:${portal_url}/vignettes_heb/${heb/getVignette}" />
                         <span tal:replace="repeat/heb/number" />.&nbsp;
                         <span tal:replace="python: heb.type.getTitle(lang)" />
-                        <span tal:replace="heb/heb_nom" />
-                        &rarr;&nbsp;(<span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" />)
+                        <a href=""
+                           class="heb-detail-link"
+                           title="Details of this accomodation"
+                           tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
+                           i18n:attributes="title details_of_this_heb">
+                            <span tal:replace="heb/heb_nom" />
+                        </a>
+                        <span class="arrow"></span>
                     </h2>
                 </a>
                 <span tal:replace="python: heb.getDescription(lang)" />

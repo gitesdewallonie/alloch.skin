@@ -53,9 +53,15 @@
                 <tal:if tal:condition="not: heb/grouped">
                     <h2 class="nom-heb-listing">
                         <span tal:replace="repeat/heb/number" />.&nbsp;
-                        <span tal:content="heb/heb_nom"
-                              class="nom-chambre-listing" />
-                        <span class="arrow"></span>  
+                        <a href=""
+                           class="heb-detail-link"
+                           title="Details of this accomodation"
+                           tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
+                           i18n:attributes="title details_of_this_heb">
+                            <span tal:content="heb/heb_nom"
+                                  class="nom-chambre-listing" />
+                        </a>
+                        <span class="arrow"></span>
                     </h2>
                     <div class="photo-heb">
                         <a href=""
