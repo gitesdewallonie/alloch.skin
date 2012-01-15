@@ -112,7 +112,7 @@
              (<span tal:content="heb/commune/com_nom" />)
              </p>
              
-             <div class="itinerary"
+             <div id="btn-itinerary"
                   tal:condition="view/getSearchLocation">
                  <a href="" 
                     title="Itinerary"
@@ -146,9 +146,6 @@
                        <span tal:replace="heb/proprio/pro_gsm1" /><br />
                        <img src="" tal:attributes="src string:${portal_url}/++resource++email.gif" />
                        <span tal:replace="heb/proprio/pro_email" /><br>
-                       <a class="contact-form" href=""
-                          tal:attributes="href string:${portal_url}/contact_proprio?heb_pk=${heb/heb_pk}"
-                          i18n:translate="contact_owner">Contact owner</a><br />
                        <span tal:condition="python: heb.proprio.pro_url!=''">
                           <img src="" tal:attributes="src string:${portal_url}/++resource++lien.gif" />
                           <a href=""
@@ -156,6 +153,11 @@
                                 tal:content="string: http://${heb/proprio/pro_url}"
                                 target="_blank" />
                        </span>
+                       <div id="btn-contact-owner">
+                           <a class="contact-form" href=""
+                              tal:attributes="href string:${portal_url}/contact_proprio?heb_pk=${heb/heb_pk}"
+                              i18n:translate="contact_owner">Contact owner</a>
+                       </div>
                     </td>
                  </tr>
               </table><!--info proprio-->
