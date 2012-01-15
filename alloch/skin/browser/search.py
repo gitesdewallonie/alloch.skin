@@ -171,24 +171,34 @@ class SearchHebergements(BrowserView):
             center = [coordinates[0], coordinates[1],
                       u"<strong>%s</strong><br /><i>&rarr; %s</i>" % (searchLocationTitle,
                                                                       currentLocation),
-                      'icon2']
+                      'location']
             map1.setpoint(center)
         counter = 0
         portalUrl = getToolByName(self.context, 'portal_url')()
+        nbHebs = len(hebs)
         for heb in hebs:
             counter += 1
-            href = "%s/heb-detail?hebPk=%s" % (portalUrl, heb.heb_pk)
+            grouped = getattr(heb, 'grouped', False)
+            if grouped:
+                href = "%s/rooms-list?group=%s" % (portalUrl, heb.heb_pro_fk)
+            else:
+                href = "%s/heb-detail?hebPk=%s" % (portalUrl, heb.heb_pk)
             imageSrc = "%s/vignettes_heb/%s" % (portalUrl, heb.getVignette())
             name = self._convertToEntities(heb.heb_nom)
-            imageSrc = "http://www.allochambredhotes.be/vignettes_heb/CHECR92094139100.jpg"
             tooltip = "<a href='%s'><strong>%s. %s</strong><br /><img src='%s'></a>" % (href, counter, name, imageSrc)
-            point = [heb.heb_gps_long, heb.heb_gps_lat, tooltip]
+            point = [heb.heb_gps_long, heb.heb_gps_lat, tooltip,
+                     'marker%s' % (nbHebs > 1 and counter or '')]
             map1.setpoint(point)
         g = PyMap(maplist=[map1])
-        icon2 = Icon('icon2')
-        icon2.image = "%s/++resource++%s" % (portalUrl, 'location.png')
-        icon2.shadow = "%s/++resource++%s" % (portalUrl, 'location_shadow.png')
-        g.addicon(icon2)
+        locationIcon = Icon('location')
+        locationIcon.image = "%s/++resource++%s" % (portalUrl, 'location.png')
+        locationIcon.shadow = "%s/++resource++%s" % (portalUrl, 'location_shadow.png')
+        g.addicon(locationIcon)
+        for i in range(1, nbHebs + 1):
+            icon = Icon('marker%s' % i)
+            icon.image = "%s/++resource++%s" % (portalUrl, 'marker%s.png' % i)
+            icon.shadow = "%s/++resource++%s" % (portalUrl, 'marker_shadow.png')
+            g.addicon(icon)
         g.key = GOOGLE_API_KEY
         language = self.request.get('LANGUAGE', 'fr')
         return g.pymapjs(language)

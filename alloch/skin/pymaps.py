@@ -36,10 +36,10 @@ class Icon:
         self.shadow = ""
 ##        self.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png"
 ##        self.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png"
-        self.iconSize = (12, 20)    # these settings match above icons
-        self.shadowSize = (22, 20)
-        self.iconAnchor = (6, 20)
-        self.infoWindowAnchor = (5, 1)
+        self.iconSize = (20, 34)    # these settings match above icons
+        self.shadowSize = (37, 34)
+        self.iconAnchor = (11, 34)
+        self.infoWindowAnchor = (15, 1)
 
         
 class Map:
@@ -135,6 +135,11 @@ class PyMap:
     
     
     def _iconjs(self,icon):
+        iconSizeX = icon.iconSize[0]
+        iconSizeY = icon.iconSize[1]
+        if icon.id == 'location':
+            iconSizeX = 23
+            iconSizeY = 34
         js = """ 
                 var %s = new GIcon(); 
                 %s.image = "%s";
@@ -143,7 +148,7 @@ class PyMap:
                 %s.shadowSize = new GSize(%s, %s);
                 %s.iconAnchor = new GPoint(%s, %s);
                 %s.infoWindowAnchor = new GPoint(%s, %s);
-        """ % (icon.id, icon.id, icon.image, icon.id, icon.shadow, icon.id, icon.iconSize[0],icon.iconSize[1],icon.id, icon.shadowSize[0], icon.shadowSize[1], icon.id, icon.iconAnchor[0],icon.iconAnchor[1], icon.id, icon.infoWindowAnchor[0], icon.infoWindowAnchor[1])
+        """ % (icon.id, icon.id, icon.image, icon.id, icon.shadow, icon.id, iconSizeX, iconSizeY, icon.id, icon.shadowSize[0], icon.shadowSize[1], icon.id, icon.iconAnchor[0],icon.iconAnchor[1], icon.id, icon.infoWindowAnchor[0], icon.infoWindowAnchor[1])
         return js
      
     def _buildicons(self):

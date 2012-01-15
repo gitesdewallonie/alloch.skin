@@ -95,13 +95,48 @@
       />
 
   <browser:resource
+      file="resources/location.png"
+      name="location.png"
+      />
+
+  <browser:resource
       file="resources/location_shadow.png"
       name="location_shadow.png"
       />
 
   <browser:resource
-      file="resources/location.png"
-      name="location.png"
+      file="resources/marker.png"
+      name="marker.png"
+      />
+
+  <browser:resource
+      file="resources/marker1.png"
+      name="marker1.png"
+      />
+
+  <browser:resource
+      file="resources/marker2.png"
+      name="marker2.png"
+      />
+
+  <browser:resource
+      file="resources/marker3.png"
+      name="marker3.png"
+      />
+
+  <browser:resource
+      file="resources/marker4.png"
+      name="marker4.png"
+      />
+
+  <browser:resource
+      file="resources/marker5.png"
+      name="marker5.png"
+      />
+
+  <browser:resource
+      file="resources/marker_shadow.png"
+      name="marker_shadow.png"
       />
 
 </configure>
