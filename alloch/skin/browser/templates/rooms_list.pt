@@ -37,11 +37,15 @@
     </script>
 
     <div id="btn-back">
-        <a class="back-link" href="javascript:history.back()"
+        <a href="javascript:history.back()"
            i18n:translate="back">&larr; Back</a>
     </div>
-
-    <a href="javascript:this.print();" i18n:translate="print">Print</a>
+    <div id="btn-print">
+        <a href="javascript:this.print();"
+           i18n:translate="print">Print</a>
+    </div>
+    
+    <div class="break-float"></div>
 
     <h1 i18n:translate="rooms_title">Rooms</h1>
     <p>&nbsp;</p>
