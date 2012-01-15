@@ -11,5 +11,12 @@
         disponible ce soir a proximite de votre destination
         en Wallonie.             
     </p>
+    <div id="qrcode">
+        <img src="images/qrcode-mini.png"
+             width="93"
+             height="93"
+             alt="Scanner ce qrcode pour télécharger l'appli sur votre smartphone"
+             title="Scanner ce qrcode pour télécharger l'appli sur votre smartphone" />
+    </div>
 </div>
 </div>
