@@ -212,6 +212,10 @@ class SearchHebergements(BrowserView):
             else:
                 return False
         else:
+            form = self.request.form
+            address = form.get('address', None)
+            if address is not None:
+                return False
             if session.has_key('search_location'):
                 return True
             else:
