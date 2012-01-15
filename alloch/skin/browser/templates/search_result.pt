@@ -124,10 +124,10 @@
                                title="Details of this accomodation"
                                tal:attributes="href string:${context/portal_url}/rooms-list?group=${heb/heb_pro_fk}"
                                i18n:attributes="title details_of_this_heb">
+                                <img src=""
+                                     border="0"
+                                     tal:attributes="src string:${portal_url}/photos_heb/${room1/getVignette}" />
                             </a>
-                            <img src=""
-                                 border="0"
-                                 tal:attributes="src string:${portal_url}/photos_heb/${room1/getVignette}" />
                             <br />
                         </div>
                         <div class="description-heb">
