@@ -183,7 +183,7 @@ class SearchHebergements(BrowserView):
                 href = "%s/rooms-list?group=%s" % (portalUrl, heb.heb_pro_fk)
             else:
                 href = "%s/heb-detail?hebPk=%s" % (portalUrl, heb.heb_pk)
-            imageSrc = "%s/vignettes_heb/%s" % (portalUrl, heb.getVignette())
+            imageSrc = str("%s/vignettes_heb/%s" % (portalUrl, heb.getVignette()))
             name = self._convertToEntities(heb.heb_nom)
             tooltip = "<a href='%s'><strong>%s. %s</strong><br /><img src='%s'></a>" % (href, counter, name, imageSrc)
             point = [heb.heb_gps_long, heb.heb_gps_lat, tooltip,
