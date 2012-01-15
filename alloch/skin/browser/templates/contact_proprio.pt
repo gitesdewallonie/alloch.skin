@@ -16,7 +16,9 @@
 <div id="btn-back">
     <a class="back-link" href="javascript:history.back()"
        i18n:translate="back">&larr; Back</a>
-</div>
+</div> 
+
+<div class="break-float"></div>
 
 <h1 i18n:translate="contact_owner">
 Contact owner
@@ -34,7 +36,7 @@ Contact owner
     <table width="95%" border="0"
            tal:define="captchaView nocall:context/@@captcha">
         <tr>
-           <td>
+           <td class="align-droite">
                <label for="contactCivilite" i18n:translate="civilite">Civilite</label>
            </td>
            <td>
@@ -46,7 +48,7 @@ Contact owner
            </td>
         </tr>
         <tr>
-            <td>
+            <td class="align-droite">
                 <span class="fieldRequired" 
                       title="Required"
                       i18n:attributes="title title_required;"
@@ -64,7 +66,7 @@ Contact owner
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="align-droite">
                 <span class="fieldRequired" 
                       title="Required"
                       i18n:attributes="title title_required;"
@@ -82,7 +84,7 @@ Contact owner
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="align-droite">
                 <label for="contactAdresse" i18n:translate="adresse">Adresse</label>
             </td>
             <td>
@@ -95,7 +97,7 @@ Contact owner
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="align-droite">
                 <label for="contactCp" i18n:translate="code_postal">Code postal</label>
             </td>
             <td>
@@ -108,7 +110,7 @@ Contact owner
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="align-droite">
                 <label for="contactLocalite" i18n:translate="localite">Localite</label>
             </td>
             <td>
@@ -121,7 +123,7 @@ Contact owner
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="align-droite">
                 <label for="contactPays" i18n:translate="pays">Pays</label>
             </td>
             <td>
@@ -134,20 +136,20 @@ Contact owner
             </td>
         </tr>
         <tr>
-           <td>
-               <label for="contactLangue" i18n:translate="langue">Langue</label>
-           </td>
-           <td>
-              <select name="contactLangue">
-                 <option>...</option>
-                 <option i18n:translate="francais"> Francais</option>
-                 <option i18n:translate="neerlandais"> Neerlandais</option>
-                 <option i18n:translate="anglais"> Anglais</option>
-              </select>
-          </td>
+            <td class="align-droite">
+                <label for="contactLangue" i18n:translate="langue">Langue</label>
+            </td>
+            <td>
+                <select name="contactLangue">
+                    <option>...</option>
+                    <option i18n:translate="francais"> Francais</option>
+                    <option i18n:translate="neerlandais"> Neerlandais</option>
+                    <option i18n:translate="anglais"> Anglais</option>
+                </select>
+            </td>
         </tr>
         <tr>
-            <td>
+            <td class="align-droite">
                 <label for="contactTelephone" i18n:translate="telephone">Telephone</label>
             </td>
             <td>
@@ -159,7 +161,7 @@ Contact owner
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="align-droite">
                 <label for="contactFax" i18n:translate="fax">Fax</label>
             </td>
             <td>
@@ -172,7 +174,7 @@ Contact owner
         </tr>
                
         <tr class="field">
-            <td>
+            <td class="align-droite">
                 <span class="fieldRequired" 
                       title="Required"
                       i18n:attributes="title title_required;"
@@ -192,7 +194,7 @@ Contact owner
         </tr>
         
         <tr>
-            <td>
+            <td class="align-droite">
                 <label for="nombrePersonne" i18n:translate="nombre_personnes">Nombre de personnes</label>
             </td>
             <td>
@@ -205,7 +207,7 @@ Contact owner
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="align-droite">
                 <label for="remarque" i18n:translate="remarques">Remarques</label>
             </td>
             <td>
@@ -217,15 +219,17 @@ Contact owner
         </tr>
 
         <tr>
-            <td>
-                <span class="fieldRequired" 
-                      title="Required"
-                      i18n:attributes="title title_required;"
-                      i18n:translate="label_required">(Required)</span>
-                <label for="captcha" i18n:translate="help_captcha">
-                    Enter the exact word in the image.<br/>
-                    This is used to fight robots. 
-                </label>
+            <td width="300"  class="align-droite">
+                <div id="texte-captcha">
+                    <span class="fieldRequired" 
+                          title="Required"
+                          i18n:attributes="title title_required;"
+                          i18n:translate="label_required">(Required)</span>
+                    <label for="captcha" i18n:translate="help_captcha">
+                        Enter the exact word in the image.<br/>
+                        This is used to fight robots. 
+                    </label>
+                </div>
             </td>
             <td>
                 <div class="error"
@@ -244,7 +248,7 @@ Contact owner
 
         <tr>
             <td colspan="2" align="center">
-                <br />
+                <div id="border-top"></div>
                 <input type="hidden"
                        name="heb_pk"
                        value=""

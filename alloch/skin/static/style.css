@@ -615,6 +615,21 @@ color:#FF0000;
 color:#FF0000;
 }
 
+/*** FORM CONTACT ***/
+#texte-captcha{
+width:400px;
+}
+
+.align-droite{
+text-align:right;
+padding-right:8px;
+}
+
+#border-top{
+width:90%;
+margin:10px auto;
+border-top:1px solid #ddd;
+}
 
 /*** CAROUSEL ***/
 
