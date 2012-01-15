@@ -176,7 +176,7 @@ text-align:justify;
 
 #btn-back,
 #btn-print{
-width:190px;
+width:90px;
 margin:6px 14px;
 border:1px solid #003500;
 border-radius:12px;
@@ -200,16 +200,18 @@ float:left;
 float:right;
 }
 
+#btn-back a:link,
+#btn-print a:link{
+display:block;
+color:#003500;
+}
+
 #btn-back:hover,
 #btn-print:hover{
 background-color:#b3fea7;
 box-shadow:0px 0px 0px rgba(0,0,0,0.3);
 }
 
-#btn-back a:link,
-#btn-print a:link{
-color:#003500;
-}
 
 #result{
 }
