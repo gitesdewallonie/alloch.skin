@@ -160,7 +160,8 @@
                 <div class="break-float"></div>
             </div>
         </div>
-        <div tal:condition="not: hebs"
+        <div id="no-rooms"
+             tal:condition="not: hebs"
              i18n:translate="no_results">
             No results found.
         </div>

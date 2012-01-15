@@ -484,6 +484,14 @@ background-color:#FFCE68;
 box-shadow:4px 4px 4px rgba(0,0,0,0);
 }
 
+#no-rooms{
+width:75%;
+margin:auto;
+border:1px solid #900;
+border-radius:12px;
+text-align:center;
+color:#C00;
+}
 
 
 /*** DESCRIPTION HEBERGEMENT ***/

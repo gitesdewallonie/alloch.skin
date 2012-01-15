@@ -95,7 +95,8 @@
             </div>
 
         </div>
-        <div tal:condition="not: hebs"
+        <div id="no-rooms"
+             tal:condition="not: hebs"
              i18n:translate="no_rooms">
             No rooms found.
         </div>
