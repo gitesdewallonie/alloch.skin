@@ -77,6 +77,11 @@
                 </div>
                 <div class="description-heb">
                     <p>
+                        <span i18n:translate="nb_capacity">
+                            <span tal:content="string:${heb/heb_cgt_cap_min}/${heb/heb_cgt_cap_max}" i18n:name="count" /> pers.
+                        </span>
+                    </p>
+                    <p>
                         <span tal:replace="python: heb.getDescription(lang)" />
                     </p>
                     <p>
