@@ -52,7 +52,6 @@
                  tal:repeat="heb hebs">
                 <h2 class="nom-heb-listing">
                     <span tal:replace="repeat/heb/number" />.&nbsp;
-                    <!--span tal:replace="python: heb.type.getTitle(lang)" /-->
                     <a href=""
                        class="heb-detail-link"
                        title="Details of this accomodation"

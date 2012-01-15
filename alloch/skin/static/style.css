@@ -8,6 +8,15 @@ font-size:12pt;
 color:#555;
 }
 
+#content a:link{
+border-bottom:none;
+color:#602c00;
+}
+
+#content a:hover{
+color:#333 !important;
+}
+
 #main-content{
 margin:auto;
 margin-top:1em;
@@ -163,6 +172,43 @@ font-size:1.1em;
 font-size:0.9em;
 padding:10px 8px;
 text-align:justify;
+}
+
+#btn-back,
+#btn-print{
+width:190px;
+margin:6px 14px;
+border:1px solid #003500;
+border-radius:12px;
+box-shadow:4px 4px 4px rgba(0,0,0,0.3);
+text-align:center;
+background: rgb(201,222,150);
+background: -moz-linear-gradient(top,  rgba(201,222,150,1) 0%, rgba(138,182,107,1) 44%, rgba(57,130,53,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(201,222,150,1)), color-stop(44%,rgba(138,182,107,1)), color-stop(100%,rgba(57,130,53,1)));
+background: -webkit-linear-gradient(top,  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%);
+background: -o-linear-gradient(top,  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%);
+background: -ms-linear-gradient(top,  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%);
+background: linear-gradient(top,  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9de96', endColorstr='#398235',GradientType=0 );
+}
+
+#btn-back{
+float:left;
+}
+
+#btn-print{
+float:right;
+}
+
+#btn-back:hover,
+#btn-print:hover{
+background-color:#b3fea7;
+box-shadow:0px 0px 0px rgba(0,0,0,0.3);
+}
+
+#btn-back a:link,
+#btn-print a:link{
+color:#003500;
 }
 
 #result{
@@ -411,7 +457,6 @@ background: -o-linear-gradient(top,  rgba(246,230,180,1) 0%,rgba(237,144,23,1) 1
 background: -ms-linear-gradient(top,  rgba(246,230,180,1) 0%,rgba(237,144,23,1) 100%);
 background: linear-gradient(top,  rgba(246,230,180,1) 0%,rgba(237,144,23,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6e6b4', endColorstr='#ed9017',GradientType=0 );
-
 }
 
 .autre-chambre:hover{
@@ -419,14 +464,6 @@ background-color:#FFCE68;
 box-shadow:4px 4px 4px rgba(0,0,0,0);
 }
 
-#content a:link{
-border-bottom:none;
-color:#602c00;
-}
-
-#content a:hover{
-color:#333 !important;
-}
 
 
 /*** DESCRIPTION HEBERGEMENT ***/
@@ -524,7 +561,7 @@ color:#FF0000;
 }
 
 
-/*** Carousel ***/
+/*** CAROUSEL ***/
 
 div.jMyCarousel .prev{
 background: url('images/left.png') center center no-repeat;
