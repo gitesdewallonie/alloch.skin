@@ -49,7 +49,7 @@ msgstr "&larr; Terug"
 #. Default: "Besoin d'une autre formule de sejours ou<br /> a la recherche d'autres dates,"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:16
 msgid "besoin_formule"
-msgstr "Zin in een andere verblijfsformule of op zoek naar andere data?"
+msgstr "Zin in een andere verblijfsformule of<br /> op zoek naar andere data?"
 
 #. Default: "Bunk bed : ${count}"
 #: browser/templates/heb_detail.pt:85
@@ -129,7 +129,7 @@ msgstr ""
 #. Default: "Fonds europeen agricole<br /> pour le developpement rural<br /> L'Europe investit dans les zones rurales."
 #: static/overrides/plone.app.layout.viewlets.footer.pt:48
 msgid "fonds_europeen"
-msgstr "Europees Landbouwfonds voor Plattelandsontwikkeling. <br /> Europa investeert in de plattelandsgebieden."
+msgstr "Europees Landbouwfonds<br /> voor Plattelandsontwikkeling.<br /> Europa investeert in de plattelandsgebieden."
 
 #. Default: "Francais"
 #: browser/templates/contact_proprio.pt:145

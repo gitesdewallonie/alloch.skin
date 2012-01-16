@@ -49,7 +49,7 @@ msgstr ""
 #. Default: "Besoin d'une autre formule de sejours ou<br /> a la recherche d'autres dates,"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:16
 msgid "besoin_formule"
-msgstr "If you need another accommodation formula or you are looking for other dates"
+msgstr "If you need another accommodation formula or<br /> you are looking for other dates"
 
 #. Default: "Bunk bed : ${count}"
 #: browser/templates/heb_detail.pt:85
@@ -136,7 +136,7 @@ msgstr "European Agricultural Fund<br /> for Rural Development.<br /> Europe inv
 msgid "francais"
 msgstr "French"
 
-#. Default: "Enter the exact word in the image.<br /> This is used to fight robots."
+#. Default: "Enter the exact word in the image.<br />This is used to fight robots."
 #: browser/templates/contact_proprio.pt:228
 msgid "help_captcha"
 msgstr ""
@@ -305,7 +305,7 @@ msgstr ""
 #. Default: "avec le soutien du<br /> Commissariat general<br /> au Tourisme de Wallonie"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:37
 msgid "soutien_commissariat"
-msgstr "with the support of the Commissariat général au Tourisme de Wallonie, the Tourist Board of Wallonia"
+msgstr "with the support of the<br /> Commissariat général au Tourisme de Wallonie,<br /> the Tourist Board of Wallonia"
 
 #. Default: "Telephone"
 #: browser/templates/contact_proprio.pt:153
