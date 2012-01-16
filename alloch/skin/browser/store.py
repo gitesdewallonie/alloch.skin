@@ -4,9 +4,7 @@ import re
 from mobile.sniffer.detect import detect_mobile_browser
 from mobile.sniffer.utilities import get_user_agent
 from zope.publisher.browser import BrowserView
-from Products.CMFCore.utils import getToolByName
-
-from alloch.skin import AlloCHMessage as _
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 _mobilePlatforms = r'android|blackberry|ip(hone|od|ad)|palm|symbian|webos|windows ce; (iemobile|ppc)'
 _mobilePlatforms = re.compile(_mobilePlatforms, re.IGNORECASE)
@@ -15,6 +13,7 @@ _mobilePlatforms = re.compile(_mobilePlatforms, re.IGNORECASE)
 class Store(BrowserView):
     """
     """
+    storeTemplate = ViewPageTemplateFile("templates/stores.pt")
 
     def redirectFromQRcode(self):
         """
@@ -23,42 +22,23 @@ class Store(BrowserView):
         userAgent = get_user_agent(self.request)
         if _mobilePlatforms.search(userAgent) is None or \
            not detect_mobile_browser(userAgent):
-            portalUrl = getToolByName(self.context, 'portal_url')()
-            message = _("unable_detect_device", "We were unable to detect your device system.")
-            message = self.context.translate(message)
-            self.context.plone_utils.addPortalMessage(message)
-            self.request.response.redirect(portalUrl)
-            return ''
+            return self.storeTemplate()
 
         if 'android' in userAgent.lower():
-            portalUrl = getToolByName(self.context, 'portal_url')()
             self.context.plone_utils.addPortalMessage('ANDROID DEVICE WAS DETECTED !')
-            self.request.response.redirect(portalUrl)
-            return ''
+            return self.storeTemplate()
         if 'blackberry' in userAgent.lower():
-            portalUrl = getToolByName(self.context, 'portal_url')()
             self.context.plone_utils.addPortalMessage('BLACKBERRY DEVICE WAS DETECTED !')
-            self.request.response.redirect(portalUrl)
-            return ''
+            return self.storeTemplate()
         if 'iphone' or 'ipad' or 'ipod' in userAgent.lower():
-            portalUrl = getToolByName(self.context, 'portal_url')()
             self.context.plone_utils.addPortalMessage('APPLE DEVICE WAS DETECTED !')
-            self.request.response.redirect(portalUrl)
-            return ''
-            # self.request.response.redirect("http://itunes.apple.com/be/app/woodya-run/id302170850?mt=8")
-            # return ''
+            return self.storeTemplate()
         if 'palm' or 'webos' in userAgent.lower():
-            portalUrl = getToolByName(self.context, 'portal_url')()
             self.context.plone_utils.addPortalMessage('WEBOS (PALM) DEVICE WAS DETECTED !')
-            self.request.response.redirect(portalUrl)
-            return ''
+            return self.storeTemplate()
         if 'symbian' in userAgent.lower():
-            portalUrl = getToolByName(self.context, 'portal_url')()
             self.context.plone_utils.addPortalMessage('SYMBIAN DEVICE WAS DETECTED !')
-            self.request.response.redirect(portalUrl)
-            return ''
+            return self.storeTemplate()
         if 'windows' in userAgent.lower():
-            portalUrl = getToolByName(self.context, 'portal_url')()
             self.context.plone_utils.addPortalMessage('WINDOWS DEVICE WAS DETECTED !')
-            self.request.response.redirect(portalUrl)
-            return ''
+            return self.storeTemplate()

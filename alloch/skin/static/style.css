@@ -173,12 +173,22 @@ font-size:0.9em;
 padding:10px 8px;
 text-align:justify;
 }
+
+#site-description {
+height:130px;
+}
+
+#qrcode {
+margin-left:8px;
+text-align:center;
+}
                         
-#qrcode{
+#qrcode .qrcode{
 width:105px;
 height:98px;
 margin:auto;
 margin-top:60px;
+margin-bottom:5px;
 border:1px solid #b8601e;
 border-radius:12px;
 text-align:center;
@@ -186,7 +196,13 @@ padding-top:7px;
 background-color:rgba(134,99,72,0.7);
 }
 
+#qrcode .qrcode-link{
+color:#FF8429;
+}
 
+#qrcode .qrcode-link:hover{
+color:#FFFFFF;
+}
 
 #btn-back,
 #btn-print{

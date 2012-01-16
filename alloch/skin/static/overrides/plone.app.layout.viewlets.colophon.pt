@@ -12,13 +12,21 @@
         en Wallonie.             
     </p>
     <div id="qrcode">
-        <img src="++theme++alloch.skin/images/qrcode-mini.png"
-             width="93"
-             height="93"
-             alt="Scanner ce qrcode pour telecharger l'appli sur votre smartphone"
-             title="Scanner ce qrcode pour telecharger l'appli sur votre smartphone"
-             i18n:attributes="title scan_qrcode_to_download;
-                              alt scan_qrcode_to_download" />
+        <a class="qrcode-link" href=""
+           title="Download mobile app"
+           tal:attributes="href string:${context/portal_url}/download"
+           i18n:attributes="title download_app">
+           <div class="qrcode">
+              <img src="++theme++alloch.skin/images/qrcode-mini.png"
+                   width="93"
+                   height="93"
+                   alt="Scanner ce qrcode pour telecharger l'appli sur votre smartphone"
+                   title="Scanner ce qrcode pour telecharger l'appli sur votre smartphone"
+                   i18n:attributes="title scan_qrcode_to_download;
+                                    alt scan_qrcode_to_download" />
+           </div>
+           <span i18n:translate="download_app">Download mobile app</span>
+        </a>
     </div>
 </div>
 </div>

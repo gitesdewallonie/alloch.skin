@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alloch\n"
-"POT-Creation-Date: 2012-01-16 09:21+0000\n"
+"POT-Creation-Date: 2012-01-16 13:59+0000\n"
 "Last-Translator: Affinitic <info@affinitic.be>\n"
 "Language-Team: <info@affinitic.be>\n"
 "Language: \n"
@@ -82,7 +82,7 @@ msgid "contact"
 msgstr "Contacten"
 
 #. Default: "Contact owner"
-#: browser/templates/contact_proprio.pt:23 browser/templates/heb_detail.pt:157
+#: browser/templates/contact_proprio.pt:23 browser/templates/heb_detail.pt:163
 msgid "contact_owner"
 msgstr "Contacteer de eigenaar"
 
@@ -100,6 +100,16 @@ msgstr "A TRADUIRE"
 #: browser/templates/heb_detail.pt:82
 msgid "double_bed"
 msgstr "Bed 2 personen : ${count}"
+
+#. Default: "Download mobile app"
+#: static/overrides/plone.app.layout.viewlets.colophon.pt:15
+msgid "download_app"
+msgstr "A TRADUIRE"
+
+#. Default: "Download"
+#: browser/templates/stores.pt:25
+msgid "download_title"
+msgstr "A TRADUIRE"
 
 #. Default: "E-mail"
 #: browser/templates/contact_proprio.pt:182
@@ -219,7 +229,7 @@ msgid "pays"
 msgstr "Land"
 
 #. Default: "Pictures"
-#: browser/templates/heb_detail.pt:170
+#: browser/templates/heb_detail.pt:176
 msgid "pictures"
 msgstr "A TRADUIRE"
 
@@ -265,7 +275,7 @@ msgid "rooms_title"
 msgstr "Kamers"
 
 #. Default: "Scanner ce qrcode pour telecharger l'appli sur votre smartphone"
-#: static/overrides/plone.app.layout.viewlets.colophon.pt:15
+#: static/overrides/plone.app.layout.viewlets.colophon.pt:20
 msgid "scan_qrcode_to_download"
 msgstr "A TRADUIRE"
 
@@ -307,11 +317,6 @@ msgstr "Telefoon"
 #. Default: "Required"
 #: browser/templates/contact_proprio.pt:52
 msgid "title_required"
-msgstr "A TRADUIRE"
-
-#. Default: "We were unable to detect your device system."
-#: browser/store.py:27
-msgid "unable_detect_device"
 msgstr "A TRADUIRE"
 
 #. Default: "Your search location"
