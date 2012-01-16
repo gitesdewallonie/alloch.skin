@@ -38,7 +38,7 @@ msgstr ""
 #. Default: "&rarr; ${count} available room(s)"
 #: browser/templates/search_result.pt:107
 msgid "available_rooms"
-msgstr ""
+msgstr "&rarr; ${count} room(s) available"
 
 #. Default: "&larr; Back"
 #: browser/templates/contact_proprio.pt:17 browser/templates/heb_detail.pt:45
@@ -49,7 +49,7 @@ msgstr ""
 #. Default: "Besoin d'une autre formule de sejours ou<br /> a la recherche d'autres dates,"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:16
 msgid "besoin_formule"
-msgstr "A TRADUIRE"
+msgstr "If you need another accommodation formula or you are looking for other dates"
 
 #. Default: "Bunk bed : ${count}"
 #: browser/templates/heb_detail.pt:85
@@ -74,7 +74,7 @@ msgstr "Postal code"
 #. Default: "consultez notre site"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:20
 msgid "consultez_site"
-msgstr "A TRADUIRE"
+msgstr "consult our website"
 
 #. Default: "Contact"
 #: browser/templates/heb_detail.pt:127
@@ -89,7 +89,7 @@ msgstr ""
 #. Default: "Details of this accomodation"
 #: browser/templates/rooms_list.pt:59 browser/templates/search_result.pt:61
 msgid "details_of_this_heb"
-msgstr ""
+msgstr "Room details"
 
 #. Default: "Developed by"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:71
@@ -104,7 +104,7 @@ msgstr ""
 #. Default: "Download mobile app"
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:15
 msgid "download_app"
-msgstr ""
+msgstr "Load me onto your smartphone !"
 
 #. Default: "Download"
 #: browser/templates/stores.pt:25
@@ -129,7 +129,7 @@ msgstr ""
 #. Default: "Fonds europeen agricole<br /> pour le developpement rural<br /> L'Europe investit dans les zones rurales."
 #: static/overrides/plone.app.layout.viewlets.footer.pt:48
 msgid "fonds_europeen"
-msgstr "A TRADUIRE"
+msgstr "European Agricultural Fund<br /> for Rural Development.<br /> Europe invests in rural areas."
 
 #. Default: "Francais"
 #: browser/templates/contact_proprio.pt:145
@@ -154,12 +154,12 @@ msgstr ""
 #. Default: "Itinerary"
 #: browser/templates/heb_detail.pt:117
 msgid "itinerary"
-msgstr ""
+msgstr "Directions"
 
 #. Default: "Itinerary to"
 #: browser/templates/heb_detail.pt:122
 msgid "itinerary_to"
-msgstr ""
+msgstr "Directions to"
 
 #. Default: "(Required)"
 #: browser/templates/contact_proprio.pt:52
@@ -174,7 +174,7 @@ msgstr "Language"
 #. Default: "Localisation"
 #: browser/templates/heb_detail.pt:107
 msgid "localisation"
-msgstr ""
+msgstr "Location"
 
 #. Default: "Localite"
 #: browser/templates/contact_proprio.pt:114
@@ -229,7 +229,7 @@ msgstr "Country"
 #. Default: "Pictures"
 #: browser/templates/heb_detail.pt:176
 msgid "pictures"
-msgstr ""
+msgstr "Gallery"
 
 #. Default: "Powered by"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:75
@@ -295,7 +295,7 @@ msgstr ""
 #. Default: "A la recherche d'une chambre d'hotes pour cette nuit ? Avec Allo chambre d'hotes, trouvez une chambre d'hotes disponible ce soir a proximite de votre destination en Wallonie."
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:7
 msgid "site_introduction"
-msgstr "A TRADUIRE"
+msgstr "Looking for a guest room for tonight? With Allo chambre d'hôtes (Hello, guest rooms), find a guest room available tonight near your destination in Wallonia."
 
 #. Default: "Smokers allowed"
 #: browser/templates/heb_detail.pt:96
@@ -305,7 +305,7 @@ msgstr ""
 #. Default: "avec le soutien du<br /> Commissariat general<br /> au Tourisme de Wallonie"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:37
 msgid "soutien_commissariat"
-msgstr "A TRADUIRE"
+msgstr "with the support of the Commissariat général au Tourisme de Wallonie, the Tourist Board of Wallonia"
 
 #. Default: "Telephone"
 #: browser/templates/contact_proprio.pt:153

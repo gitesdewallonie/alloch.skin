@@ -301,7 +301,7 @@ msgstr "Lits 1 personne : ${count}"
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:7
 msgid "site_introduction"
 msgstr ""
-"A la recherche d'une chambre d'hôtes pour cette nuit ? Avec Allo chambre "
+"A la recherche d'une chambre d'hôtes pour cette nuit? Avec Allo chambre "
 "d'hôtes, trouvez une chambre d'hôtes disponible ce soir à proximité de votre "
 "destination en Wallonie."
 

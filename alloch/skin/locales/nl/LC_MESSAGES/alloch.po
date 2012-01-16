@@ -38,7 +38,7 @@ msgstr "Dieren toegestaan na aanvraag"
 #. Default: "&rarr; ${count} available room(s)"
 #: browser/templates/search_result.pt:107
 msgid "available_rooms"
-msgstr "A TRADUIRE"
+msgstr "&rarr; ${count} kamer(s) beschikbaar"
 
 #. Default: "&larr; Back"
 #: browser/templates/contact_proprio.pt:17 browser/templates/heb_detail.pt:45
@@ -49,7 +49,7 @@ msgstr "&larr; Terug"
 #. Default: "Besoin d'une autre formule de sejours ou<br /> a la recherche d'autres dates,"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:16
 msgid "besoin_formule"
-msgstr "A TRADUIRE"
+msgstr "Zin in een andere verblijfsformule of op zoek naar andere data?"
 
 #. Default: "Bunk bed : ${count}"
 #: browser/templates/heb_detail.pt:85
@@ -74,7 +74,7 @@ msgstr "Postcode"
 #. Default: "consultez notre site"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:20
 msgid "consultez_site"
-msgstr "A TRADUIRE"
+msgstr "Ga even kijken op onze site."
 
 #. Default: "Contact"
 #: browser/templates/heb_detail.pt:127
@@ -89,7 +89,7 @@ msgstr "Contacteer de eigenaar"
 #. Default: "Details of this accomodation"
 #: browser/templates/rooms_list.pt:59 browser/templates/search_result.pt:61
 msgid "details_of_this_heb"
-msgstr "A TRADUIRE"
+msgstr "Details van deze kamer"
 
 #. Default: "Developed by"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:71
@@ -104,12 +104,12 @@ msgstr "Bed 2 personen : ${count}"
 #. Default: "Download mobile app"
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:15
 msgid "download_app"
-msgstr "A TRADUIRE"
+msgstr "Zet mij op uw smartphone !"
 
 #. Default: "Download"
 #: browser/templates/stores.pt:25
 msgid "download_title"
-msgstr "A TRADUIRE"
+msgstr ""
 
 #. Default: "E-mail"
 #: browser/templates/contact_proprio.pt:182
@@ -129,7 +129,7 @@ msgstr ""
 #. Default: "Fonds europeen agricole<br /> pour le developpement rural<br /> L'Europe investit dans les zones rurales."
 #: static/overrides/plone.app.layout.viewlets.footer.pt:48
 msgid "fonds_europeen"
-msgstr "A TRADUIRE"
+msgstr "Europees Landbouwfonds voor Plattelandsontwikkeling. <br /> Europa investeert in de plattelandsgebieden."
 
 #. Default: "Francais"
 #: browser/templates/contact_proprio.pt:145
@@ -156,17 +156,17 @@ msgstr "De controlegegevens komen niet overeen met het beeld."
 #. Default: "Itinerary"
 #: browser/templates/heb_detail.pt:117
 msgid "itinerary"
-msgstr "A TRADUIRE"
+msgstr "Route"
 
 #. Default: "Itinerary to"
 #: browser/templates/heb_detail.pt:122
 msgid "itinerary_to"
-msgstr "A TRADUIRE"
+msgstr "Route tot"
 
 #. Default: "(Required)"
 #: browser/templates/contact_proprio.pt:52
 msgid "label_required"
-msgstr "A TRADUIRE"
+msgstr "(Vereist)"
 
 #. Default: "Langue"
 #: browser/templates/contact_proprio.pt:140
@@ -176,7 +176,7 @@ msgstr "Taal"
 #. Default: "Localisation"
 #: browser/templates/heb_detail.pt:107
 msgid "localisation"
-msgstr "A TRADUIRE"
+msgstr "Ligging"
 
 #. Default: "Localite"
 #: browser/templates/contact_proprio.pt:114
@@ -231,7 +231,7 @@ msgstr "Land"
 #. Default: "Pictures"
 #: browser/templates/heb_detail.pt:176
 msgid "pictures"
-msgstr "A TRADUIRE"
+msgstr "Fotogalerij"
 
 #. Default: "Powered by"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:75
@@ -257,7 +257,7 @@ msgstr "Opmerking"
 #. Default: "Your request has been sent."
 #: browser/SendMail.py:117
 msgid "request_sent"
-msgstr "A TRADUIRE"
+msgstr "Uw aanvraag werd verstuurd"
 
 #. Default: "Price : ${price} &euro;"
 #: browser/templates/heb_detail.pt:102
@@ -287,7 +287,7 @@ msgstr "Resultaten"
 #. Default: "Search for an available guest room"
 #: browser/templates/search_page_view.pt:20
 msgid "search_title"
-msgstr "A TRADUIRE"
+msgstr "Zoek een beschikbare gastenkamer"
 
 #. Default: "Single bed : ${count}"
 #: browser/templates/heb_detail.pt:79
@@ -297,7 +297,7 @@ msgstr "Bed 1 persoon : ${count}"
 #. Default: "A la recherche d'une chambre d'hotes pour cette nuit ? Avec Allo chambre d'hotes, trouvez une chambre d'hotes disponible ce soir a proximite de votre destination en Wallonie."
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:7
 msgid "site_introduction"
-msgstr "A TRADUIRE"
+msgstr "Op zoek naar een gastenkamer voor vannacht? Met Allo chambre d'hôtes vindt u tegen vanavond nog een gastenkamer in de buurt van uw bestemming in Wallonië."
 
 #. Default: "Smokers allowed"
 #: browser/templates/heb_detail.pt:96
@@ -307,7 +307,7 @@ msgstr "Rokers toegelaten"
 #. Default: "avec le soutien du<br /> Commissariat general<br /> au Tourisme de Wallonie"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:37
 msgid "soutien_commissariat"
-msgstr "A TRADUIRE"
+msgstr "met de steun van het<br /> Commissariaat-generaal<br /> voor Toerisme van Wallonië"
 
 #. Default: "Telephone"
 #: browser/templates/contact_proprio.pt:153
@@ -317,7 +317,7 @@ msgstr "Telefoon"
 #. Default: "Required"
 #: browser/templates/contact_proprio.pt:52
 msgid "title_required"
-msgstr "A TRADUIRE"
+msgstr "Vereist"
 
 #. Default: "Your search location"
 #: browser/search.py:169
@@ -325,4 +325,4 @@ msgid "your_search_location"
 msgstr "Uw zoek"
 
 #~ msgid "distance_km"
-#~ msgstr "A TRADUIRE"
+#~ msgstr "Afstand"
