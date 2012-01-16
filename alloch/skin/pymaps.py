@@ -74,7 +74,7 @@ class PyMap:
     
     def __init__(self, key=None, maplist=None, iconlist=None):
         """ Default values """
-        self.key      = "ABQIAAAAQQRAsOk3uqvy3Hwwo4CclBTrVPfEE8Ms0qPwyRfPn-DOTlpaLBTvTHRCdf2V6KbzW7PZFYLT8wFD0A"      # set your google key
+        self.key      = "ABQIAAAA91e60ei6Y4o6oszkai7DjRQomme4RbkYZGrriPNi0ivz2jUvXRT_qVvnKxYX7eAAvRt98gX7nNuyaA"      # set your google key
         if maplist == None:
             self.maps = [Map()]
         else:
@@ -280,7 +280,7 @@ if __name__ == "__main__":
     icon2.image = "http://labs.google.com/ridefinder/images/mm_20_blue.png" # for testing only!
     icon2.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png" # do not hotlink from your web page!
     g.addicon(icon2)
-    g.key = "ABQIAAAAQQRAsOk3uqvy3Hwwo4CclBTrVPfEE8Ms0qPwyRfPn-DOTlpaLBTvTHRCdf2V6KbzW7PZFYLT8wFD0A" # you will get your own key
+    g.key = "ABQIAAAA91e60ei6Y4o6oszkai7DjRQomme4RbkYZGrriPNi0ivz2jUvXRT_qVvnKxYX7eAAvRt98gX7nNuyaA" # you will get your own key
     g.maps[0].zoom = 5
     q = [1,1]                           # create a marker with the defaults
     r = [2,2,'','icon2']                # icon2.id, specify the icon but no text

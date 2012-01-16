@@ -18,7 +18,7 @@ from alloch.skin import AlloCHMessage as _
 TYPES_HEB = [5, 6, 9]  # chambres d'hôtes : 'CH', 'MH', 'CHECR'
 HEB_PHOTOS_URL = "http://www.allochambredhotes.be/photos_heb/"
 HEB_THUMBS_URL = "http://www.allochambredhotes.be/vignettes_heb/"
-GOOGLE_API_KEY = "NO_API_KEY"
+GOOGLE_API_KEY = "ABQIAAAA91e60ei6Y4o6oszkai7DjRQomme4RbkYZGrriPNi0ivz2jUvXRT_qVvnKxYX7eAAvRt98gX7nNuyaA"
 BOUNDS = "49.439557,2.103882|51.110420,6.256714"
 
 
