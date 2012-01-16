@@ -94,7 +94,7 @@ msgstr "Details van deze kamer"
 #. Default: "Developed by"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:71
 msgid "developed_by"
-msgstr "A TRADUIRE"
+msgstr "Ontwikkeld door"
 
 #. Default: "Double bed : ${count}"
 #: browser/templates/heb_detail.pt:82
@@ -236,7 +236,7 @@ msgstr "Fotogalerij"
 #. Default: "Powered by"
 #: static/overrides/plone.app.layout.viewlets.footer.pt:75
 msgid "powered_by"
-msgstr "A TRADUIRE"
+msgstr "Aangedreven door"
 
 #. Default: "Prenom"
 #: browser/templates/contact_proprio.pt:74
