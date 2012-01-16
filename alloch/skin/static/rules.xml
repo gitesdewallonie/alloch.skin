@@ -24,6 +24,7 @@
     <replace css:content="#footer" css:theme="#footer" />
 
     <replace css:content="#site-description" css:theme="#site-description" />
+    <replace css:content="#qrcode" css:theme="#qrcode" />
 
     <replace css:content-children="#portal-languageselector" css:theme-children="#selecteur-langue" />
 

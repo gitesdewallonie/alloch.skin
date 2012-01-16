@@ -2,9 +2,9 @@
      metal:define-macro="colophon"
      i18n:domain="plone">
 <metal:slot define-slot="colophon" />
-<div class="colophonWrapper">
+<div class="colophonWrapper"
+     i18n:domain="alloch">
     <p id="site-description"
-       i18n:domain="alloch"
        i18n:translate="site_introduction">
         A la recherche d'une chambre d'hotes pour cette nuit ?
         Avec Allo chambre d'hotes, trouvez une chambre d'hotes
@@ -12,11 +12,13 @@
         en Wallonie.             
     </p>
     <div id="qrcode">
-        <img src="images/qrcode-mini.png"
+        <img src="++theme++alloch.skin/images/qrcode-mini.png"
              width="93"
              height="93"
-             alt="Scanner ce qrcode pour télécharger l'appli sur votre smartphone"
-             title="Scanner ce qrcode pour télécharger l'appli sur votre smartphone" />
+             alt="Scanner ce qrcode pour telecharger l'appli sur votre smartphone"
+             title="Scanner ce qrcode pour telecharger l'appli sur votre smartphone"
+             i18n:attributes="title scan_qrcode_to_download;
+                              alt scan_qrcode_to_download" />
     </div>
 </div>
 </div>

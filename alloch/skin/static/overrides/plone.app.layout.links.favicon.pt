@@ -1,0 +1,4 @@
+<tal:favicon define="portal_url view/site_url">
+    <link rel="shortcut icon" type="image/x-icon" href="++theme++alloch.skin/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="++theme++alloch.skin/images/touch_icon.png" />
+</tal:favicon>
