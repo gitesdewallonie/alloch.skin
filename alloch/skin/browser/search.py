@@ -160,6 +160,14 @@ class SearchHebergements(BrowserView):
         hebs = [self.getHebergement()]
         return self._getMapJS(location, hebs)
 
+    def shouldDisplayNumberedMarkers(self, hebs):
+        if len(hebs) < 2:
+            return False
+        if hebs[0].heb_gps_long == hebs[1].heb_gps_long and \
+           hebs[0].heb_gps_lat == hebs[1].heb_gps_lat:
+            return False
+        return True
+
     def _getMapJS(self, location, hebs):
         map1 = Map(id='map')
         if location is not None:
@@ -175,7 +183,7 @@ class SearchHebergements(BrowserView):
             map1.setpoint(center)
         counter = 0
         portalUrl = getToolByName(self.context, 'portal_url')()
-        nbHebs = len(hebs)
+        withNb = self.shouldDisplayNumberedMarkers(hebs)
         for heb in hebs:
             counter += 1
             grouped = getattr(heb, 'grouped', False)
@@ -187,14 +195,14 @@ class SearchHebergements(BrowserView):
             name = self._convertToEntities(heb.heb_nom)
             tooltip = "<a href='%s'><strong>%s. %s</strong><br /><img src='%s'></a>" % (href, counter, name, imageSrc)
             point = [heb.heb_gps_long, heb.heb_gps_lat, tooltip,
-                     'marker%s' % (nbHebs > 1 and counter or '')]
+                     'marker%s' % (withNb and counter or '')]
             map1.setpoint(point)
         g = PyMap(maplist=[map1])
         locationIcon = Icon('location')
         locationIcon.image = "%s/++resource++%s" % (portalUrl, 'location.png')
         locationIcon.shadow = "%s/++resource++%s" % (portalUrl, 'location_shadow.png')
         g.addicon(locationIcon)
-        for i in range(1, nbHebs + 1):
+        for i in range(1, len(hebs) + 1):
             icon = Icon('marker%s' % i)
             icon.image = "%s/++resource++%s" % (portalUrl, 'marker%s.png' % i)
             icon.shadow = "%s/++resource++%s" % (portalUrl, 'marker_shadow.png')
