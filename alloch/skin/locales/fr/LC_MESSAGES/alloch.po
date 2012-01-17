@@ -280,7 +280,7 @@ msgstr "Chambres"
 #. Default: "Scanner ce qrcode pour telecharger l'appli sur votre smartphone"
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:20
 msgid "scan_qrcode_to_download"
-msgstr "Scannez ce QR code pour télécharger l'appli sur votre smartphone"
+msgstr "Scannez ce QR code pour télécharger l'appli sur votre smartphone."
 
 #. Default: "Search results"
 #: browser/templates/search_result.pt:51

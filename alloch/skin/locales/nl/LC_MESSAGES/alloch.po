@@ -277,7 +277,7 @@ msgstr "Kamers"
 #. Default: "Scanner ce qrcode pour telecharger l'appli sur votre smartphone"
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:20
 msgid "scan_qrcode_to_download"
-msgstr "A TRADUIRE"
+msgstr "Scan deze QR-code om de app te downloaden naar uw smartphone."
 
 #. Default: "Search results"
 #: browser/templates/search_result.pt:51

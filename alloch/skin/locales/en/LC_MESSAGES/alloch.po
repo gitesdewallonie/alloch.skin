@@ -275,7 +275,7 @@ msgstr ""
 #. Default: "Scanner ce qrcode pour telecharger l'appli sur votre smartphone"
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:20
 msgid "scan_qrcode_to_download"
-msgstr "Scan this QR code to download app on your smartphone"
+msgstr "Scan this QR code to download the mobile app onto your smartphone."
 
 #. Default: "Search results"
 #: browser/templates/search_result.pt:51
