@@ -576,7 +576,7 @@ background-repeat:no-repeat;
 text-align:center;
 width:228px;
 margin:55px auto 0px auto;
-border:1px solid #602c00;
+border:1px solid #002c61;
 border-radius:12px;
 text-align:center;
 box-shadow:4px 4px 4px rgba(0,0,0,0.3);
@@ -590,8 +590,8 @@ background: linear-gradient(top,  rgba(197,222,234,1) 0%,rgba(138,187,215,1) 31%
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=0 );
 }
 
-#btn-itinerary a,
-#btn-contact-owner a{
+#btn-itinerary a:link,
+#btn-contact-owner a:link{
 display:block;
 color:#fff;
 }
