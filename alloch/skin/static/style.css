@@ -574,25 +574,26 @@ background-repeat:no-repeat;
 #btn-itinerary,
 #btn-contact-owner {
 text-align:center;
-width:220px;
+width:228px;
 margin:55px auto 0px auto;
 border:1px solid #602c00;
 border-radius:12px;
 text-align:center;
 box-shadow:4px 4px 4px rgba(0,0,0,0.3);
-background: rgb(251,131,250);
-background: -moz-linear-gradient(top,  rgba(251,131,250,1) 0%, rgba(233,60,236,1) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(251,131,250,1)), color-stop(100%,rgba(233,60,236,1)));
-background: -webkit-linear-gradient(top,  rgba(251,131,250,1) 0%,rgba(233,60,236,1) 100%);
-background: -o-linear-gradient(top,  rgba(251,131,250,1) 0%,rgba(233,60,236,1) 100%);
-background: -ms-linear-gradient(top,  rgba(251,131,250,1) 0%,rgba(233,60,236,1) 100%);
-background: linear-gradient(top,  rgba(251,131,250,1) 0%,rgba(233,60,236,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb83fa', endColorstr='#e93cec',GradientType=0 );
+background: rgb(197,222,234);
+background: -moz-linear-gradient(top,  rgba(197,222,234,1) 0%, rgba(138,187,215,1) 31%, rgba(6,109,171,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(197,222,234,1)), color-stop(31%,rgba(138,187,215,1)), color-stop(100%,rgba(6,109,171,1)));
+background: -webkit-linear-gradient(top,  rgba(197,222,234,1) 0%,rgba(138,187,215,1) 31%,rgba(6,109,171,1) 100%);
+background: -o-linear-gradient(top,  rgba(197,222,234,1) 0%,rgba(138,187,215,1) 31%,rgba(6,109,171,1) 100%);
+background: -ms-linear-gradient(top,  rgba(197,222,234,1) 0%,rgba(138,187,215,1) 31%,rgba(6,109,171,1) 100%);
+background: linear-gradient(top,  rgba(197,222,234,1) 0%,rgba(138,187,215,1) 31%,rgba(6,109,171,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=0 );
 }
 
 #btn-itinerary a,
 #btn-contact-owner a{
 display:block;
+color:#fff;
 }
 
 #btn-itinerary:hover,
