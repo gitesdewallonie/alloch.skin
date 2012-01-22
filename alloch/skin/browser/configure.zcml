@@ -60,6 +60,11 @@
       />
 
   <browser:resource
+      file="resources/langue.png"
+      name="langue.png"
+      />
+
+  <browser:resource
       file="resources/1_clef.png"
       name="1_clef.png"
       />

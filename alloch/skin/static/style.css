@@ -590,11 +590,22 @@ background: linear-gradient(top,  rgba(197,222,234,1) 0%,rgba(138,187,215,1) 31%
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=0 );
 }
 
-#btn-itinerary a:link,
-#btn-contact-owner a:link{
+div#btn-itinerary a:link,
+div#btn-contact-owner a:link{
 display:block;
 color:#fff;
 }
+
+div#btn-itinerary a:hover,
+div#btn-contact-owner a:hover{
+color:#0ff !important;
+}
+
+div#btn-itinerary a:visited,
+div#btn-contact-owner a:visited{
+color:#fff;
+}
+
 
 #btn-itinerary:hover,
 #btn-contact-owner:hover{
