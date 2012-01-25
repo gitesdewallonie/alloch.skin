@@ -290,7 +290,7 @@ msgstr "Résultats de votre recherche"
 #. Default: "Search for an available guest room"
 #: browser/templates/search_page_view.pt:20
 msgid "search_title"
-msgstr "Recherchez une chambre d'hôtes disponible"
+msgstr "Recherchez une chambre d'hôtes disponible à proximité de"
 
 #. Default: "Single bed : ${count}"
 #: browser/templates/heb_detail.pt:79
