@@ -45,8 +45,6 @@ class SendMail(BrowserView):
         heb = session.query(Hebergement).get(int(hebPk))
         hebNom = heb.heb_nom
         proprioMail = heb.proprio.pro_email
-        # XXX real mail later
-        proprioMail = "lasudry@gmail.com"
         if not proprioMail:
             proprioMail = u'info@gitesdewallonie.be'
         contactCivilite = self.request.get('contactCivilite')
