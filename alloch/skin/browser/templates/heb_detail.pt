@@ -173,11 +173,15 @@
         <div class="break-float"></div>
     </div><!--description-->
     
-    <div id="galerie">
+    <div id="galerie"
+         tal:define="photos python: view.getPhotosURL(heb.heb_code_gdw);
+                     showGallery python: len(photos) > 3">
               <h3 i18n:translate="pictures">Pictures</h3>
-              <div class="picture jMyCarousel">
+              <div id="" class=""
+                   tal:attributes="id python: showGallery and ' ' or 'picture-container';
+                                   class python: showGallery and 'jMyCarousel' or ' '">
                    <ul>
-                       <li tal:repeat="photo python: view.getPhotosURL(heb.heb_code_gdw)">
+                       <li class="picture" tal:repeat="photo photos">
                           <img height="195px" src="" tal:attributes="src photo" />
                        </li>
                    </ul>

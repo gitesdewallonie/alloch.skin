@@ -626,11 +626,20 @@ padding-left:19px;
 padding-bottom:7px;
 }
 
-.picture {
+#picture-container {
 float:left;
 margin:2px;
-text-align:center;
-}  
+margin-top:6px;
+}
+
+#picture-container ul {
+display:inline;
+margin-left:0px;
+}
+
+#picture-container ul li {
+display:inline;
+}
 
 .contact-proprio input, .contact-proprio textarea, .contact-proprio select {
 border: 1px solid #C3975E;
@@ -695,6 +704,7 @@ border:0px;
 
 div.jMyCarousel{
 border:none;
+margin-top:6px;
 }
 
 div.jMyCarousel ul{
