@@ -727,3 +727,20 @@ display:block;
 border:0px;
 margin:0px;
 }
+
+#stores td {
+text-align: center;
+}
+
+#stores td a {
+display: block;
+}
+
+#stores td a:visited {
+border-bottom: none;
+}
+
+#stores .comingsoon {
+opacity:0.07;
+filter:alpha(opacity=7);
+}

@@ -313,7 +313,7 @@ class SearchHebergements(BrowserView):
 
     def _buildDictForHeb(self, heb, distance):
         form = self.request.form
-        lang = form.get('lang', 'fr')
+        lang = form.get('LANGUAGE', 'fr')
         hebDict = {'name': heb.heb_nom}
         hebDict['type'] = heb.type.getTitle(lang)
         hebDict['latitude'] = heb.heb_gps_lat

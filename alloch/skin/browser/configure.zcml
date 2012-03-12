@@ -144,4 +144,44 @@
       name="marker_shadow.png"
       />
 
+  <browser:resource
+      file="resources/android.png"
+      name="android.png"
+      />
+
+  <browser:resource
+      file="resources/blackberry.jpg"
+      name="blackberry.jpg"
+      />
+
+  <browser:resource
+      file="resources/symbian.png"
+      name="symbian.png"
+      />
+
+  <browser:resource
+      file="resources/webos.png"
+      name="webos.png"
+      />
+
+  <browser:resource
+      file="resources/windows.png"
+      name="windows.png"
+      />
+
+  <browser:resource
+      file="resources/iphone_en.png"
+      name="iphone_en.png"
+      />
+
+  <browser:resource
+      file="resources/iphone_fr.png"
+      name="iphone_fr.png"
+      />
+
+  <browser:resource
+      file="resources/iphone_nl.png"
+      name="iphone_nl.png"
+      />
+
 </configure>

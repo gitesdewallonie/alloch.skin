@@ -23,9 +23,44 @@
     <div class="break-float"></div>
 
     <h1 i18n:translate="download_title">Download</h1>
-    <p>&nbsp;</p>
-    <div>
-        Liens vers les stores à venir !
+    <div tal:define="lang request/LANGUAGE | fr">
+
+        <table id="stores" width="100%">
+            <tr>
+                <td>
+                    <a href="" title="Android" target="_blank"
+                       tal:attributes="href python: view.getStoreLink('android')">
+                       <img src="" title="Android" tal:attributes="src string:${portal_url}/++resource++android.png" />
+                    </a>
+                </td>
+                <td class="comingsoon">
+                     <img src="" title="iPhone / iPod / iPad" tal:attributes="src string:${portal_url}/++resource++iphone_${lang}.png" />
+                </td>
+                <td class="comingsoon">
+                     <img src="" title="Windows Phone" tal:attributes="src string:${portal_url}/++resource++windows.png" />
+                </td>
+            </tr>
+            <tr>
+                <td class="comingsoon">
+                      <img src="" title="Blackberry" tal:attributes="src string:${portal_url}/++resource++blackberry.jpg" />
+                </td>
+                <td>
+                    <a href="" title="Palm webOS" target="_blank"
+                       tal:attributes="href python: view.getStoreLink('webos')">
+                       <img src="" title="Palm webOS" tal:attributes="src string:${portal_url}/++resource++webos.png" />
+                    </a>
+                </td>
+                <td>
+                    <a href="" title="Symbian" target="_blank"
+                       tal:attributes="href python: view.getStoreLink('symbian')">
+                       <img src="" title="Symbian" tal:attributes="src string:${portal_url}/++resource++symbian.png" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
     </div>
 
 </div>

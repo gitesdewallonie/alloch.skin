@@ -10,10 +10,24 @@ _mobilePlatforms = r'android|blackberry|ip(hone|od|ad)|palm|symbian|webos|window
 _mobilePlatforms = re.compile(_mobilePlatforms, re.IGNORECASE)
 
 
+LINKS = {
+'android': 'https://play.google.com/store/apps/details?id=be.gitesdewallonie.allochambresdhotes',
+'symbian': 'http://clavius.affinitic.be/mobile/be.gitesdewallonie.allochambresdhotes.wgz',
+'webos': 'http://clavius.affinitic.be/mobile/be.gitesdewallonie.allochambresdhotes.ipk',
+}
+
+
 class Store(BrowserView):
     """
     """
     storeTemplate = ViewPageTemplateFile("templates/stores.pt")
+
+    def getStoreLink(self, device):
+        """
+        """
+        if device in LINKS:
+            return LINKS[device]
+        return ""
 
     def redirectFromQRcode(self):
         """
@@ -25,20 +39,17 @@ class Store(BrowserView):
             return self.storeTemplate()
 
         if 'android' in userAgent.lower():
-            self.context.plone_utils.addPortalMessage('ANDROID DEVICE WAS DETECTED !')
-            return self.storeTemplate()
+            self.request.response.redirect(LINKS['android'])
         if 'blackberry' in userAgent.lower():
             self.context.plone_utils.addPortalMessage('BLACKBERRY DEVICE WAS DETECTED !')
             return self.storeTemplate()
         if 'iphone' or 'ipad' or 'ipod' in userAgent.lower():
-            self.context.plone_utils.addPortalMessage('APPLE DEVICE WAS DETECTED !')
+            self.context.plone_utils.addPortalMessage('IOS DEVICE WAS DETECTED !')
             return self.storeTemplate()
         if 'palm' or 'webos' in userAgent.lower():
-            self.context.plone_utils.addPortalMessage('WEBOS (PALM) DEVICE WAS DETECTED !')
-            return self.storeTemplate()
+            self.request.response.redirect(LINKS['webos'])
         if 'symbian' in userAgent.lower():
-            self.context.plone_utils.addPortalMessage('SYMBIAN DEVICE WAS DETECTED !')
-            return self.storeTemplate()
+            self.request.response.redirect(LINKS['symbian'])
         if 'windows' in userAgent.lower():
             self.context.plone_utils.addPortalMessage('WINDOWS DEVICE WAS DETECTED !')
             return self.storeTemplate()
