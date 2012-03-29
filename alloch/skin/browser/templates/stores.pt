@@ -41,8 +41,11 @@
                 </td>
             </tr>
             <tr>
-                <td class="comingsoon">
-                      <img src="" title="Blackberry" tal:attributes="src string:${portal_url}/++resource++blackberry.jpg" />
+                <td>
+                    <a href="" title="Blackberry" target="_blank"
+                       tal:attributes="href python: view.getStoreLink('blackberry')">
+                       <img src="" title="Blackberry" tal:attributes="src string:${portal_url}/++resource++blackberry.jpg" />
+                    </a>
                 </td>
                 <td>
                     <a href="" title="Palm webOS" target="_blank"
