@@ -363,6 +363,8 @@ class SearchHebergements(BrowserView):
         Return the closests available hebs for mobile use
         """
         searchLocation = self.getSearchLocation()
+        if searchLocation is None:
+            return
         results = self._getClosestHebsForLocation(searchLocation)
         hebs = []
         for heb in results:
