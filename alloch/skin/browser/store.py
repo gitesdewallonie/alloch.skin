@@ -12,6 +12,7 @@ _mobilePlatforms = re.compile(_mobilePlatforms, re.IGNORECASE)
 
 LINKS = {
 'android': 'https://play.google.com/store/apps/details?id=be.gitesdewallonie.allochambresdhotes',
+'ios': 'http://itunes.apple.com/be/app/allo-chambre-dhotes/id509470840?mt=8',
 'blackberry': 'http://appworld.blackberry.com/webstore/content/96277/',
 'symbian': 'http://clavius.affinitic.be/mobile/be.gitesdewallonie.allochambresdhotes.wgz',
 'webos': 'http://clavius.affinitic.be/mobile/be.gitesdewallonie.allochambresdhotes.ipk',
@@ -44,8 +45,7 @@ class Store(BrowserView):
         if 'blackberry' in userAgent.lower():
             self.request.response.redirect(LINKS['blackberry'])
         if 'iphone' or 'ipad' or 'ipod' in userAgent.lower():
-            self.context.plone_utils.addPortalMessage('IOS DEVICE WAS DETECTED !')
-            return self.storeTemplate()
+            self.request.response.redirect(LINKS['ios'])
         if 'palm' or 'webos' in userAgent.lower():
             self.request.response.redirect(LINKS['webos'])
         if 'symbian' in userAgent.lower():
