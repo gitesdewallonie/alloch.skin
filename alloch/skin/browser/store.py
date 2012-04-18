@@ -44,9 +44,10 @@ class Store(BrowserView):
             self.request.response.redirect(LINKS['android'])
         if 'blackberry' in userAgent.lower():
             self.request.response.redirect(LINKS['blackberry'])
-        if 'iphone' or 'ipad' or 'ipod' in userAgent.lower():
+        if 'iphone' in userAgent.lower() or 'ipad' in userAgent.lower() \
+            or 'ipod' in userAgent.lower():
             self.request.response.redirect(LINKS['ios'])
-        if 'palm' or 'webos' in userAgent.lower():
+        if 'palm' in userAgent.lower() or 'webos' in userAgent.lower():
             self.request.response.redirect(LINKS['webos'])
         if 'symbian' in userAgent.lower():
             self.request.response.redirect(LINKS['symbian'])
