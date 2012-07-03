@@ -292,14 +292,16 @@ class SearchHebergements(BrowserView):
     def _handleGroupedRooms(self, hebsQuery):
         """
         We need to consider multiple rooms of an owner as one heb
+        and continue grouping them, even if we already have 5 different hebs
         """
         propriosHebs = {}
         for res in hebsQuery:
             # group rooms by owner
-            if len(propriosHebs) == 5:
-                break
             proPk = res.Hebergement.heb_pro_fk
             if not res.Hebergement.heb_pro_fk in propriosHebs:
+                if len(propriosHebs) == 5:
+                    # we completed our 5 closest hebs grouping
+                    break
                 propriosHebs[proPk] = {'distance': int(res.distance / 1000),
                                        'hebs': [res.Hebergement]}
             else:
