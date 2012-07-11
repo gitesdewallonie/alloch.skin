@@ -20,6 +20,15 @@ HEB_PHOTOS_URL = "http://www.allochambredhotes.be/photos_heb/"
 HEB_THUMBS_URL = "http://www.allochambredhotes.be/vignettes_heb/"
 GOOGLE_API_KEY = "ABQIAAAA91e60ei6Y4o6oszkai7DjRQomme4RbkYZGrriPNi0ivz2jUvXRT_qVvnKxYX7eAAvRt98gX7nNuyaA"
 BOUNDS = "49.439557,2.103882|51.110420,6.256714"
+EPIS_TRANSLATIONS = {'fr': {'epi': u'épi',
+                            'epis': u'épis',
+                            'chambre_d_hotes': u"Chambre d'hôtes"},
+                     'nl': {'epi': u'korenaar',
+                            'epis': u'korenaren',
+                            'chambre_d_hotes': u'Gastenkamer'},
+                     'en': {'epi': u'corn ear',
+                            'epis': u'corn ears',
+                            'chambre_d_hotes': u'Guestroom'}}
 
 
 class Location:
@@ -358,6 +367,20 @@ class SearchHebergements(BrowserView):
         vignetteURL = "%s%s" % (HEB_THUMBS_URL, vignette)
         hebDict['thumb'] = vignetteURL
         hebDict['photos'] = self.getPhotosURL(heb.heb_code_gdw)
+        epis = heb.epis
+        if epis:
+            nbEpis = epis[0].heb_nombre_epis
+            description = hebDict['description']
+            if nbEpis == 1:
+                description = "%s 1 %s. %s" % (EPIS_TRANSLATIONS[lang]['chambre_d_hotes'],
+                                               EPIS_TRANSLATIONS[lang]['epi'],
+                                               description)
+            elif nbEpis > 1:
+                description = "%s %s %s. %s" % (EPIS_TRANSLATIONS[lang]['chambre_d_hotes'],
+                                                nbEpis,
+                                                EPIS_TRANSLATIONS[lang]['epis'],
+                                                description)
+            hebDict['description'] = description
         return hebDict
 
     def getMobileClosestHebs(self):
