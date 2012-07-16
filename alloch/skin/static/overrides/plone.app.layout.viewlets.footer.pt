@@ -41,9 +41,13 @@
                     </p>
                 </div>
                 <div id="feder-logo">
-                    <img src="++theme++alloch.skin/images/logo_ue_wallonie.png"
-                         alt="Union europeenne Wallonie"
-                         title="Union europeenne Wallonie" />
+                    <a href="http://ec.europa.eu/agriculture/rurdev/index_fr.htm"
+                       target="_blank"
+                       title="Union europeenne Wallonie">
+                        <img src="++theme++alloch.skin/images/logo_ue_wallonie.png"
+                             alt="Union europeenne Wallonie"
+                             title="Union europeenne Wallonie" />
+                    </a>
                     <p class="partenaire-info">
                         <span id="texte-feder" i18n:translate="fonds_europeen">
                            Fonds europeen agricole<br />
