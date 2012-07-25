@@ -31,6 +31,19 @@ EPIS_TRANSLATIONS = {'fr': {'epi': u'épi',
                             'chambre_d_hotes': u'Guestroom'}}
 
 
+def convertToInt(str):
+    """
+    Convert database informations to int ... and handle invalid data !
+    """
+    res = 0
+    if str:
+        try:
+            res = int(str)
+        except:
+            pass
+    return res
+
+
 class Location:
     pass
 
@@ -331,8 +344,8 @@ class SearchHebergements(BrowserView):
         hebDict['longitude'] = heb.heb_gps_long
         hebDict['distribution'] = heb.getDistribution(lang)
         hebDict['classification'] = [e.heb_nombre_epis for e in heb.epis]
-        hebDict['capacity_min'] = int(heb.heb_cgt_cap_min)
-        hebDict['capacity_max'] = int(heb.heb_cgt_cap_max)
+        hebDict['capacity_min'] = convertToInt(heb.heb_cgt_cap_min)
+        hebDict['capacity_max'] = convertToInt(heb.heb_cgt_cap_max)
         hebDict['description'] = heb.getDescription(lang)
         address = {'address': heb.heb_adresse,
                    'zip': heb.commune.com_cp,
@@ -340,11 +353,11 @@ class SearchHebergements(BrowserView):
                    'city': heb.commune.com_nom}
         hebDict['address'] = address
         hebDict['price'] = heb.heb_tarif_chmbr_avec_dej_2p
-        hebDict['room_number'] = int(heb.heb_cgt_nbre_chmbre)
-        hebDict['one_person_bed'] = int(heb.heb_lit_1p)
-        hebDict['two_person_bed'] = int(heb.heb_lit_2p)
-        hebDict['additionnal_bed'] = int(heb.heb_lit_sup)
-        hebDict['child_bed'] = int(heb.heb_lit_enf)
+        hebDict['room_number'] = convertToInt(heb.heb_cgt_nbre_chmbre)
+        hebDict['one_person_bed'] = convertToInt(heb.heb_lit_1p)
+        hebDict['two_person_bed'] = convertToInt(heb.heb_lit_2p)
+        hebDict['additionnal_bed'] = convertToInt(heb.heb_lit_sup)
+        hebDict['child_bed'] = convertToInt(heb.heb_lit_enf)
         if heb.heb_fumeur == 'oui':
             hebDict['smokers_allowed'] = True
         else:
