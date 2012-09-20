@@ -16,6 +16,7 @@ LINKS = {
 'blackberry': 'http://appworld.blackberry.com/webstore/content/96277/',
 'symbian': 'http://clavius.affinitic.be/mobile/be.gitesdewallonie.allochambresdhotes.wgz',
 'webos': 'http://clavius.affinitic.be/mobile/be.gitesdewallonie.allochambresdhotes.ipk',
+'windows': 'http://www.windowsphone.com/s?appid=20716952-5f3b-490f-be63-ccfbfd9d44cc'
 }
 
 
@@ -52,5 +53,4 @@ class Store(BrowserView):
         if 'symbian' in userAgent.lower():
             self.request.response.redirect(LINKS['symbian'])
         if 'windows' in userAgent.lower():
-            self.context.plone_utils.addPortalMessage('WINDOWS DEVICE WAS DETECTED !')
-            return self.storeTemplate()
+            self.request.response.redirect(LINKS['windows'])

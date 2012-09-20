@@ -39,8 +39,11 @@
                        <img src="" title="iPhone / iPod / iPad" tal:attributes="src string:${portal_url}/++resource++iphone_${lang}.png" />
                     </a>
                 </td>
-                <td class="comingsoon">
-                     <img src="" title="Windows Phone" tal:attributes="src string:${portal_url}/++resource++windows.png" />
+                <td>
+                    <a href="" title="Windows Phone" target="_blank"
+                       tal:attributes="href python: view.getStoreLink('windows')">
+                       <img src="" title="Windows Phone" tal:attributes="src string:${portal_url}/++resource++windows.png" />
+                    </a>
                 </td>
             </tr>
             <tr>
