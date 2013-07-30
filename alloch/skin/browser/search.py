@@ -124,11 +124,12 @@ class SearchHebergements(BrowserView):
         return heb
 
     def _get_metadata(self, metadata_id):
+        hebPk = self.request.get('hebPk', None)
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
         query = session.query(LinkHebergementMetadata.link_met_value)
         query = query.join('hebergement').join('metadata_info')
-        query = query.filter(Hebergement.heb_pk == self.context.heb_pk)
+        query = query.filter(Hebergement.heb_pk == hebPk)
         return query.filter(Metadata.met_id == metadata_id).scalar()
 
     def isSmoker(self):
