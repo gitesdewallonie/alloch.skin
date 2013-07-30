@@ -88,12 +88,14 @@
                 Child's bed : <span tal:content="heb/heb_lit_enf" i18n:name="count" />
              </div>
              <div id="confort" 
-                  tal:condition="python: heb.heb_animal == 'oui' or heb.heb_fumeur == 'oui'">
-                  
-                  <div tal:condition="python: heb.heb_animal == 'oui'" i18n:translate="animals_allowed">
+                  tal:define="isSmoker view/isSmoker;
+                              animalsAccepted view/acceptDogs"
+                  tal:condition="python: animalsAccepted or isSmoker">
+
+                  <div tal:condition="animalsAccepted" i18n:translate="animals_allowed">
                       Animals admitted on request
                   </div>
-                  <div tal:condition="python: heb.heb_fumeur == 'oui'" i18n:translate="smoking_allowed">
+                  <div tal:condition="isSmoker" i18n:translate="smoking_allowed">
                       Smokers allowed
                   </div>
               </div>

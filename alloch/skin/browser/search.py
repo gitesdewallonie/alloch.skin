@@ -11,6 +11,10 @@ from zope.publisher.browser import BrowserView
 from pygeocoder import Geocoder, GeocoderError
 from Products.CMFCore.utils import getToolByName
 
+from gites.db.content import Hebergement
+from gites.db.content.hebergement.linkhebergementmetadata import LinkHebergementMetadata
+from gites.db.content.hebergement.metadata import Metadata
+
 from alloch.skin.pymaps import PyMap, Map, Icon
 from alloch.skin import AlloCHMessage as _
 
@@ -119,6 +123,20 @@ class SearchHebergements(BrowserView):
         heb = query.get(hebPk)
         return heb
 
+    def _get_metadata(self, metadata_id):
+        wrapper = getSAWrapper('gites_wallons')
+        session = wrapper.session
+        query = session.query(LinkHebergementMetadata.link_met_value)
+        query = query.join('hebergement').join('metadata_info')
+        query = query.filter(Hebergement.heb_pk == self.context.heb_pk)
+        return query.filter(Metadata.met_id == metadata_id).scalar()
+
+    def isSmoker(self):
+        return self._get_metadata('heb_fumeur')
+
+    def acceptDogs(self):
+        return self._get_metadata('heb_animal')
+
     def getHebItineraryURL(self, heb):
         baseUrl = "http://maps.google.com/maps?"
         origin = self.getSearchLocation().formatted_address
@@ -216,7 +234,7 @@ class SearchHebergements(BrowserView):
             imageSrc = str("%s/vignettes_heb/%s" % (portalUrl, heb.getVignette()))
             name = self._convertToEntities(heb.heb_nom)
             tooltip = "<a href='%s'><strong>%s. %s</strong><br /><img src='%s'></a>" % (href, counter, name, imageSrc)
-            point = [heb.heb_gps_long, heb.heb_gps_lat, tooltip,
+            point = [heb.heb_gps_lat, heb.heb_gps_long, tooltip,
                      'marker%s' % (withNb and counter or '')]
             map1.setpoint(point)
         g = PyMap(maplist=[map1])
@@ -289,8 +307,8 @@ class SearchHebergements(BrowserView):
         proprioTable = wrapper.getMapper('proprio')
         reservationsTable = wrapper.getMapper('reservation_proprio')
 
-        distance = func.ST_distance_sphere(func.makepoint(hebergementTable.heb_gps_long,
-                                                          hebergementTable.heb_gps_lat),
+        distance = func.ST_distance_sphere(func.makepoint(hebergementTable.heb_gps_lat,
+                                                          hebergementTable.heb_gps_long),
                                            func.ST_MakePoint(searchLocation.coordinates[0],
                                                              searchLocation.coordinates[1]))
 
@@ -341,8 +359,10 @@ class SearchHebergements(BrowserView):
         lang = form.get('LANGUAGE', 'fr')
         hebDict = {'name': heb.heb_nom}
         hebDict['type'] = heb.type.getTitle(lang)
-        hebDict['latitude'] = heb.heb_gps_lat
-        hebDict['longitude'] = heb.heb_gps_long
+        # Invert longitude and latitude due to DB correction
+        # (otherwise, should be fixed in all mobile applications)
+        hebDict['latitude'] = heb.heb_gps_long
+        hebDict['longitude'] = heb.heb_gps_lat
         hebDict['distribution'] = heb.getDistribution(lang)
         hebDict['classification'] = [e.heb_nombre_epis for e in heb.epis]
         hebDict['capacity_min'] = convertToInt(heb.heb_cgt_cap_min)
@@ -359,14 +379,6 @@ class SearchHebergements(BrowserView):
         hebDict['two_person_bed'] = convertToInt(heb.heb_lit_2p)
         hebDict['additionnal_bed'] = convertToInt(heb.heb_lit_sup)
         hebDict['child_bed'] = convertToInt(heb.heb_lit_enf)
-        if heb.heb_fumeur == 'oui':
-            hebDict['smokers_allowed'] = True
-        else:
-            hebDict['smokers_allowed'] = False
-        if heb.heb_animal == 'oui':
-            hebDict['animal_allowed'] = True
-        else:
-            hebDict['animal_allowed'] = False
         owner = {'title': heb.proprio.civilite.civ_titre,
                  'firstname': heb.proprio.pro_prenom1,
                  'name': heb.proprio.pro_nom1,
