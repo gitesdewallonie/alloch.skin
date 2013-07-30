@@ -73,6 +73,8 @@
                        tal:attributes="href string:${context/portal_url}/heb-detail?hebPk=${heb/heb_pk}"
                        i18n:attributes="title details_of_this_heb">
                         <img src=""
+                             width="300"
+                             height="195"
                              border="0"
                              tal:attributes="src string:${portal_url}/photos_heb/${heb/getVignette}" />
                     </a>
