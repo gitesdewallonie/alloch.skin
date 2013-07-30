@@ -6,7 +6,7 @@ from datetime import date
 from operator import attrgetter
 from plone.memoize import view
 from z3c.sqlalchemy import getSAWrapper
-from sqlalchemy import and_, exists, func
+from sqlalchemy import and_, or_, exists, func
 from zope.publisher.browser import BrowserView
 from pygeocoder import Geocoder, GeocoderError
 from Products.CMFCore.utils import getToolByName
@@ -302,7 +302,8 @@ class SearchHebergements(BrowserView):
 
         # on ne considère que les hébergements pour lequel le calendrier
         # est utilisé et qui sont libres
-        query = query.filter(hebergementTable.heb_calendrier_proprio != 'non actif')
+        query = query.filter(or_(hebergementTable.heb_calendrier_proprio == 'actif',
+                                 hebergementTable.heb_calendrier_proprio == 'searchactif'))
         query = query.filter(~exists().where(and_(reservationsTable.res_date == today,
                                                   hebergementTable.heb_pk == reservationsTable.heb_fk)))
 
