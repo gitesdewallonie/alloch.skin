@@ -11,10 +11,6 @@ from zope.publisher.browser import BrowserView
 from pygeocoder import Geocoder, GeocoderError
 from Products.CMFCore.utils import getToolByName
 
-from gites.db.content import Hebergement
-from gites.db.content.hebergement.linkhebergementmetadata import LinkHebergementMetadata
-from gites.db.content.hebergement.metadata import Metadata
-
 from alloch.skin.pymaps import PyMap, Map, Icon
 from alloch.skin import AlloCHMessage as _
 
@@ -122,21 +118,6 @@ class SearchHebergements(BrowserView):
         query = session.query(hebergementTable)
         heb = query.get(hebPk)
         return heb
-
-    def _get_metadata(self, metadata_id):
-        hebPk = self.request.get('hebPk', None)
-        wrapper = getSAWrapper('gites_wallons')
-        session = wrapper.session
-        query = session.query(LinkHebergementMetadata.link_met_value)
-        query = query.join('hebergement').join('metadata_info')
-        query = query.filter(Hebergement.heb_pk == hebPk)
-        return query.filter(Metadata.met_id == metadata_id).scalar()
-
-    def isSmoker(self):
-        return self._get_metadata('heb_fumeur')
-
-    def acceptDogs(self):
-        return self._get_metadata('heb_animal')
 
     def getHebItineraryURL(self, heb):
         baseUrl = "http://maps.google.com/maps?"
