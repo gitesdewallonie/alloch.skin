@@ -104,7 +104,7 @@ msgstr ""
 #. Default: "Download mobile app"
 #: static/overrides/plone.app.layout.viewlets.colophon.pt:15
 msgid "download_app"
-msgstr "Load me onto your smartphone !"
+msgstr "Load me onto your smartphone!"
 
 #. Default: "Download"
 #: browser/templates/stores.pt:25
