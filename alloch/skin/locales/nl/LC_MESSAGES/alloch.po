@@ -129,7 +129,7 @@ msgstr ""
 #. Default: "Fonds europeen agricole<br /> pour le developpement rural<br /> L'Europe investit dans les zones rurales."
 #: static/overrides/plone.app.layout.viewlets.footer.pt:48
 msgid "fonds_europeen"
-msgstr "Europees Landbouwfonds<br /> voor Plattelandsontwikkeling.<br /> Europa investeert in de plattelandsgebieden."
+msgstr "FEADER<br />Europees Landbouwfonds<br /> voor Plattelandsontwikkeling.<br /> Europa investeert in de plattelandsgebieden."
 
 #. Default: "Francais"
 #: browser/templates/contact_proprio.pt:145

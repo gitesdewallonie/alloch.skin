@@ -131,6 +131,7 @@ msgstr ""
 #: static/overrides/plone.app.layout.viewlets.footer.pt:48
 msgid "fonds_europeen"
 msgstr ""
+"FEADER<br />"
 "Fonds européen agricole<br /> pour le développement rural<br /> L'Europe "
 "investit dans les zones rurales."
 
