@@ -297,6 +297,7 @@ class SearchHebergements(BrowserView):
         query = session.query(distance.label('distance'),
                               hebergementTable).join('proprio')
         query = query.filter(hebergementTable.heb_site_public == '1')
+        query = query.filter(hebergementTable.heb_desactivation_alloch == False)
         query = query.filter(proprioTable.pro_etat == True)
         query = query.filter(hebergementTable.heb_typeheb_fk.in_(TYPES_HEB))
 
