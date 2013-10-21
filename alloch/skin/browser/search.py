@@ -29,6 +29,7 @@ EPIS_TRANSLATIONS = {'fr': {'epi': u'épi',
                      'en': {'epi': u'corn ear',
                             'epis': u'corn ears',
                             'chambre_d_hotes': u'Guestroom'}}
+LAT_LONG_PATTERN = r'^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$'
 
 
 def convertToInt(str):
@@ -127,6 +128,7 @@ class SearchHebergements(BrowserView):
         parameters = "saddr=%s&daddr=%s&hl=%s" % (origin, dest, language)
         return "%s%s" % (baseUrl, parameters)
 
+    @view.memoize
     def getSearchLocation(self):
         form = self.request.form
         address = form.get('address', None)
@@ -151,12 +153,23 @@ class SearchHebergements(BrowserView):
         Transform an address into GPS coordinates and name
         """
         gcoder = Geocoder(GOOGLE_API_KEY)
-        try:
-            language = self.request.get('LANGUAGE', 'fr')
-            result = gcoder.geocode(address, language=language, region='be',
-                                    bounds=BOUNDS)
-        except GeocoderError:
-            return None
+        language = self.request.get('LANGUAGE', 'fr')
+        if re.search(LAT_LONG_PATTERN, address):
+            # We have a lat long couple
+            lat, lng = address.split(',')
+            lat = float(lat)
+            lng = float(lng)
+            try:
+                result = gcoder.reverse_geocode(lat, lng, language=language,
+                                                region='be')
+            except GeocoderError:
+                return None
+        else:
+            try:
+                result = gcoder.geocode(address, language=language,
+                                        region='be', bounds=BOUNDS)
+            except GeocoderError:
+                return None
         # returned result must be serializable
         location = Location()
         location.coordinates = result.coordinates
