@@ -152,11 +152,11 @@
                           <img src="" tal:attributes="src string:${portal_url}/++resource++email.gif" />
                           <span tal:replace="heb/proprio/pro_email" /><br>
                        </span>
-                       <span tal:condition="heb/proprio/pro_url">
+                       <span tal:condition="heb/heb_url">
                           <img src="" tal:attributes="src string:${portal_url}/++resource++lien.gif" />
                           <a href=""
-                                tal:attributes="href string: http://${heb/proprio/pro_url}"
-                                tal:content="string: http://${heb/proprio/pro_url}"
+                                tal:attributes="href string: http://${heb/heb_url}"
+                                tal:content="string: http://${heb/heb_url}"
                                 target="_blank" />
                        </span>
                        <div id="btn-contact-owner">

@@ -383,7 +383,7 @@ class SearchHebergements(BrowserView):
                  'fax': heb.proprio.pro_fax_priv,
                  'mobile': heb.proprio.pro_gsm1,
                  'email': heb.proprio.pro_email,
-                 'website': heb.proprio.pro_url}
+                 'website': heb.heb_url}
         hebDict['owner'] = owner
         vignette = heb.getVignette()
         vignetteURL = "%s%s" % (HEB_THUMBS_URL, vignette)
