@@ -14,8 +14,8 @@ LINKS = {
 'android': 'https://play.google.com/store/apps/details?id=be.gitesdewallonie.allochambredhotes',
 'ios': 'http://itunes.apple.com/be/app/allo-chambre-dhotes/id509470840?mt=8',
 'blackberry': 'http://appworld.blackberry.com/webstore/content/96277/',
-'symbian': 'http://clavius.affinitic.be/mobile/be.gitesdewallonie.allochambresdhotes.wgz',
-'webos': 'http://clavius.affinitic.be/mobile/be.gitesdewallonie.allochambresdhotes.ipk',
+'symbian': 'http://lagrange.affinitic.be/mobile/be.gitesdewallonie.allochambresdhotes.wgz',
+'webos': 'http://lagrange.affinitic.be/mobile/be.gitesdewallonie.allochambresdhotes.ipk',
 'windows': 'http://www.windowsphone.com/s?appid=20716952-5f3b-490f-be63-ccfbfd9d44cc'
 }
 
