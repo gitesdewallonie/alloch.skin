@@ -7,11 +7,11 @@
             <div id="logo-gdw">
                 <a href="http://www.gitesdewallonie.be"
                    target="_blank">
-                        <img src="++theme++alloch.skin/images/logo_GDW.png"
-                             width="107"
-                             height="107"
-                             alt="Les Gîtes de Wallonie :: allo chambre d'hôtes"
-                             title="Les Gîtes de Wallonie" /></a>
+                        <img src="++theme++alloch.skin/images/logo_25_ans.png"
+                             width="110"
+                             height="120"
+                             alt="logo_25_ans.png"
+                             title="Les Gîtes de Wallonie : 25 ans" /></a>
                     <p class="texte-site-gdw">
                         <span i18n:translate="besoin_formule">
                         Besoin d'une autre formule de sejours ou<br /> 
