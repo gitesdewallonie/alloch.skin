@@ -5,13 +5,10 @@
 
         <div id="footer" i18n:domain="alloch">
             <div id="logo-gdw">
-                <a href="http://www.gitesdewallonie.be"
-                   target="_blank">
-                        <img src="++theme++alloch.skin/images/logo_25_ans.png"
-                             width="110"
-                             height="120"
-                             alt="logo_25_ans.png"
-                             title="Les Gîtes de Wallonie : 25 ans" /></a>
+                    <div id="logo">
+                        <a href="http://www.gitesdewallonie.be"
+                           target="_blank"></a>
+                    </div>
                     <p class="texte-site-gdw">
                         <span i18n:translate="besoin_formule">
                         Besoin d'une autre formule de sejours ou<br /> 
