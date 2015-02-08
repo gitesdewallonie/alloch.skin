@@ -369,7 +369,10 @@ class SearchHebergements(BrowserView):
                    'town': heb.heb_localite,
                    'city': heb.commune.com_nom}
         hebDict['address'] = address
-        hebDict['price'] = heb.heb_tarif_chmbr_avec_dej_2p
+        price = heb.heb_tarif_chmbr_avec_dej_2p
+        # Price should be formatted as "XX.XX" string
+        formattedPrice = str("{0:.2f}".format(float(price)))
+        hebDict['price'] = formattedPrice
         hebDict['room_number'] = convertToInt(heb.heb_cgt_nbre_chmbre)
         hebDict['one_person_bed'] = convertToInt(heb.heb_lit_1p)
         hebDict['two_person_bed'] = convertToInt(heb.heb_lit_2p)
