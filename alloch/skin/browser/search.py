@@ -378,11 +378,14 @@ class SearchHebergements(BrowserView):
         hebDict['two_person_bed'] = convertToInt(heb.heb_lit_2p)
         hebDict['additionnal_bed'] = convertToInt(heb.heb_lit_sup)
         hebDict['child_bed'] = convertToInt(heb.heb_lit_enf)
+        phone = heb.proprio.pro_tel_priv
+        if not phone:
+            phone = heb.proprio.pro_gsm1
         owner = {'title': heb.proprio.civilite.civ_titre,
                  'firstname': heb.proprio.pro_prenom1,
                  'name': heb.proprio.pro_nom1,
                  'language': heb.proprio.pro_langue,
-                 'phone': heb.proprio.pro_tel_priv,
+                 'phone': phone,
                  'fax': heb.proprio.pro_fax_priv,
                  'mobile': heb.proprio.pro_gsm1,
                  'email': heb.proprio.pro_email,
