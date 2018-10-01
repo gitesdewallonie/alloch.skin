@@ -59,6 +59,14 @@
       attribute="redirectFromQRcode"
       />
 
+  <browser:viewlet
+      for="*"
+      name="alloch.cookiecuttr"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      class=".cookiecuttr.CookiecuttrViewlet"
+      permission="zope.Public"
+      />
+
   <browser:resource
       file="resources/langue.png"
       name="langue.png"

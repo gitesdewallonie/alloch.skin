@@ -24,4 +24,12 @@
     enabled="True" expression=""
     id="++theme++alloch.skin/validate.js" inline="False"/>
 
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression=""
+    id="++theme++alloch.skin/jquery.cookie.js" inline="False"/>
+
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression=""
+    id="++theme++alloch.skin/jquery.cookiecuttr.js" inline="False"/>
+
 </object>

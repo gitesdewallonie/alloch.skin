@@ -20,6 +20,7 @@
     <replace css:content=".portalMessage" css:theme="#portal-messages" css:if-content=".portalMessage" />
 
     <replace css:content-children="#content" css:theme-children="#content" />
+    <replace css:content="#cookiecuttr" css:theme="#cookiecuttr" />
 
     <replace css:content="#footer" css:theme="#footer" />
 
