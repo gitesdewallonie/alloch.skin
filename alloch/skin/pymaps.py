@@ -74,7 +74,7 @@ class PyMap:
     
     def __init__(self, key=None, maplist=None, iconlist=None):
         """ Default values """
-        self.key      = "ABQIAAAA91e60ei6Y4o6oszkai7DjRQomme4RbkYZGrriPNi0ivz2jUvXRT_qVvnKxYX7eAAvRt98gX7nNuyaA"      # set your google key
+        self.key = "AIzaSyBSIA3vqZCw3EzaKcA8Bgynvj2pD4gGlXk"
         if maplist == None:
             self.maps = [Map()]
         else:
