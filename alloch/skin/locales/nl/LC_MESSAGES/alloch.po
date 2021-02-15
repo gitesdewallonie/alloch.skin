@@ -319,6 +319,13 @@ msgstr "Telefoon"
 msgid "title_required"
 msgstr "Vereist"
 
+#. Default: "Ce site est hors d'usage.<br />Retrouvez toutes nos chambres d'hôtes sur <a href=\"https://www.gitesdewallonie.be\">gitesdewallonie.be</a>."
+#: static/overrides/plone.app.layout.viewlets.colophon.pt:14
+msgid "warning"
+msgstr ""
+"Deze website is buiten gebruik.<br/>Vind al onze bed & breakfasts op <a href="
+"\"https://www.gitesdewallonie.be\">gitesdewallonie.be</a>."
+
 #. Default: "Your search location"
 #: browser/search.py:169
 msgid "your_search_location"

@@ -317,6 +317,13 @@ msgstr "Telephone"
 msgid "title_required"
 msgstr ""
 
+#. Default: "Ce site est hors d'usage.<br />Retrouvez toutes nos chambres d'hôtes sur <a href=\"https://www.gitesdewallonie.be\">gitesdewallonie.be</a>."
+#: static/overrides/plone.app.layout.viewlets.colophon.pt:14
+msgid "warning"
+msgstr ""
+"This website is out of use.<br/>Find all our bed & breakfasts on <a href="
+"\"https://www.gitesdewallonie.be\">gitesdewallonie.be</a>."
+
 #. Default: "Your search location"
 #: browser/search.py:169
 msgid "your_search_location"
